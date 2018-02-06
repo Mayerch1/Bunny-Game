@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <malloc.h>
-#include <Windows.h>
 
 #include "bunny.h"
 
@@ -25,7 +24,7 @@ void ageBunnies(bunny **anchor, int *bunnyCount, int *infects) {
 
 //kill designatet target
 bunny *killBunny(bunny **anchor, bunny *victim, int *bunnyCount, int *infects) {
-	printf("%s is EOL! :'( \n", victim->Name);
+	eolMsg(victim);
 
 	//if anchor dies
 	if (victim == *anchor) {
@@ -71,8 +70,7 @@ void starveBunnies(bunny **anchor, int *bunnyCount, int *infects) {
 		killBunny(anchor, victim, bunnyCount, infects);
 	}
 
-	printf("\n\nFood shortage killed %d bunnies\n\n", start - *bunnyCount);
-	Sleep(1000);
+	starveMsg(start, bunnyCount);
 }//end starveBunnies
 
  //mutants infecting healthy bunnies
@@ -86,15 +84,14 @@ void infectBunnies(bunny **anchor, int *bunnyCount, int *infects) {
 			//coords of infection victim
 			Point coords;
 
-			//TODO: if no bunny is infected try multiple slots?...
-			//TODO: ...depends on effective infection rate
+			//TODO: if infect.-rate to low, try more than one slot
 			//choose random Grid next to bunny
 			while ((xOff == 0 && yOff == 0)) {
 				xOff = rand() % 3 - 1;
 				yOff = rand() % 3 - 1;
 			}
 
-			//get absolute coords of victim
+			//get absolute coords of victim's Grid
 			coords.x = p->coord.x + xOff;
 			coords.y = p->coord.y + yOff;
 
@@ -106,7 +103,8 @@ void infectBunnies(bunny **anchor, int *bunnyCount, int *infects) {
 			if (victim != NULL && victim->radioactive_mutant_vampire_bunny == 0) {
 				victim->radioactive_mutant_vampire_bunny = 1;
 				(*infects)++;
-				printf("%s was INFECTED with the virus\n", victim->Name);
+
+				infectMsg(victim);
 			}
 		}
 	}

@@ -124,6 +124,7 @@
   <ItemGroup>
     <ClCompile Include="createBunnies.c" />
     <ClCompile Include="incrBunnies.c" />
+    <ClCompile Include="printBunnies.c" />
     <ClCompile Include="reduceBunnies.c" />
     <ClCompile Include="Source.c" />
   </ItemGroup>

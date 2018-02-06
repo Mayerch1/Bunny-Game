@@ -27,14 +27,25 @@ void reproduce(bunny **anchor, int *bunnyCount, int *infects);
 
 #endif
 
+#ifndef PRINTS
+#define PRINTS
+void displayInfo(bunny *anchor, int *bunnyCount, int *infects);
+void displayGrid(bunny *anchor);
+
+void bornMsg(bunny *born);
+void infectMsg(bunny *victim);
+void eolMsg(bunny *victim);
+void starveMsg(int startm, int *bunnyCount);
+#endif
+
 #ifndef MAINFCT
 #define MAINFCT
+
 #define GRID 60
+#define MAX_BUNNIES 1000
 
 void nextTurn(bunny **anchor, int *bunnyCount, int *infects);
-void displayInfo(bunny *anchor, int *bunnyCount, int *infects);
 
-void displayGrid(bunny *anchor);
 void moveBunny(bunny **anchor);
 int testEmpty(bunny **anchor, Point coords);
 Point findFreeField(bunny **anchor, Point coords);

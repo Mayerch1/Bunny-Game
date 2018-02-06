@@ -7,7 +7,7 @@
 
 #include "bunny.h"
 
-//create Bunny, alloc mem
+//create Bunny, alloc mem, takes coords of mother-bunny
 bunny *createBunny(bunny *anchor, int col, int *bunnyCount, int *infects, Point coords) {
 	bunny *p;
 	Point offset = { 0, 0 };
@@ -34,7 +34,7 @@ bunny *createBunny(bunny *anchor, int col, int *bunnyCount, int *infects, Point 
 		}
 	}
 
-	//add offsets to mother coords
+	//add offsets to mother's coords
 	p->coord.x = (coords.x + offset.x);
 	p->coord.y = (coords.y + offset.y);
 
@@ -42,9 +42,8 @@ bunny *createBunny(bunny *anchor, int col, int *bunnyCount, int *infects, Point 
 
 	initBunny(p, col, infects);
 
-	printf("%s was born ", p->Name);
-	if (p->radioactive_mutant_vampire_bunny == 1) printf(" and it is a RADIOACTIVE-MUTANT-VAMPIRE-BUNNY!", p->Name);
-	printf("\n");
+	bornMsg(p);
+
 	(*bunnyCount)++;
 	return p;
 }//end createBunny
@@ -77,7 +76,7 @@ void initBunny(bunny *myBunny, int col, int *infects) {
 	chooseName(myBunny);
 
 	//mutant or not
-	if (rand() % 100 + 1 <= 1) {
+	if (rand() % 100 + 1 <= 2) {
 		myBunny->radioactive_mutant_vampire_bunny = 1;
 		(*infects)++;
 	}
@@ -109,6 +108,4 @@ void chooseName(bunny *myBunny) {
 	else {
 		strcpy(myBunny->Name, fNames[random]);
 	}
-
-	//TODO: longer name lists
 }//end chooseName
