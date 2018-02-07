@@ -62,7 +62,7 @@ int main(void) {
 		//wait, depending on OS
 #ifdef _WIN32
 		Sleep(1500);
-		//system("cls");
+		system("cls");
 #endif
 #ifdef linux
 		sleep(2);
