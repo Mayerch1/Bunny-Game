@@ -83,28 +83,34 @@ void infectBunnies(bunny **anchor, int *bunnyCount, int *infects) {
 		if (p->radioactive_mutant_vampire_bunny == 1) {
 			//coords of infection victim
 			Point coords;
+			Point offset;
 
-			//TODO: if infect.-rate to low, try more than one slot
-			//choose random Grid next to bunny
-			while ((xOff == 0 && yOff == 0)) {
-				xOff = rand() % 3 - 1;
-				yOff = rand() % 3 - 1;
+			//find taken fields
+			offset = findField(anchor, 1, p->coord);
+
+			if (offset.x == 0 && offset.y == 0) {
+				//go to next mutant
+				continue;
 			}
 
-			//get absolute coords of victim's Grid
-			coords.x = p->coord.x + xOff;
-			coords.y = p->coord.y + yOff;
+			//assign absolute coords of victim
+			coords.x = p->coord.x + offset.x;
+			coords.y = p->coord.y + offset.y;
 
 			//find *bunny to Gridslot
 			bunny *victim;
 			victim = matchToGrid(anchor, coords);
 
 			//infect da bunny
-			if (victim != NULL && victim->radioactive_mutant_vampire_bunny == 0) {
-				victim->radioactive_mutant_vampire_bunny = 1;
-				(*infects)++;
+			int chance = rand() % 100 + 1;
 
-				infectMsg(victim);
+			//50% infection chance
+			if (chance <= INFECTION_RATE) {
+				if (victim != NULL && victim->radioactive_mutant_vampire_bunny == 0) {
+					victim->radioactive_mutant_vampire_bunny = 1;
+					(*infects)++;
+					infectMsg(victim);
+				}
 			}
 		}
 	}

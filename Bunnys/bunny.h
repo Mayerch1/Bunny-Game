@@ -6,7 +6,7 @@ typedef struct {
 
 typedef struct {
 	enum { male, female } sex;
-	enum { white, brown, black, spotted } color;
+	enum { white, brown, gray, creme } color;
 	char age;
 	char Name[21];
 	char radioactive_mutant_vampire_bunny;

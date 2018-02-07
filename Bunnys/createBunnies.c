@@ -26,17 +26,18 @@ bunny *createBunny(bunny *anchor, int col, int *bunnyCount, int *infects, Point 
 		p->coord.y = rand() % GRID;
 	}
 	else {
-		offset = findFreeField(&anchor, coords);
+		offset = findField(&anchor, 0, coords); //emtpy fields
+
 		//if no free field, delete born bunny
 		if (offset.x == 0 && offset.y == 0) {
 			free(p);
 			return NULL;
 		}
-	}
 
-	//add offsets to mother's coords
-	p->coord.x = (coords.x + offset.x);
-	p->coord.y = (coords.y + offset.y);
+		//add offsets to mother's coords
+		p->coord.x = (coords.x + offset.x);
+		p->coord.y = (coords.y + offset.y);
+	}
 
 	p->next = NULL;
 
