@@ -29,7 +29,7 @@ void reproduce(bunny **anchor, int *bunnyCount, int *infects);
 
 #ifndef PRINTS
 #define PRINTS
-void displayInfo(bunny *anchor, int *bunnyCount, int *infects);
+void displayInfo(bunny *anchor, int *bunnyCount, int *infects, int cycles);
 void displayGrid(bunny *anchor);
 
 void bornMsg(bunny *born);
@@ -41,9 +41,10 @@ void starveMsg(int startm, int *bunnyCount);
 #ifndef MAINFCT
 #define MAINFCT
 
-#define GRID 60				//how large is your console?
-#define MAX_BUNNIES 1000	//>GRID*GRID makes no sense
-#define INFECTION_RATE 50	//0-100%; -1 for disabled infection
+#define GRIDX 100				//
+#define GRIDY 60				//how large is your console?
+#define MAX_BUNNIES 1000		// >GRIDX*GRIDY makes no sense
+#define INFECTION_PROB 100		//0-100%;
 
 void nextTurn(bunny **anchor, int *bunnyCount, int *infects);
 

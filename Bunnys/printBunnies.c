@@ -64,15 +64,15 @@ void displayGrid(bunny *anchor) {
 	int k = 100;
 
 	//Grid Grid[x][y]
-	char Grid[GRID][GRID];
-	char isInfect[GRID][GRID];
-	char furCol[GRID][GRID];
+	char Grid[GRIDX][GRIDY];
+	char isInfect[GRIDX][GRIDY];
+	char furCol[GRIDX][GRIDY];
 
 	//assign blanc to Grid[][]
 	//y-Grid
-	for (int i = 0; i < GRID; i++) {
+	for (int i = 0; i < GRIDY; i++) {
 		//x-Grid
-		for (int j = 0; j < GRID; j++) {
+		for (int j = 0; j < GRIDX; j++) {
 			Grid[j][i] = ' ';
 			isInfect[j][i] = 0;
 			//-1, no valid color
@@ -116,9 +116,9 @@ void displayGrid(bunny *anchor) {
 	}
 
 	//y-Grid
-	for (int i = 0; i < GRID; i++) {
+	for (int i = 0; i < GRIDY; i++) {
 		//x-Grid
-		for (int j = 0; j < GRID; j++) {
+		for (int j = 0; j < GRIDX; j++) {
 			printf(COLOR_D_GRAY "|" COLOR_RESET);
 			if (isInfect[j][i] == 1)	printf(COLOR_RED "%c" COLOR_RESET, Grid[j][i]);
 
@@ -132,7 +132,7 @@ void displayGrid(bunny *anchor) {
 	}
 }
 
-void displayInfo(bunny *anchor, int *bunnyCount, int *infects) {
+void displayInfo(bunny *anchor, int *bunnyCount, int *infects, int cycles) {
 	/*
 	//for displaying all of the shit
 
@@ -156,6 +156,6 @@ void displayInfo(bunny *anchor, int *bunnyCount, int *infects) {
 	printf("\n");
 	}
 	*/
-	printf("There're now %d bunnies alive\n", *bunnyCount);
+	printf("There're now %d bunnies alive. Cycle Nr: %d\n", *bunnyCount, cycles);
 	printf("--------------------------------------------------\n");
 }//end displayInfo

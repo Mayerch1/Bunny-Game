@@ -16,7 +16,13 @@
 
 //END OF STAGE ONE
 
-int main(void) {
+int main(int argc, char *argv[]) {
+	//gridsize, maxbunnies, infection_prob, +1 for appl. name
+	if (argc == 5) {
+		//preparation for later settings, available in DLC, or premium pass
+		printf("You feeded exactly %d arguments\n", argc);
+	}
+
 	srand(time(NULL));
 	//int zf = rand() % 100 + 1; //1-100
 
@@ -24,17 +30,18 @@ int main(void) {
 	bunny *anchor;
 	int bunnyCount = 0;
 	int infects = 0;
+	int cycles = 0;
 
 	Point initCoord;
 
-	initCoord.x = rand() % GRID;
-	initCoord.y = rand() % GRID;
+	initCoord.x = rand() % GRIDX;
+	initCoord.y = rand() % GRIDY;
 
 	anchor = NULL;
 	anchor = createBunny(anchor, rand() % 4, &bunnyCount, &infects, initCoord);
-	for (int i = 0; i < 8; i++) {
-		initCoord.x = rand() % GRID;
-		initCoord.y = rand() % GRID;
+	for (int i = 0; i < 12; i++) {
+		initCoord.x = rand() % GRIDX;
+		initCoord.y = rand() % GRIDY;
 		bunny_append(anchor, createBunny(anchor, rand() % 4, &bunnyCount, &infects, initCoord));
 	}
 	//end create first 5 bunnies
@@ -52,12 +59,13 @@ int main(void) {
 
 	//start the game
 	while (anchor->next != NULL) {
+		cycles++;
 		//execute next cycle, incl move
 		nextTurn(&anchor, &bunnyCount, &infects);
 
 		//display infos and amount of bunny
 		displayGrid(anchor);
-		displayInfo(anchor, &bunnyCount, &infects);
+		displayInfo(anchor, &bunnyCount, &infects, cycles);
 
 		//wait, depending on OS
 #ifdef _WIN32
@@ -199,7 +207,7 @@ int testEmpty(bunny **anchor, Point coords) {
 	int isTaken = 0;
 
 	//if coords are out of range/Grid
-	if (coords.x >= GRID || coords.x < 0 || coords.y >= GRID || coords.y < 0) {
+	if (coords.x >= GRIDX || coords.x < 0 || coords.y >= GRIDY || coords.y < 0) {
 		//handle as field would be taken
 		return 1;
 	}

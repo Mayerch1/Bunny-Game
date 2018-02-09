@@ -22,8 +22,8 @@ bunny *createBunny(bunny *anchor, int col, int *bunnyCount, int *infects, Point 
 	//choose one Grid beneath mother
 	if (anchor == NULL) {
 		//choose random start grid
-		p->coord.x = rand() % GRID;
-		p->coord.y = rand() % GRID;
+		p->coord.x = rand() % GRIDX;
+		p->coord.y = rand() % GRIDY;
 	}
 	else {
 		offset = findField(&anchor, 0, coords); //emtpy fields

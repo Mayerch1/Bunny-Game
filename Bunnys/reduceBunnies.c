@@ -105,7 +105,7 @@ void infectBunnies(bunny **anchor, int *bunnyCount, int *infects) {
 			int chance = rand() % 100 + 1;
 
 			//50% infection chance
-			if (chance <= INFECTION_RATE) {
+			if (chance <= INFECTION_PROB) {
 				if (victim != NULL && victim->radioactive_mutant_vampire_bunny == 0) {
 					victim->radioactive_mutant_vampire_bunny = 1;
 					(*infects)++;
