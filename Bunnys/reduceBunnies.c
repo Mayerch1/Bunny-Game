@@ -74,7 +74,7 @@ void starveBunnies(bunny **anchor, int *bunnyCount, int *infects) {
 }//end starveBunnies
 
  //mutants infecting healthy bunnies
-void infectBunnies(bunny **anchor, int *bunnyCount, int *infects) {
+void infectBunnies(bunny **anchor, int *bunnyCount, int *infects, unsigned char infection_prob) {
 	bunny *p;
 	int mutantCount = 0;
 	int xOff = 0, yOff = 0;
@@ -105,7 +105,7 @@ void infectBunnies(bunny **anchor, int *bunnyCount, int *infects) {
 			int chance = rand() % 100 + 1;
 
 			//50% infection chance
-			if (chance <= INFECTION_PROB) {
+			if (chance <= infection_prob) {
 				if (victim != NULL && victim->radioactive_mutant_vampire_bunny == 0) {
 					victim->radioactive_mutant_vampire_bunny = 1;
 					(*infects)++;

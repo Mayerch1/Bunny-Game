@@ -16,7 +16,7 @@ void chooseName(bunny *myBunny);
 void ageBunnies(bunny **anchor, int *bunnyCount, int *infects);
 bunny *killBunny(bunny **anchor, bunny *victim, int *bunnyCount, int *infects);
 void starveBunnies(bunny **anchor, int *bunnyCount, int *infects);
-void infectBunnies(bunny **anchor, int *bunnyCount, int *infects);
+void infectBunnies(bunny **anchor, int *bunnyCount, int *infects, unsigned char infection_prob);
 
 #endif
 
@@ -41,12 +41,10 @@ void starveMsg(int startm, int *bunnyCount);
 #ifndef MAINFCT
 #define MAINFCT
 
-#define GRIDX 100				//
-#define GRIDY 60				//how large is your console?
-#define MAX_BUNNIES 1000		// >GRIDX*GRIDY makes no sense
-#define INFECTION_PROB 100		//0-100%;
-
-void nextTurn(bunny **anchor, int *bunnyCount, int *infects);
+#define GRIDX 80				//
+#define GRIDY 45				//how large is your console?	
+;	
+void nextTurn(bunny **anchor, int *bunnyCount, int *infects, unsigned int max_colony_size, unsigned char infection_prob);
 
 void moveBunny(bunny **anchor);
 int testEmpty(bunny **anchor, Point coords);

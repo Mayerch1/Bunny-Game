@@ -14,13 +14,18 @@
 #include "functions.h"
 #include "bunny.h"
 
-//END OF STAGE ONE
-
 int main(int argc, char *argv[]) {
-	//gridsize, maxbunnies, infection_prob, +1 for appl. name
-	if (argc == 5) {
-		//preparation for later settings, available in DLC, or premium pass
-		printf("You feeded exactly %d arguments\n", argc);
+	//#definees, but for arguments
+	unsigned int max_colony_size = 1000;	//arg[1]; >GridX*GridY makes no sense
+	unsigned char infection_prob = 100;	//0-100%
+
+
+	//maxbunnies, infection_prob, +1 for appl. name
+	if (argc >= 3) {
+		//max population size
+		if(atoi(argv[1]) > 0)  max_colony_size = atoi(argv[1]);
+		//infection rate
+		if (atoi(argv[2]) >= 0 && atoi(argv[2]) <= 100) infection_prob = atoi(argv[2]);
 	}
 
 	srand(time(NULL));
@@ -61,7 +66,7 @@ int main(int argc, char *argv[]) {
 	while (anchor->next != NULL) {
 		cycles++;
 		//execute next cycle, incl move
-		nextTurn(&anchor, &bunnyCount, &infects);
+		nextTurn(&anchor, &bunnyCount, &infects, max_colony_size, infection_prob);
 
 		//display infos and amount of bunny
 		displayGrid(anchor);
@@ -92,9 +97,9 @@ int main(int argc, char *argv[]) {
 }//end main
 
 //age Bunnys, initiate regular actions
-void nextTurn(bunny **anchor, int *bunnyCount, int *infects) {
+void nextTurn(bunny **anchor, int *bunnyCount, int *infects, unsigned int max_colony_size, unsigned char infection_prob) {
 	//infect healthy bunnies
-	infectBunnies(anchor, bunnyCount, infects);
+	infectBunnies(anchor, bunnyCount, infects, infection_prob);
 
 	//let them walk
 	moveBunny(anchor);
@@ -106,7 +111,7 @@ void nextTurn(bunny **anchor, int *bunnyCount, int *infects) {
 	reproduce(anchor, bunnyCount, infects);
 
 	//food shortage
-	if (*bunnyCount > MAX_BUNNIES) {
+	if (*bunnyCount > max_colony_size) {
 		starveBunnies(anchor, bunnyCount, infects);
 	}
 }//end nextTurn

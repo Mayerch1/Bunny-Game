@@ -77,7 +77,7 @@ void initBunny(bunny *myBunny, int col, int *infects) {
 	chooseName(myBunny);
 
 	//mutant or not
-	if (rand() % 100 + 1 <= 2) {
+	if (rand() % 100 + 1 <= 1) {
 		myBunny->radioactive_mutant_vampire_bunny = 1;
 		(*infects)++;
 	}
