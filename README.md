@@ -6,6 +6,6 @@ Download 'Bunny.exe'
 or go into /Bunnys and have fun
 
 Use of Arguments:
-Bunny.exe <max_population_size> <infection probability>
+Bunny.exe -max_population_size -infection probability
   
-Feed the ARguments as typical for your operating System (Windows/Linux)
+Feed the Arguments as typical for your operating System (Windows/Linux)
