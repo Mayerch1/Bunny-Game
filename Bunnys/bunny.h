@@ -10,6 +10,7 @@ typedef struct {
 	char age;
 	char Name[21];
 	char radioactive_mutant_vampire_bunny;
+	int daySinceFeeded;
 	Point coord;
 	struct bunny *next;
 }bunny;

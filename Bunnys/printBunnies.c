@@ -28,27 +28,47 @@
 
 #define COLOR_RESET		"\x1b[0m"
 
+extern FILE *myfile;
+
 //all commented printf() is for detailed display
 //disabled for better "Grid-experience"
 void bornMsg(bunny *born) {
-	/*
-	printf("%s was born ", born->Name);
-	if (born->radioactive_mutant_vampire_bunny == 1) printf(" and it is a RADIOACTIVE-MUTANT-VAMPIRE-BUNNY!");
-	printf("\n");
-	*/
+	
+
+	fprintf(myfile, "%s was born ", born->Name);
+	//printf color of bunny
+	if (born->color == 0) {
+		fprintf(myfile, "with a white fur ");
+	}
+	else if (born->color == 1) {
+		fprintf(myfile, "with a brown fur ");
+	}
+	else if (born->color == 2) {
+		fprintf(myfile, "with a gray fur ");
+	}
+	else if (born->color == 3) {
+		fprintf(myfile, "with a creme-colored fur ");
+	}
+
+	if (born->radioactive_mutant_vampire_bunny == 1) fprintf(myfile, " and it is a RADIOACTIVE-MUTANT-VAMPIRE-BUNNY!");
+	fprintf(myfile, "\n");
+	
 }
 
 void infectMsg(bunny *victim) {
-	//printf("%s was INFECTED with the virus\n", victim->Name);
+	fprintf(myfile, "%s was INFECTED with the virus\n", victim->Name);
 }
 
-void eolMsg(bunny *victim) {
-	//printf("%s is EOL! :'( \n", victim->Name);
+void eolMsg(bunny *victim, int *deathMSG) {
+	fprintf(myfile, "%s ", victim->Name);
+	fprintf(myfile, "%s", deathMSG);
+	fprintf(myfile, "\n");
 }
 
 void starveMsg(int start, int *bunnyCount) {
+	
+	fprintf(myfile, "\n\nFood shortage killed %d bunnies\n\n", start - *bunnyCount);
 	/*
-	printf("\n\nFood shortage killed %d bunnies\n\n", start - *bunnyCount);
 	#ifdef _WIN32
 	Sleep(500);
 	#endif
@@ -59,7 +79,7 @@ void starveMsg(int start, int *bunnyCount) {
 }
 
 //show all bunnies in their grid
-void displayGrid(bunny *anchor) {
+void displayGrid(bunny *anchor, Point food[]) {
 	bunny *p;
 	int k = 100;
 
@@ -120,17 +140,32 @@ void displayGrid(bunny *anchor) {
 		//x-Grid
 		for (int j = 0; j < GRIDX; j++) {
 			printf(COLOR_D_GRAY "|" COLOR_RESET);
-			if (isInfect[j][i] == 1)	printf(COLOR_RED "%c" COLOR_RESET, Grid[j][i]);
+			//printf food source
+			if (printFoodSource(anchor, j, i, food) == 1) printf(COLOR_GREEN "O" COLOR_RESET);
+			//print any type of bunny
+			else {
+				if (isInfect[j][i] == 1)	printf(COLOR_RED "%c" COLOR_RESET, Grid[j][i]);
 
-			else if (furCol[j][i] == 1) printf(COLOR_BROWN "%c" COLOR_RESET, Grid[j][i]);
-			else if (furCol[j][i] == 2) printf(COLOR_GRAY "%c" COLOR_RESET, Grid[j][i]);
-			else if (furCol[j][i] == 3) printf(COLOR_CREME "%c" COLOR_RESET, Grid[j][i]);
-			else printf("%c", Grid[j][i]);
+				else if (furCol[j][i] == 1) printf(COLOR_BROWN "%c" COLOR_RESET, Grid[j][i]);
+				else if (furCol[j][i] == 2) printf(COLOR_GRAY "%c" COLOR_RESET, Grid[j][i]);
+				else if (furCol[j][i] == 3) printf(COLOR_CREME "%c" COLOR_RESET, Grid[j][i]);
+				else printf("%c", Grid[j][i]);
+			}
 		}
 		//newline at end of row
 		printf(COLOR_D_GRAY "|\n" COLOR_RESET);
 	}
 }
+
+//determins, if asked x, y is taken by food source
+int printFoodSource(bunny *anchor, int x, int y, Point food[]) {
+	//go throug all food sources
+	for (int i = 0; i < FOOD_COUNT; i++) {
+		if (food[i].x == x && food[i].y == y) return 1;
+	}
+	return 0;
+}//end printFoodSource
+
 
 void displayInfo(bunny *anchor, int *bunnyCount, int *infects, int cycles) {
 	/*
@@ -156,6 +191,12 @@ void displayInfo(bunny *anchor, int *bunnyCount, int *infects, int cycles) {
 	printf("\n");
 	}
 	*/
+
+	//print for texfile
+	fprintf(myfile, "\nThere're now %d bunnies alive. Cycle Nr: %d\n", *bunnyCount, cycles);
+	fprintf(myfile, "--------------------------------------------------\n");
+
+	//printf for console
 	printf("There're now %d bunnies alive. Cycle Nr: %d\n", *bunnyCount, cycles);
 	printf("--------------------------------------------------\n");
 }//end displayInfo

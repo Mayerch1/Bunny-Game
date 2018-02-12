@@ -13,22 +13,33 @@ void ageBunnies(bunny **anchor, int *bunnyCount, int *infects) {
 	for (p = *anchor; p != NULL; p = p->next) {
 		//kill normal bunnies
 		if ((p->age++) >= 10 && p->radioactive_mutant_vampire_bunny == 0) {
-			p = killBunny(anchor, p, bunnyCount, infects);
+			p = killBunny(anchor, p, bunnyCount, infects, "is EOL ;-(");
 		}
 		//kill radiation_vampire bunnies
 		else if (p->age >= 50) {
-			p = killBunny(anchor, p, bunnyCount, infects);
+			p = killBunny(anchor, p, bunnyCount, infects, "is finally EOL :-)");
 		}
 	}
 }
 
 //kill designatet target
-bunny *killBunny(bunny **anchor, bunny *victim, int *bunnyCount, int *infects) {
-	eolMsg(victim);
+bunny *killBunny(bunny **anchor, bunny *victim, int *bunnyCount, int *infects, char *deathMSG) {
+	eolMsg(victim, deathMSG);
 
 	//if anchor dies
 	if (victim == *anchor) {
+		//if victim is last survivor
+		//game will end with next cycle, so he stays alive
+		//prevent collapse of further funcrions
+		if (victim->next == NULL) {
+			(*anchor)->next = NULL;
+			(*bunnyCount)--;
+			return *anchor;
+		}
 		*anchor = victim->next;
+
+		//coorect counters, kill it
+		if (victim->radioactive_mutant_vampire_bunny == 1) (*infects)--;
 		free(victim);
 		(*bunnyCount)--;
 		return *anchor;
@@ -45,6 +56,9 @@ bunny *killBunny(bunny **anchor, bunny *victim, int *bunnyCount, int *infects) {
 		//append to bunny before vicitm
 		lastP->next = victim->next;
 		if (victim->radioactive_mutant_vampire_bunny == 1) (*infects)--;
+
+		//correct counters (infects, bunnyCount)
+		if (victim->radioactive_mutant_vampire_bunny == 1) (*infects)--;
 		//delete victim
 		free(victim);
 		(*bunnyCount)--;
@@ -53,7 +67,7 @@ bunny *killBunny(bunny **anchor, bunny *victim, int *bunnyCount, int *infects) {
 }
 
 //starve 1/2 of all bunnies
-void starveBunnies(bunny **anchor, int *bunnyCount, int *infects) {
+void famineBunnies(bunny **anchor, int *bunnyCount, int *infects) {
 	int start = *bunnyCount;
 
 	//repeat until 1/2 are dead
@@ -67,14 +81,14 @@ void starveBunnies(bunny **anchor, int *bunnyCount, int *infects) {
 			victim = victim->next;
 		}
 		//kill him
-		killBunny(anchor, victim, bunnyCount, infects);
+		killBunny(anchor, victim, bunnyCount, infects, "starved to death");
 	}
 
 	starveMsg(start, bunnyCount);
 }//end starveBunnies
 
  //mutants infecting healthy bunnies
-void infectBunnies(bunny **anchor, int *bunnyCount, int *infects, unsigned char infection_prob) {
+void infectBunnies(bunny **anchor, int *bunnyCount, int *infects, unsigned char infection_prob, Point food[]) {
 	bunny *p;
 	int mutantCount = 0;
 	int xOff = 0, yOff = 0;
@@ -86,7 +100,7 @@ void infectBunnies(bunny **anchor, int *bunnyCount, int *infects, unsigned char 
 			Point offset;
 
 			//find taken fields
-			offset = findField(anchor, 1, p->coord);
+			offset = findField(anchor, 1, p->coord, food);
 
 			if (offset.x == 0 && offset.y == 0) {
 				//go to next mutant
@@ -115,3 +129,18 @@ void infectBunnies(bunny **anchor, int *bunnyCount, int *infects, unsigned char 
 		}
 	}
 }//end infectBunnies
+
+
+void starveBunnies(bunny **anchor, int *bunnyCount, int *infects) {
+	bunny *p;
+	for (p = *anchor; p != NULL; p = p->next) {
+		p->daySinceFeeded++;
+	}
+
+
+	for (p = *anchor; p != NULL; p = p->next) {
+		if (p->daySinceFeeded >= MAX_HUNGER) {
+			p = killBunny(anchor, p, bunnyCount, infects, "was to dump to eat");
+		}
+	}
+}
