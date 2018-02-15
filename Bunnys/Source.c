@@ -1,10 +1,13 @@
 #ifdef _WIN32
 #include <Windows.h>
+#define clrcsl() system("cls");
+#define slp(t) Sleep(t)
 #endif
 
 #ifdef linux
-#define clear() printf("\033[H\033[J")
+#define clrcsl() printf("\033[H\033[J")
 #include <unistd.h>
+#define slp(t) sleep(t/1000)
 #endif
 
 #include <stdio.h>
@@ -19,24 +22,40 @@ FILE *myfile;
 int main(int argc, char *argv[]) {
 	//#definees, but for arguments
 	unsigned int max_colony_size = 1000;	//arg[1]; >GridX*GridY makes no sense
-	unsigned char infection_prob = 100;	//0-100%
-	unsigned int food_count = 2;			
+	unsigned char infection_prob = 80;	//0-100%
+	unsigned int food_count = 2;			//useless, in functions.h as #define	
+
+	char buff[40];	//for log_name, with enough space, 15 for string, 15 for time
 
 	srand(time(NULL));
-	
+
 	//posiiton of food sources
 	//except right and bottom border
 	Point food[FOOD_COUNT];
+	
+	//time for log-file
+	time_t rawtime;
+	struct tm * timeinfo;
 
 	for (int i = 0; i < FOOD_COUNT; i++) {
 		food[i].x = rand() % (GRIDX - 1);
 		food[i].y = rand() % (GRIDY - 1);
 	}
 
-	//fstream init for data log
-	myfile = fopen("Log_Bunny.txt", "w");
-	fprintf(myfile, "Test123\n");
+	//get the time
+	time(&rawtime);
+	//into struct
+	timeinfo = localtime(&rawtime);
 
+
+	//combine name with time
+	//yyy_mm_dd_hh.mm.ss
+	snprintf(buff, 40, "Log_Bunny-%d_%d_%d_%d.%d.%d.txt", timeinfo->tm_year+1900, timeinfo->tm_mon+1,
+													timeinfo->tm_mday, timeinfo->tm_hour, timeinfo->tm_min,
+													timeinfo->tm_sec);
+
+	//fstream init for data log
+	myfile = fopen(buff, "w");
 	//maxbunnies, infection_prob, +1 for appl. name
 	if (argc >= 3) {
 		//max population size
@@ -68,20 +87,12 @@ int main(int argc, char *argv[]) {
 	//end create first 5 bunnies
 
 	//init console color display
-#ifdef _WIN32
-	Sleep(1000);
-	system("cls");
-#endif
-#ifdef linux
-	sleep(1);
-	clear();
-#endif
+	clrcsl();
+	slp(1000);
 	//end init color
 
 
 	//TODO: debug flags
-	infection_prob = 80;
-
 
 	//start the game
 	while (anchor->next != NULL) {
@@ -93,15 +104,10 @@ int main(int argc, char *argv[]) {
 		displayGrid(anchor, food);
 		displayInfo(anchor, &bunnyCount, &infects, cycles);
 
-		//wait, depending on OS
-#ifdef _WIN32
-		Sleep(1500);
-		system("cls");
-#endif
-#ifdef linux
-		sleep(2);
-		clear();
-#endif
+		//wait
+		slp(1000);
+		clrcsl();
+
 	}
 	printf("The last survivor will die soon\n");
 	printf("End of simulation");

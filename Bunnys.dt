@@ -1,94 +1,30 @@
 <?xml version="1.0" encoding="utf-16"?>
-<DevTrackerData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SolutionTotalEditTime="PT8H23M20.213003S" SolutionTotalViewTime="PT5H39M9.940379S" SolutionTotalDebugTime="PT3H7M29.068106S">
+<DevTrackerData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SolutionTotalEditTime="PT8H48M25.3728654S" SolutionTotalViewTime="PT6H7M5.0640194S" SolutionTotalDebugTime="PT3H20M18.0922123S">
   <FileVersion>
     <Major>1</Major>
     <Minor>0</Minor>
   </FileVersion>
   <SessionTimeList />
   <LastSessionTimeList>
-    <DevTrackerDataItem ViewActiveTime="PT3.7519822S" EditActiveTime="PT0S">
+    <DevTrackerDataItem ViewActiveTime="PT2M3.8928668S" EditActiveTime="PT0S">
       <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
       <EditedCount>0</EditedCount>
       <ViewedCount>1</ViewedCount>
-      <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\bunny.h</Item>
+      <Item>c:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\printBunnies.c</Item>
       <ItemType>ProjectItem</ItemType>
       <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
-      <CreatedDate>2018-02-12T17:29:15.6338704+01:00</CreatedDate>
+      <CreatedDate>2018-02-15T21:59:31.147611+01:00</CreatedDate>
       <ViewedBy>Christian</ViewedBy>
     </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT12.8961836S" EditActiveTime="PT8.7841092S">
-      <ModifiedDate>2018-02-12T17:35:27.1661009+01:00</ModifiedDate>
+    <DevTrackerDataItem ViewActiveTime="PT24.0416192S" EditActiveTime="PT18.0165993S">
+      <ModifiedDate>2018-02-15T22:03:54.5823811+01:00</ModifiedDate>
       <ModifiedBy>Christian</ModifiedBy>
       <EditedCount>1</EditedCount>
       <ViewedCount>1</ViewedCount>
-      <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\createBunnies.c</Item>
+      <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Source.c</Item>
       <ItemType>ProjectItem</ItemType>
       <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
-      <CreatedDate>2018-02-12T17:35:07.6122837+01:00</CreatedDate>
-      <ViewedBy>Christian</ViewedBy>
-    </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT21M15.3351384S" EditActiveTime="PT0S">
-      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
-      <EditedCount>0</EditedCount>
-      <ViewedCount>1</ViewedCount>
-      <Item>Debug Mode</Item>
-      <ItemType>DebugModeItem</ItemType>
-      <ProjectName />
-      <CreatedDate>2018-02-12T17:51:43.0457859+01:00</CreatedDate>
-      <ViewedBy>Christian</ViewedBy>
-    </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT59.2778054S" EditActiveTime="PT3M29.9981246S">
-      <ModifiedDate>2018-02-12T18:07:13.0092151+01:00</ModifiedDate>
-      <ModifiedBy>Christian</ModifiedBy>
-      <EditedCount>1</EditedCount>
-      <ViewedCount>1</ViewedCount>
-      <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\functions.h</Item>
-      <ItemType>ProjectItem</ItemType>
-      <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
-      <CreatedDate>2018-02-12T17:28:49.3099046+01:00</CreatedDate>
-      <ViewedBy>Christian</ViewedBy>
-    </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT30.3393852S" EditActiveTime="PT3M48.0898273S">
-      <ModifiedDate>2018-02-12T17:51:33.4941173+01:00</ModifiedDate>
-      <ModifiedBy>Christian</ModifiedBy>
-      <EditedCount>1</EditedCount>
-      <ViewedCount>1</ViewedCount>
-      <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\incrBunnies.c</Item>
-      <ItemType>ProjectItem</ItemType>
-      <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
-      <CreatedDate>2018-02-12T17:38:14.4551483+01:00</CreatedDate>
-      <ViewedBy>Christian</ViewedBy>
-    </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT49.9882393S" EditActiveTime="PT5M57.6788484S">
-      <ModifiedDate>2018-02-12T17:51:33.4726397+01:00</ModifiedDate>
-      <ModifiedBy>Christian</ModifiedBy>
-      <EditedCount>1</EditedCount>
-      <ViewedCount>1</ViewedCount>
-      <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\printBunnies.c</Item>
-      <ItemType>ProjectItem</ItemType>
-      <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
-      <CreatedDate>2018-02-12T17:37:44.1391793+01:00</CreatedDate>
-      <ViewedBy>Christian</ViewedBy>
-    </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT2.5913505S" EditActiveTime="PT0S">
-      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
-      <EditedCount>0</EditedCount>
-      <ViewedCount>1</ViewedCount>
-      <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\reduceBunnies.c</Item>
-      <ItemType>ProjectItem</ItemType>
-      <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
-      <CreatedDate>2018-02-12T17:40:07.6613602+01:00</CreatedDate>
-      <ViewedBy>Christian</ViewedBy>
-    </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT3M43.3268778S" EditActiveTime="PT5M21.8343493S">
-      <ModifiedDate>2018-02-12T18:07:01.9450871+01:00</ModifiedDate>
-      <ModifiedBy>Christian</ModifiedBy>
-      <EditedCount>1</EditedCount>
-      <ViewedCount>1</ViewedCount>
-      <Item>c:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Source.c</Item>
-      <ItemType>ProjectItem</ItemType>
-      <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
-      <CreatedDate>2018-02-12T17:28:23.3982822+01:00</CreatedDate>
+      <CreatedDate>2018-02-15T22:01:49.1691691+01:00</CreatedDate>
       <ViewedBy>Christian</ViewedBy>
     </DevTrackerDataItem>
   </LastSessionTimeList>
@@ -104,11 +40,11 @@
       <CreatedDate>2018-02-01T12:56:07.9423425+01:00</CreatedDate>
       <ViewedBy>Christian</ViewedBy>
     </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT35.9903669S" EditActiveTime="PT24.120327S">
+    <DevTrackerDataItem ViewActiveTime="PT2M56.9147247S" EditActiveTime="PT24.120327S">
       <ModifiedDate>2018-02-11T21:05:33.0763157+01:00</ModifiedDate>
       <ModifiedBy>Christian</ModifiedBy>
       <EditedCount>1</EditedCount>
-      <ViewedCount>4</ViewedCount>
+      <ViewedCount>9</ViewedCount>
       <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\bunny.h</Item>
       <ItemType>ProjectItem</ItemType>
       <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
@@ -136,21 +72,21 @@
       <CreatedDate>2018-02-01T14:07:21.6945463+01:00</CreatedDate>
       <ViewedBy>Christian</ViewedBy>
     </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT5M9.2677219S" EditActiveTime="PT3M39.3454882S">
-      <ModifiedDate>2018-02-12T17:35:27.1661009+01:00</ModifiedDate>
+    <DevTrackerDataItem ViewActiveTime="PT8M36.0119028S" EditActiveTime="PT7M11.6822707S">
+      <ModifiedDate>2018-02-14T21:44:26.4404345+01:00</ModifiedDate>
       <ModifiedBy>Christian</ModifiedBy>
-      <EditedCount>4</EditedCount>
-      <ViewedCount>6</ViewedCount>
+      <EditedCount>7</EditedCount>
+      <ViewedCount>10</ViewedCount>
       <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\createBunnies.c</Item>
       <ItemType>ProjectItem</ItemType>
       <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
       <CreatedDate>2018-02-10T17:34:46.2616524+01:00</CreatedDate>
       <ViewedBy>Christian</ViewedBy>
     </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT3H7M29.068106S" EditActiveTime="PT27M9.3001529S">
+    <DevTrackerDataItem ViewActiveTime="PT3H20M18.0922123S" EditActiveTime="PT27M9.3001529S">
       <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
       <EditedCount>3</EditedCount>
-      <ViewedCount>38</ViewedCount>
+      <ViewedCount>43</ViewedCount>
       <Item>Debug Mode</Item>
       <ItemType>DebugModeItem</ItemType>
       <ProjectName />
@@ -178,11 +114,11 @@
       <CreatedDate>2018-02-01T13:19:45.1995496+01:00</CreatedDate>
       <ViewedBy>Christian</ViewedBy>
     </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT9M5.7046313S" EditActiveTime="PT12M0.2721003S">
-      <ModifiedDate>2018-02-12T18:07:13.0092151+01:00</ModifiedDate>
+    <DevTrackerDataItem ViewActiveTime="PT11M26.3626652S" EditActiveTime="PT13M44.2103644S">
+      <ModifiedDate>2018-02-12T21:16:35.0059954+01:00</ModifiedDate>
       <ModifiedBy>Christian</ModifiedBy>
-      <EditedCount>5</EditedCount>
-      <ViewedCount>5</ViewedCount>
+      <EditedCount>6</EditedCount>
+      <ViewedCount>8</ViewedCount>
       <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\functions.h</Item>
       <ItemType>ProjectItem</ItemType>
       <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
@@ -200,11 +136,11 @@
       <CreatedDate>2018-02-01T17:40:02.1706239+01:00</CreatedDate>
       <ViewedBy>Christian</ViewedBy>
     </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT2M27.8796238S" EditActiveTime="PT6M34.1183777S">
-      <ModifiedDate>2018-02-12T17:51:33.4941173+01:00</ModifiedDate>
+    <DevTrackerDataItem ViewActiveTime="PT2M43.2888533S" EditActiveTime="PT6M44.5699134S">
+      <ModifiedDate>2018-02-12T21:09:06.1110173+01:00</ModifiedDate>
       <ModifiedBy>Christian</ModifiedBy>
-      <EditedCount>3</EditedCount>
-      <ViewedCount>5</ViewedCount>
+      <EditedCount>4</EditedCount>
+      <ViewedCount>7</ViewedCount>
       <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\incrBunnies.c</Item>
       <ItemType>ProjectItem</ItemType>
       <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
@@ -232,11 +168,11 @@
       <CreatedDate>2018-02-06T15:35:48.0678791+01:00</CreatedDate>
       <ViewedBy>Christian</ViewedBy>
     </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT4M19.2652471S" EditActiveTime="PT16M35.7176897S">
+    <DevTrackerDataItem ViewActiveTime="PT7M14.1364697S" EditActiveTime="PT16M35.7176897S">
       <ModifiedDate>2018-02-12T17:51:33.4726397+01:00</ModifiedDate>
       <ModifiedBy>Christian</ModifiedBy>
       <EditedCount>4</EditedCount>
-      <ViewedCount>5</ViewedCount>
+      <ViewedCount>9</ViewedCount>
       <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\printBunnies.c</Item>
       <ItemType>ProjectItem</ItemType>
       <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
@@ -254,11 +190,11 @@
       <CreatedDate>2018-02-01T17:38:31.5583309+01:00</CreatedDate>
       <ViewedBy>Christian</ViewedBy>
     </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT11M51.8439906S" EditActiveTime="PT10M20.1166339S">
-      <ModifiedDate>2018-02-11T22:43:59.9307698+01:00</ModifiedDate>
+    <DevTrackerDataItem ViewActiveTime="PT12M49.6793833S" EditActiveTime="PT11M11.3261515S">
+      <ModifiedDate>2018-02-12T21:06:01.74404+01:00</ModifiedDate>
       <ModifiedBy>Christian</ModifiedBy>
-      <EditedCount>3</EditedCount>
-      <ViewedCount>5</ViewedCount>
+      <EditedCount>4</EditedCount>
+      <ViewedCount>7</ViewedCount>
       <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\reduceBunnies.c</Item>
       <ItemType>ProjectItem</ItemType>
       <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
@@ -276,11 +212,11 @@
       <CreatedDate>2018-02-01T12:57:22.962532+01:00</CreatedDate>
       <ViewedBy>Christian</ViewedBy>
     </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT21M13.7802551S" EditActiveTime="PT33M9.1656497S">
-      <ModifiedDate>2018-02-12T18:07:01.9450871+01:00</ModifiedDate>
+    <DevTrackerDataItem ViewActiveTime="PT36M50.1835449S" EditActiveTime="PT51M56.3976877S">
+      <ModifiedDate>2018-02-15T22:03:54.5823811+01:00</ModifiedDate>
       <ModifiedBy>Christian</ModifiedBy>
-      <EditedCount>5</EditedCount>
-      <ViewedCount>6</ViewedCount>
+      <EditedCount>9</EditedCount>
+      <ViewedCount>11</ViewedCount>
       <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Source.c</Item>
       <ItemType>ProjectItem</ItemType>
       <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
@@ -308,8 +244,338 @@
       <CreatedDate>2018-02-01T16:03:58.3044154+01:00</CreatedDate>
       <ViewedBy>Christian</ViewedBy>
     </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT2.2770693S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>c:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\time.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>c:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\time.h</ProjectName>
+      <CreatedDate>2018-02-14T21:53:20.1315863+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
   </TotalTimeList>
   <HistoryTimeList>
+    <DevTrackerDataItem ViewActiveTime="PT24.0256275S" EditActiveTime="PT18.0165993S">
+      <ModifiedDate>2018-02-15T22:03:54.5823811+01:00</ModifiedDate>
+      <ModifiedBy>Christian</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Source.c</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-15T22:01:49.1691691+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT2M3.8928668S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>c:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\printBunnies.c</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-15T21:59:31.147611+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT25.5928249S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\printBunnies.c</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-14T22:00:42.9124932+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT2.2770693S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>c:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\time.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>c:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\time.h</ProjectName>
+      <CreatedDate>2018-02-14T21:53:20.1315863+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT1M23.0030591S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>Debug Mode</Item>
+      <ItemType>DebugModeItem</ItemType>
+      <ProjectName />
+      <CreatedDate>2018-02-14T21:49:08.6291941+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT2M50.4785715S" EditActiveTime="PT4M32.339258S">
+      <ModifiedDate>2018-02-14T22:00:27.3262299+01:00</ModifiedDate>
+      <ModifiedBy>Christian</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>c:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Source.c</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-14T21:48:09.6431945+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT1.0942858S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\bunny.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-14T21:43:37.5746272+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT10.2353519S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\functions.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-14T21:43:30.3536502+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT3M23.9050283S" EditActiveTime="PT5M10.8041719S">
+      <ModifiedDate>2018-02-14T21:45:47.9126795+01:00</ModifiedDate>
+      <ModifiedBy>Christian</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Source.c</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-14T21:21:31.063188+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT5M24.480709S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>Debug Mode</Item>
+      <ItemType>DebugModeItem</ItemType>
+      <ProjectName />
+      <CreatedDate>2018-02-14T21:18:35.727793+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT1M18.4324484S" EditActiveTime="PT58.1535001S">
+      <ModifiedDate>2018-02-14T21:44:26.4404345+01:00</ModifiedDate>
+      <ModifiedBy>Christian</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>c:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\createBunnies.c</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-14T21:18:22.8516559+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT3.7103099S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>Debug Mode</Item>
+      <ItemType>DebugModeItem</ItemType>
+      <ProjectName />
+      <CreatedDate>2018-02-14T21:13:46.1678177+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT1M38.1185742S" EditActiveTime="PT2M11.182603S">
+      <ModifiedDate>2018-02-14T21:17:15.7748371+01:00</ModifiedDate>
+      <ModifiedBy>Christian</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\createBunnies.c</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-14T21:13:34.0719236+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT5.650079S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>c:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\bunny.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-14T21:13:28.4102557+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT1M46.9349525S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>c:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\bunny.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-14T17:22:17.559649+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT18.2514238S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\bunny.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-14T17:21:08.0596092+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT3.8360327S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\createBunnies.c</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-14T17:21:04.219565+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT2.6801271S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\incrBunnies.c</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-14T17:21:01.5352693+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT3.3264741S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\printBunnies.c</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-14T17:20:58.204577+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT4.6152934S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\reduceBunnies.c</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-14T17:20:53.5756999+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT10.8103952S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\functions.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-14T17:17:05.7088748+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT1.1085335S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>Debug Mode</Item>
+      <ItemType>DebugModeItem</ItemType>
+      <ProjectName />
+      <CreatedDate>2018-02-14T17:12:32.567841+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT29.2781834S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>c:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Source.c</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-14T17:12:09.0032269+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT9.0059717S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\bunny.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-12T21:32:58.2565165+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT5M56.7214948S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>Debug Mode</Item>
+      <ItemType>DebugModeItem</ItemType>
+      <ProjectName />
+      <CreatedDate>2018-02-12T21:09:13.6995583+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT12.7291024S" EditActiveTime="PT10.4515357S">
+      <ModifiedDate>2018-02-12T21:09:06.1110173+01:00</ModifiedDate>
+      <ModifiedBy>Christian</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\incrBunnies.c</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-12T21:08:16.4222839+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT26.363007S" EditActiveTime="PT23.0006794S">
+      <ModifiedDate>2018-02-12T21:09:06.1419478+01:00</ModifiedDate>
+      <ModifiedBy>Christian</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\createBunnies.c</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-12T21:07:04.5036157+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT8M28.7260367S" EditActiveTime="PT8M46.0720088S">
+      <ModifiedDate>2018-02-12T21:35:16.5558557+01:00</ModifiedDate>
+      <ModifiedBy>Christian</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Source.c</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-12T20:58:08.9867999+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT53.2200993S" EditActiveTime="PT51.2095176S">
+      <ModifiedDate>2018-02-12T21:06:01.74404+01:00</ModifiedDate>
+      <ModifiedBy>Christian</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\reduceBunnies.c</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-12T20:57:50.092589+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT22.0630638S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\printBunnies.c</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-12T20:56:51.5531143+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT1M59.6122868S" EditActiveTime="PT1M43.9382641S">
+      <ModifiedDate>2018-02-12T21:16:35.0059954+01:00</ModifiedDate>
+      <ModifiedBy>Christian</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>c:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\functions.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\Christian\Source\Repos\Bunny-Game\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-12T20:56:25.0889558+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
     <DevTrackerDataItem ViewActiveTime="PT21M15.3351384S" EditActiveTime="PT0S">
       <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
       <EditedCount>0</EditedCount>

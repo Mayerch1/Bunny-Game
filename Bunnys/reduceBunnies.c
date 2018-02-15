@@ -13,7 +13,7 @@ void ageBunnies(bunny **anchor, int *bunnyCount, int *infects) {
 	for (p = *anchor; p != NULL; p = p->next) {
 		//kill normal bunnies
 		if ((p->age++) >= 10 && p->radioactive_mutant_vampire_bunny == 0) {
-			p = killBunny(anchor, p, bunnyCount, infects, "is EOL ;-(");
+			p = killBunny(anchor, p, bunnyCount, infects, "is EOL :'(");
 		}
 		//kill radiation_vampire bunnies
 		else if (p->age >= 50) {

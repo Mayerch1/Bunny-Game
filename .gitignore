@@ -259,3 +259,4 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/Bunnys/Log_Bunny-2018_2_15_22.16.0.txt
