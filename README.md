@@ -1,11 +1,11 @@
 # Bunny-Game
-The Game of Life, or so
+The Game of Life, or so,
 'simulates' a bunny population
 
-Download 'Bunny.exe'
-or go into /Bunnys and have fun
+Download '/Releases/Bunny.exe'
+or go into /Bunnys and have fun<br /><br />
 
 Use of Arguments:
-Bunny.exe -max_population_size -infection probability
+Bunny.exe -gridX -gridY -max_colony_size -infection_prob -foodCount
   
-Feed the Arguments as typical for your operating System (Windows/Linux)
+Feed the Arguments as usual for your operating System (Windows/Linux)
