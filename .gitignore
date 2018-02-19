@@ -16,7 +16,6 @@
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
-[Rr]elease/
 [Rr]eleases/
 x64/
 x86/
@@ -53,8 +52,10 @@ artifacts/
 *_i.h
 *.ilk
 *.meta
+*.iobj
 *.obj
 *.pch
+*.ipdb
 *.pdb
 *.pgc
 *.pgd
