@@ -3,16 +3,12 @@
 #ifndef MAINFCT
 #define MAINFCT
 
-#define GRIDX 80				//
-#define GRIDY 45				//how large is your console?	
-
-#define FOOD_COUNT 5
+//#define FOOD_COUNT 5
 #define MAX_HUNGER 3
 #define FEED_RANGE 5
 
-
-void nextTurn(bunny **anchor, int *bunnyCount, int *infects, unsigned int max_colony_size, 
-				unsigned char infection_prob, Point food[]);
+void nextTurn(bunny **anchor, int *bunnyCount, int *infects, unsigned int max_colony_size,
+	unsigned char infection_prob, Point food[]);
 
 void moveBunny(bunny **anchor, Point food[]);
 int testEmpty(bunny **anchor, Point coords, Point food[]);
@@ -20,8 +16,6 @@ Point findField(bunny **anchor, int state, Point coords, Point food[]);
 bunny *matchToGrid(bunny **anchor, Point coords);
 
 #endif
-
-
 
 #ifndef CREATEBUNNY
 #define CREATEBUNNY
@@ -49,19 +43,18 @@ void starveBunnies(bunny **anchor, int *bunnyCount, int *infects);
 #define INCRBUNNY
 
 void reproduce(bunny **anchor, int *bunnyCount, int *infects, Point food[]);
-void feedBunnies(bunny **anchor, Point food[]);
+void feedBunnies(bunny **anchor, Point food[], int foodCount);
 
 #endif
 
 #ifndef PRINTS
 #define PRINTS
 void displayInfo(bunny *anchor, int *bunnyCount, int *infects, int cycles);
-void displayGrid(bunny *anchor, Point food[]);
-int printFoodSource(bunny *anchor, int x, int y, Point food[]);
+void displayGrid(bunny *anchor, Point food[], int foodCount);
+int printFoodSource(bunny *anchor, int x, int y, Point food[], int foodCount);
 
 void bornMsg(bunny *born);
 void infectMsg(bunny *victim);
-void eolMsg(bunny *victim, int *deathMSG);
+void eolMsg(bunny *victim, char *deathMSG);
 void starveMsg(int start, int *bunnyCount);
 #endif
-

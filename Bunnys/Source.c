@@ -1,69 +1,86 @@
 #ifdef _WIN32
 #include <Windows.h>
+
 #define clrcsl() system("cls");
 #define slp(t) Sleep(t)
 #endif
 
 #ifdef linux
-#define clrcsl() printf("\033[H\033[J")
 #include <unistd.h>
+
+#define clrcsl() printf("\033[H\033[J")
 #define slp(t) sleep(t/1000)
 #endif
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <malloc.h>
 
 #include "functions.h"
 #include "bunny.h"
 
 FILE *myfile;
 
+int gridX = 100;		//
+int gridY = 60;		//how large is your console?
+int foodCount = 5;
+
 int main(int argc, char *argv[]) {
 	//#definees, but for arguments
 	unsigned int max_colony_size = 1000;	//arg[1]; >GridX*GridY makes no sense
 	unsigned char infection_prob = 80;	//0-100%
-	unsigned int food_count = 2;			//useless, in functions.h as #define	
+	unsigned int food_count = 5;			//useless, in functions.h as #define
 
-	char buff[40];	//for log_name, with enough space, 15 for string, 15 for time
+	//get arguments
+	//Gridsize
+	if (argc >= 2) {
+		if (atoi(argv[1]) > 0) gridX = atoi(argv[1]);
+	}if (argc >= 3) {
+		if (atoi(argv[2]) > 0) gridY = atoi(argv[2]);
+	}if (argc >= 4) {
+		//max population size
+		if (atoi(argv[3]) > 0) max_colony_size = atoi(argv[3]);
+	}if (argc >= 5) {
+		//infection rate
+		if (atoi(argv[4]) >= 0 && atoi(argv[4]) <= 100) infection_prob = atoi(argv[4]);
+	}if (argc >= 6) {
+		//amount of food sources
+		if (atoi(argv[5]) >= 0) foodCount = atoi(argv[5]);
+	}
 
-	srand(time(NULL));
+	char buff[40];	//for log_name, with enough space, 15 for string, 25 for time
+	srand((unsigned int)time(NULL));
 
 	//posiiton of food sources
-	//except right and bottom border
-	Point food[FOOD_COUNT];
-	
+	//equal to Point food[FOOD_COUNT];
+	Point *food = (Point*)alloca(sizeof(Point) * foodCount);
+
 	//time for log-file
 	time_t rawtime;
 	struct tm * timeinfo;
-
-	for (int i = 0; i < FOOD_COUNT; i++) {
-		food[i].x = rand() % (GRIDX - 1);
-		food[i].y = rand() % (GRIDY - 1);
-	}
 
 	//get the time
 	time(&rawtime);
 	//into struct
 	timeinfo = localtime(&rawtime);
 
+	//random position of food
+	//except right and bottom border
+	for (int i = 0; i < foodCount; i++) {
+		food[i].x = rand() % (gridX - 1);
+		food[i].y = rand() % (gridY - 1);
+	}
 
 	//combine name with time
 	//yyy_mm_dd_hh.mm.ss
-	snprintf(buff, 40, "Log_Bunny-%d_%d_%d_%d.%d.%d.txt", timeinfo->tm_year+1900, timeinfo->tm_mon+1,
-													timeinfo->tm_mday, timeinfo->tm_hour, timeinfo->tm_min,
-													timeinfo->tm_sec);
+	snprintf(buff, 40, "Log_Bunny-%d_%d_%d__%d.%d.%d.txt", timeinfo->tm_year + 1900, timeinfo->tm_mon + 1,
+		timeinfo->tm_mday, timeinfo->tm_hour, timeinfo->tm_min,
+		timeinfo->tm_sec);
 
 	//fstream init for data log
-	myfile = fopen(buff, "w");
-	//maxbunnies, infection_prob, +1 for appl. name
-	if (argc >= 3) {
-		//max population size
-		if(atoi(argv[1]) > 0)  max_colony_size = atoi(argv[1]);
-		//infection rate
-		if (atoi(argv[2]) >= 0 && atoi(argv[2]) <= 100) infection_prob = atoi(argv[2]);
-	}
-	
+	if ((myfile = fopen(buff, "w")) == NULL) fprintf(stderr, "Could not open Logfile\n");
+
 	//create first 5 bunnies
 	bunny *anchor;
 	int bunnyCount = 0;
@@ -78,19 +95,19 @@ int main(int argc, char *argv[]) {
 
 	anchor = NULL;
 	anchor = createBunny(anchor, rand() % 4, &bunnyCount, &infects, initCoord, food);
+
+	//next 14 bunnies
 	for (int i = 0; i < 15; i++) {
-		initCoord.x = rand() % GRIDX;
-		initCoord.y = rand() % GRIDY;
+		initCoord.x = rand() % gridX;
+		initCoord.y = rand() % gridY;
 		bunny_append(anchor, createBunny(anchor, rand() % 4, &bunnyCount, &infects, initCoord, food));
 	}
-
-	//end create first 5 bunnies
+	//end create first 15 bunnies
 
 	//init console color display
 	clrcsl();
 	slp(1000);
 	//end init color
-
 
 	//TODO: debug flags
 
@@ -101,23 +118,24 @@ int main(int argc, char *argv[]) {
 		nextTurn(&anchor, &bunnyCount, &infects, max_colony_size, infection_prob, food);
 
 		//display infos and amount of bunny
-		displayGrid(anchor, food);
+		displayGrid(anchor, food, foodCount);
 		displayInfo(anchor, &bunnyCount, &infects, cycles);
 
 		//wait
 		slp(1000);
 		clrcsl();
-
 	}
 	printf("The last survivor will die soon\n");
 	printf("End of simulation");
+	//free last bunny
+	free(anchor);
 	fclose(myfile);
 	return 0;
 }//end main
 
 //age Bunnys, initiate regular actions
-void nextTurn(bunny **anchor, int *bunnyCount, int *infects, unsigned int max_colony_size, 
-				unsigned char infection_prob, Point food[]) {
+void nextTurn(bunny **anchor, int *bunnyCount, int *infects, unsigned int max_colony_size,
+	unsigned char infection_prob, Point food[]) {
 	//infect healthy bunnies
 	infectBunnies(anchor, bunnyCount, infects, infection_prob, food);
 
@@ -131,25 +149,23 @@ void nextTurn(bunny **anchor, int *bunnyCount, int *infects, unsigned int max_co
 	reproduce(anchor, bunnyCount, infects, food);
 
 	//get feeded, if near source
-	feedBunnies(anchor, food);
+	feedBunnies(anchor, food, foodCount);
 
 	//die, if longer without food
 	starveBunnies(anchor, bunnyCount, infects);
 
-
 	//food shortage
-	if (*bunnyCount > max_colony_size) {
+	if ((unsigned int)*bunnyCount > max_colony_size) {
 		famineBunnies(anchor, bunnyCount, infects);
 	}
 }//end nextTurn
 
 //moves every Bunny randomly
 void moveBunny(bunny **anchor, Point food[]) {
-	Point coords;
 	Point offset;
 	bunny *p;
 
-	for (p = *anchor; p != NULL; p = p->next) {
+	for (p = *anchor; p != NULL; p = (bunny*)p->next) {
 		//get random free Field next to p->coord
 		//returns (0,0) if every field is taken
 		offset = findField(anchor, 0, p->coord, food); //gets empty fields
@@ -176,13 +192,8 @@ Point findField(bunny **anchor, int state, Point coords, Point food[]) {
 	//if state is != 0, 1; ret 0
 	if (state != 0 && state != 1) return offset;
 
-	int targetField[9][2];
-
-	//set Field to 0;
-	for (int i = 0; i < 9; i++) {
-		targetField[i][0] = 0;
-		targetField[i][1] = 0;
-	}
+	//set whole array to 0
+	int targetField[9][2] = { {0,0} };
 
 	//free Fields around bunny
 	//-1 means every field is taken
@@ -237,9 +248,9 @@ Point findField(bunny **anchor, int state, Point coords, Point food[]) {
 int testEmpty(bunny **anchor, Point coords, Point food[]) {
 	bunny *p;
 	int isTaken = 0;
-	
+
 	//test for food source
-	for (int i = 0; i < FOOD_COUNT; i++) {
+	for (int i = 0; i < foodCount; i++) {
 		if (food[i].x == coords.x && food[i].y == coords.y) {
 			isTaken = 1;
 			return isTaken;
@@ -247,13 +258,13 @@ int testEmpty(bunny **anchor, Point coords, Point food[]) {
 	}
 
 	//if coords are out of range/Grid
-	if (coords.x >= GRIDX || coords.x < 0 || coords.y >= GRIDY || coords.y < 0) {
+	if (coords.x >= gridX || coords.x < 0 || coords.y >= gridY || coords.y < 0) {
 		//handle as field would be taken
 		return 1;
 	}
 
 	//go through list, break if grid is taken
-	for (p = *anchor; p != NULL; p = p->next) {
+	for (p = *anchor; p != NULL; p = (bunny*)p->next) {
 		if (coords.x == p->coord.x && coords.y == p->coord.y) {
 			isTaken = 1;
 			break;
@@ -267,7 +278,7 @@ int testEmpty(bunny **anchor, Point coords, Point food[]) {
 bunny *matchToGrid(bunny **anchor, Point coords) {
 	bunny *p;
 	//go through, until coords of both match
-	for (p = *anchor; p != NULL; p = p->next) {
+	for (p = *anchor; p != NULL; p = (bunny*)p->next) {
 		if (p->coord.x == coords.x && p->coord.y == coords.y) {
 			return p;
 		}

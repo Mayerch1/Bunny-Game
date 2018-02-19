@@ -10,7 +10,7 @@
 void ageBunnies(bunny **anchor, int *bunnyCount, int *infects) {
 	bunny *p;
 
-	for (p = *anchor; p != NULL; p = p->next) {
+	for (p = *anchor; p != NULL; p = (bunny*)p->next) {
 		//kill normal bunnies
 		if ((p->age++) >= 10 && p->radioactive_mutant_vampire_bunny == 0) {
 			p = killBunny(anchor, p, bunnyCount, infects, "is EOL :'(");
@@ -36,7 +36,7 @@ bunny *killBunny(bunny **anchor, bunny *victim, int *bunnyCount, int *infects, c
 			(*bunnyCount)--;
 			return *anchor;
 		}
-		*anchor = victim->next;
+		*anchor = (bunny*)victim->next;
 
 		//coorect counters, kill it
 		if (victim->radioactive_mutant_vampire_bunny == 1) (*infects)--;
@@ -45,11 +45,11 @@ bunny *killBunny(bunny **anchor, bunny *victim, int *bunnyCount, int *infects, c
 		return *anchor;
 	}
 	else {
-		bunny *transferP, *searchP, *lastP;
+		bunny *searchP, *lastP;
 
 		//find bunny infront of victim
-		lastP = anchor;
-		for (searchP = *anchor; searchP != victim; searchP = searchP->next) {
+		lastP = (bunny*)anchor;
+		for (searchP = *anchor; searchP != victim; searchP = (bunny*)searchP->next) {
 			lastP = searchP;
 		}
 
@@ -78,7 +78,7 @@ void famineBunnies(bunny **anchor, int *bunnyCount, int *infects) {
 
 		//move *victim to victim
 		for (victim = *anchor; vicNr > 1; vicNr--) {
-			victim = victim->next;
+			victim = (bunny*)victim->next;
 		}
 		//kill him
 		killBunny(anchor, victim, bunnyCount, infects, "starved to death");
@@ -93,7 +93,7 @@ void infectBunnies(bunny **anchor, int *bunnyCount, int *infects, unsigned char 
 	int mutantCount = 0;
 	int xOff = 0, yOff = 0;
 
-	for (p = *anchor; p != NULL; p = p->next) {
+	for (p = *anchor; p != NULL; p = (bunny*)p->next) {
 		if (p->radioactive_mutant_vampire_bunny == 1) {
 			//coords of infection victim
 			Point coords;
@@ -130,15 +130,13 @@ void infectBunnies(bunny **anchor, int *bunnyCount, int *infects, unsigned char 
 	}
 }//end infectBunnies
 
-
 void starveBunnies(bunny **anchor, int *bunnyCount, int *infects) {
 	bunny *p;
-	for (p = *anchor; p != NULL; p = p->next) {
+	for (p = *anchor; p != NULL; p = (bunny*)p->next) {
 		p->daySinceFeeded++;
 	}
 
-
-	for (p = *anchor; p != NULL; p = p->next) {
+	for (p = *anchor; p != NULL; p = (bunny*)p->next) {
 		if (p->daySinceFeeded >= MAX_HUNGER) {
 			p = killBunny(anchor, p, bunnyCount, infects, "was to dump to eat");
 		}

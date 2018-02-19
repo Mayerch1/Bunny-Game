@@ -15,11 +15,9 @@ bunny *createBunny(bunny *anchor, int col, int *bunnyCount, int *infects, Point 
 
 	p = (bunny*)malloc(sizeof(bunny));
 	if (p == NULL) {
-		printf("No memory\n");
+		fprintf(stderr, "No memory available\n");
 		return NULL;
 	}
-
-
 
 	//choose one Grid beneath mother
 	if (anchor == NULL) {
@@ -67,7 +65,7 @@ void bunny_append(bunny *anchor, bunny *e) {
 		return;
 	}
 
-	for (p = anchor; p->next != NULL; p = p->next);
+	for (p = anchor; p->next != NULL; p = (bunny*)p->next);
 	p->next = e;
 }//end bunny_append
 
@@ -101,14 +99,14 @@ void chooseName(bunny *myBunny) {
 	const char mNames[][21] = { "Kevin", "The Hoff", "Pringle", "Fat Boy", "Simon", "Lord", "Sir Lancelot", "Can",
 									"Sir Oppenheimer", "Werner von Braun", "Heisenberg", "Alexander der Grosse", "Lamarck", "Herr Reck",
 									"Graf von Zeppelin", "Bugs Bunny", "Rambo", "Pietro Lombardi", "Tebartz van Elst", "Roooobert Geiss",
-									"El Chapo", "Brad Pitt", "Bill Gates", "Gauland", "Roche Gonzales", "Keoki"};
+									"El Chapo", "Brad Pitt", "Bill Gates", "Gauland", "Roche Gonzales", "Keoki" };
 
 	const char fNames[][21] = { "Jacqueline", "Chantal", "Crystal", "Kimberly", "Ebony", "Tiffany", "Amber",
 									"Britney", "Becky", "Jessica", "Madison", "Katie", "Heather", "Amanda", "Lauren",
 									"Caitlyn", "Rachel", "Allison", "Lacey", "Abby", "Claire", "Barbie", "Olivia",
 									"Madeline", "Skylerr", "Milli" };
 
-	int random = rand() % (sizeof(mNames)/21);
+	int random = rand() % (sizeof(mNames) / 21);
 
 	//disting. betw. male/female
 	if (myBunny->sex == male) {

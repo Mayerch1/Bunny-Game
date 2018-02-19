@@ -9,6 +9,7 @@
 
 #include "functions.h"
 #include <stdio.h>
+#include <malloc.h>
 
 #include "bunny.h"
 
@@ -29,12 +30,11 @@
 #define COLOR_RESET		"\x1b[0m"
 
 extern FILE *myfile;
+extern int gridX, gridY;
 
 //all commented printf() is for detailed display
 //disabled for better "Grid-experience"
 void bornMsg(bunny *born) {
-	
-
 	fprintf(myfile, "%s was born ", born->Name);
 	//printf color of bunny
 	if (born->color == 0) {
@@ -52,21 +52,19 @@ void bornMsg(bunny *born) {
 
 	if (born->radioactive_mutant_vampire_bunny == 1) fprintf(myfile, " and it is a RADIOACTIVE-MUTANT-VAMPIRE-BUNNY!");
 	fprintf(myfile, "\n");
-	
 }
 
 void infectMsg(bunny *victim) {
 	fprintf(myfile, "%s was INFECTED with the virus\n", victim->Name);
 }
 
-void eolMsg(bunny *victim, int *deathMSG) {
+void eolMsg(bunny *victim, char *deathMSG) {
 	fprintf(myfile, "%s ", victim->Name);
 	fprintf(myfile, "%s", deathMSG);
 	fprintf(myfile, "\n");
 }
 
 void starveMsg(int start, int *bunnyCount) {
-	
 	fprintf(myfile, "\n\nFood shortage killed %d bunnies\n\n", start - *bunnyCount);
 	/*
 	#ifdef _WIN32
@@ -79,20 +77,26 @@ void starveMsg(int start, int *bunnyCount) {
 }
 
 //show all bunnies in their grid
-void displayGrid(bunny *anchor, Point food[]) {
+void displayGrid(bunny *anchor, Point food[], int foodCount) {
 	bunny *p;
 	int k = 100;
 
-	//Grid Grid[x][y]
-	char Grid[GRIDX][GRIDY];
-	char isInfect[GRIDX][GRIDY];
-	char furCol[GRIDX][GRIDY];
+	//char Grid[x][y]
+	char **Grid = (char**)alloca(sizeof(char*)*gridX);
+	char **isInfect = (char**)alloca(sizeof(char*)*gridX);
+	char **furCol = (char**)alloca(sizeof(char*)*gridX);
+
+	for (int i = 0; i < gridX; i++) {
+		Grid[i] = (char *)alloca(gridY * sizeof(char));
+		isInfect[i] = (char *)alloca(gridY * sizeof(char));
+		furCol[i] = (char *)alloca(gridY * sizeof(char));
+	}
 
 	//assign blanc to Grid[][]
 	//y-Grid
-	for (int i = 0; i < GRIDY; i++) {
+	for (int i = 0; i < gridY; i++) {
 		//x-Grid
-		for (int j = 0; j < GRIDX; j++) {
+		for (int j = 0; j < gridX; j++) {
 			Grid[j][i] = ' ';
 			isInfect[j][i] = 0;
 			//-1, no valid color
@@ -101,7 +105,7 @@ void displayGrid(bunny *anchor, Point food[]) {
 	}
 
 	//assign the bunnyPos x,y to Grid[x][y], and color
-	for (p = anchor; p != NULL; p = p->next) {
+	for (p = anchor; p != NULL; p = (bunny*)p->next) {
 		//decide, if X,m,M,...
 		//get color of Bunny
 		//infect
@@ -136,12 +140,12 @@ void displayGrid(bunny *anchor, Point food[]) {
 	}
 
 	//y-Grid
-	for (int i = 0; i < GRIDY; i++) {
+	for (int i = 0; i < gridY; i++) {
 		//x-Grid
-		for (int j = 0; j < GRIDX; j++) {
+		for (int j = 0; j < gridX; j++) {
 			printf(COLOR_D_GRAY "|" COLOR_RESET);
 			//printf food source
-			if (printFoodSource(anchor, j, i, food) == 1) printf(COLOR_GREEN "O" COLOR_RESET);
+			if (printFoodSource(anchor, j, i, food, foodCount) == 1) printf(COLOR_GREEN "O" COLOR_RESET);
 			//print any type of bunny
 			else {
 				if (isInfect[j][i] == 1)	printf(COLOR_RED "%c" COLOR_RESET, Grid[j][i]);
@@ -158,14 +162,13 @@ void displayGrid(bunny *anchor, Point food[]) {
 }
 
 //determins, if asked x, y is taken by food source
-int printFoodSource(bunny *anchor, int x, int y, Point food[]) {
+int printFoodSource(bunny *anchor, int x, int y, Point food[], int foodCount) {
 	//go throug all food sources
-	for (int i = 0; i < FOOD_COUNT; i++) {
+	for (int i = 0; i < foodCount; i++) {
 		if (food[i].x == x && food[i].y == y) return 1;
 	}
 	return 0;
 }//end printFoodSource
-
 
 void displayInfo(bunny *anchor, int *bunnyCount, int *infects, int cycles) {
 	/*
