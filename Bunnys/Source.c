@@ -159,7 +159,7 @@ int main(int argc, char *argv[]) {
 	printf("End of simulation");
 	//free last bunny
 	free(anchor);
-	fclose(myfile);
+	if (myfile != NULL) fclose(myfile);
 	return 0;
 }//end main
 
