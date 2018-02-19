@@ -30,24 +30,48 @@ int main(int argc, char *argv[]) {
 	//#definees, but for arguments
 	unsigned int max_colony_size = 1000;	//arg[1]; >GridX*GridY makes no sense
 	unsigned char infection_prob = 80;	//0-100%
-	unsigned int food_count = 5;			//useless, in functions.h as #define
 
-	//get arguments
-	//Gridsize
-	if (argc >= 2) {
-		if (atoi(argv[1]) > 0) gridX = atoi(argv[1]);
-	}if (argc >= 3) {
-		if (atoi(argv[2]) > 0) gridY = atoi(argv[2]);
-	}if (argc >= 4) {
+	char noLog = 0, log = 0;		//arg for logfile
+
+	for (int i = 1; i < argc; i++) {
+		//display Help-page, then terminate
+		if (strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "-help") == 0) {
+			printHelp();
+			return 0;
+		}
+
+		//grid Xdsize
+		if (strcmp(argv[i], "-x") == 0) {
+			if (atoi(argv[i + 1]) > 0) gridX = atoi(argv[i + 1]);
+		}
+		//grid >dsize
+		if (strcmp(argv[i], "-y") == 0) {
+			if (atoi(argv[i + 1]) > 0) gridY = atoi(argv[i + 1]);
+		}
 		//max population size
-		if (atoi(argv[3]) > 0) max_colony_size = atoi(argv[3]);
-	}if (argc >= 5) {
+		if (strcmp(argv[i], "-n") == 0) {
+			if (atoi(argv[i + 1]) > 0) max_colony_size = atoi(argv[i + 1]);
+		}
 		//infection rate
-		if (atoi(argv[4]) >= 0 && atoi(argv[4]) <= 100) infection_prob = atoi(argv[4]);
-	}if (argc >= 6) {
+		if (strcmp(argv[i], "-inf") == 0) {
+			if (atoi(argv[i + 1]) >= 0 && atoi(argv[i + 1]) <= 100) infection_prob = atoi(argv[i + 1]);
+		}
 		//amount of food sources
-		if (atoi(argv[5]) >= 0) foodCount = atoi(argv[5]);
+		if (strcmp(argv[i], "-f") == 0) {
+			if (atoi(argv[i + 1]) >= 0) foodCount = atoi(argv[i + 1]);
+		}
+		//detailed logfile
+		if (strcmp(argv[i], "-log") == 0) {
+			log = 1;
+		}
+		//no logfile
+		if (strcmp(argv[i], "-nolog") == 0) {
+			noLog = 1;
+		}
 	}
+
+	//collision of -log and -noLog
+	if (log == 1 && noLog == 1) noLog = 0;
 
 	char buff[40];	//for log_name, with enough space, 15 for string, 25 for time
 	srand((unsigned int)time(NULL));
@@ -65,21 +89,27 @@ int main(int argc, char *argv[]) {
 	//into struct
 	timeinfo = localtime(&rawtime);
 
-	//random position of food
-	//except right and bottom border
-	for (int i = 0; i < foodCount; i++) {
-		food[i].x = rand() % (gridX - 1);
-		food[i].y = rand() % (gridY - 1);
-	}
-
 	//combine name with time
 	//yyy_mm_dd_hh.mm.ss
 	snprintf(buff, 40, "Log_Bunny-%d_%d_%d__%d.%d.%d.txt", timeinfo->tm_year + 1900, timeinfo->tm_mon + 1,
 		timeinfo->tm_mday, timeinfo->tm_hour, timeinfo->tm_min,
 		timeinfo->tm_sec);
 
-	//fstream init for data log
-	if ((myfile = fopen(buff, "w")) == NULL) fprintf(stderr, "Could not open Logfile\n");
+	//for -nolog
+	if (noLog == 1) {
+		myfile = NULL;
+	}
+	else {
+		//fstream init for data log
+		if ((myfile = fopen(buff, "w")) == NULL) fprintf(stderr, "Could not open Logfile\n");
+	}
+
+	//random position of food
+	//except right and bottom border
+	for (int i = 0; i < foodCount; i++) {
+		food[i].x = rand() % (gridX - 1);
+		food[i].y = rand() % (gridY - 1);
+	}
 
 	//create first 5 bunnies
 	bunny *anchor;
@@ -119,7 +149,7 @@ int main(int argc, char *argv[]) {
 
 		//display infos and amount of bunny
 		displayGrid(anchor, food, foodCount);
-		displayInfo(anchor, &bunnyCount, &infects, cycles);
+		displayInfo(anchor, &bunnyCount, &infects, cycles, log);
 
 		//wait
 		slp(1000);

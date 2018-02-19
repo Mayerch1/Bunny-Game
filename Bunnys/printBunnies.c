@@ -1,10 +1,15 @@
 #ifdef _WIN32
 #include <Windows.h>
+
+#define clrcsl() system("cls");
+#define slp(t) Sleep(t)
 #endif
 
 #ifdef linux
-#define clear() printf("\033[H\033[J")
 #include <unistd.h>
+
+#define clrcsl() printf("\033[H\033[J")
+#define slp(t) sleep(t/1000)
 #endif
 
 #include "functions.h"
@@ -32,48 +37,67 @@
 extern FILE *myfile;
 extern int gridX, gridY;
 
+//printfs help, if argument was received
+void printHelp() {
+	printf("\n--------------------------------\n");
+	printf("Bunnys.exe help:\n");
+	printf("Following arguments are allowd:\n");
+
+	printf("\n-x <int>\thorizontal Gridsize \n-y <int>\tvertical Gridsize\n");
+	printf("-n <uint>\tmax number of bunnys before famine\n");
+	printf("-inf <uint>\tprobability to infect a healthy bunny\n");
+	printf("-f <int>\tamount of food sources\n");
+	printf("-log\t\t output more detailed logfile\n");
+	printf("-nolog\t\tdoesnt create log-file\n");
+	printf("\t\t-log is priorised over -nolog");
+
+	printf("\nThe order can be scrambled, if an argument is not feeded, default values will be used");
+
+	printf("--------------------------------\n");
+}//end printHelp
+
 //all commented printf() is for detailed display
 //disabled for better "Grid-experience"
 void bornMsg(bunny *born) {
-	fprintf(myfile, "%s was born ", born->Name);
-	//printf color of bunny
-	if (born->color == 0) {
-		fprintf(myfile, "with a white fur ");
-	}
-	else if (born->color == 1) {
-		fprintf(myfile, "with a brown fur ");
-	}
-	else if (born->color == 2) {
-		fprintf(myfile, "with a gray fur ");
-	}
-	else if (born->color == 3) {
-		fprintf(myfile, "with a creme-colored fur ");
-	}
+	if (myfile != NULL) {
+		fprintf(myfile, "%s was born ", born->Name);
+		//printf color of bunny
+		if (born->color == 0) {
+			fprintf(myfile, "with a white fur ");
+		}
+		else if (born->color == 1) {
+			fprintf(myfile, "with a brown fur ");
+		}
+		else if (born->color == 2) {
+			fprintf(myfile, "with a gray fur ");
+		}
+		else if (born->color == 3) {
+			fprintf(myfile, "with a creme-colored fur ");
+		}
 
-	if (born->radioactive_mutant_vampire_bunny == 1) fprintf(myfile, " and it is a RADIOACTIVE-MUTANT-VAMPIRE-BUNNY!");
-	fprintf(myfile, "\n");
+		if (born->radioactive_mutant_vampire_bunny == 1) fprintf(myfile, " and it is a RADIOACTIVE-MUTANT-VAMPIRE-BUNNY!");
+		fprintf(myfile, "\n");
+	}
 }
 
 void infectMsg(bunny *victim) {
-	fprintf(myfile, "%s was INFECTED with the virus\n", victim->Name);
+	if (myfile != NULL) {
+		fprintf(myfile, "%s was INFECTED with the virus\n", victim->Name);
+	}
 }
 
 void eolMsg(bunny *victim, char *deathMSG) {
-	fprintf(myfile, "%s ", victim->Name);
-	fprintf(myfile, "%s", deathMSG);
-	fprintf(myfile, "\n");
+	if (myfile != NULL) {
+		fprintf(myfile, "%s ", victim->Name);
+		fprintf(myfile, "%s", deathMSG);
+		fprintf(myfile, "\n");
+	}
 }
 
 void starveMsg(int start, int *bunnyCount) {
-	fprintf(myfile, "\n\nFood shortage killed %d bunnies\n\n", start - *bunnyCount);
-	/*
-	#ifdef _WIN32
-	Sleep(500);
-	#endif
-	#ifdef linux
-	sleep(1);
-	#endif
-	*/
+	if (myfile != NULL) {
+		fprintf(myfile, "\n\nFood shortage killed %d bunnies\n\n", start - *bunnyCount);
+	}
 }
 
 //show all bunnies in their grid
@@ -170,35 +194,25 @@ int printFoodSource(bunny *anchor, int x, int y, Point food[], int foodCount) {
 	return 0;
 }//end printFoodSource
 
-void displayInfo(bunny *anchor, int *bunnyCount, int *infects, int cycles) {
-	/*
-	//for displaying all of the shit
+void displayInfo(bunny *anchor, int *bunnyCount, int *infects, int cycles, char log) {
+	if (myfile != NULL) {
+		if (log == 1) {
+			//for displaying all of the shit
+			bunny *p;
 
-	bunny *p;
-
-	printf("\n");
-
-	for (p = anchor; p != NULL; p = p->next) {
-	printf("Name: %s \nSex: %d \nColor: %d \nAge: %d \n", p->Name, p->sex, p->color, p->age);
-	if (p->radioactive_mutant_vampire_bunny == 1) {
-	printf("He's a radioactive-mutant-vampire-bunny\n");
+			fprintf(myfile, "\n");
+			for (p = anchor; p != NULL; p = p->next) {
+				fprintf(myfile, "Name: %s \nSex: %d \nColor: %d \nAge: %d \n", p->Name, p->sex, p->color, p->age);
+				if (p->radioactive_mutant_vampire_bunny == 1) {
+					fprintf(myfile, "He's a radioactive-mutant-vampire-bunny\n");
+				}
+				fprintf(myfile, "\n");
+			}
+		}
+		//print for texfile
+		fprintf(myfile, "\nThere're now %d bunnies alive. Cycle Nr: %d\n", *bunnyCount, cycles);
+		fprintf(myfile, "--------------------------------------------------\n");
 	}
-
-	#ifdef _WIN32
-	Sleep(500);
-	#endif
-	#ifdef linux
-	sleep(1);
-	#endif
-
-	printf("\n");
-	}
-	*/
-
-	//print for texfile
-	fprintf(myfile, "\nThere're now %d bunnies alive. Cycle Nr: %d\n", *bunnyCount, cycles);
-	fprintf(myfile, "--------------------------------------------------\n");
-
 	//printf for console
 	printf("There're now %d bunnies alive. Cycle Nr: %d\n", *bunnyCount, cycles);
 	printf("--------------------------------------------------\n");

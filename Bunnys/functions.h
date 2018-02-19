@@ -49,7 +49,9 @@ void feedBunnies(bunny **anchor, Point food[], int foodCount);
 
 #ifndef PRINTS
 #define PRINTS
-void displayInfo(bunny *anchor, int *bunnyCount, int *infects, int cycles);
+void printHelp();
+
+void displayInfo(bunny *anchor, int *bunnyCount, int *infects, int cycles, char log);
 void displayGrid(bunny *anchor, Point food[], int foodCount);
 int printFoodSource(bunny *anchor, int x, int y, Point food[], int foodCount);
 
