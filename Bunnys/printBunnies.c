@@ -39,21 +39,20 @@ extern int gridX, gridY;
 
 //printfs help, if argument was received
 void printHelp() {
-	printf("\n--------------------------------\n");
+	printf("\n-------------------------------------\n");
 	printf("Bunnys.exe help:\n");
-	printf("Following arguments are allowd:\n");
+	printf("Following arguments are allowed (not case sensitive):\n");
 
 	printf("\n-x <int>\thorizontal Gridsize \n-y <int>\tvertical Gridsize\n");
 	printf("-n <uint>\tmax number of bunnys before famine\n");
 	printf("-inf <uint>\tprobability to infect a healthy bunny\n");
 	printf("-f <int>\tamount of food sources\n");
-	printf("-log\t\t output more detailed logfile\n");
-	printf("-nolog\t\tdoesnt create log-file\n");
-	printf("\t\t-log is priorised over -nolog");
+	printf("--log\t\toutput more detailed logfile (priorised over --nolog)\n");
+	printf("--nolog\t\tdoesnt create log-file\n");
 
-	printf("\nThe order can be scrambled, if an argument is not feeded, default values will be used");
+	printf("\nThe order can be scrambled, if an argument is not feeded, default values will be used\n");
 
-	printf("--------------------------------\n");
+	printf("-------------------------------------\n");
 }//end printHelp
 
 //all commented printf() is for detailed display

@@ -15,6 +15,9 @@ int testEmpty(bunny **anchor, Point coords, Point food[]);
 Point findField(bunny **anchor, int state, Point coords, Point food[]);
 bunny *matchToGrid(bunny **anchor, Point coords);
 
+void toLowerCase(int argc, char *argv[]);
+void getArgs(int argc, char *argv[], unsigned int *max_colony_size, unsigned char *infection_prob, char *log, char *noLog);
+
 #endif
 
 #ifndef CREATEBUNNY

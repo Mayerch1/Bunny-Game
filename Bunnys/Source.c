@@ -29,55 +29,23 @@ int foodCount = 5;
 int main(int argc, char *argv[]) {
 	//#definees, but for arguments
 	unsigned int max_colony_size = 1000;	//arg[1]; >GridX*GridY makes no sense
-	unsigned char infection_prob = 80;	//0-100%
+	unsigned char infection_prob = 100;	//0-100%
 
 	char noLog = 0, log = 0;		//arg for logfile
 
-	for (int i = 1; i < argc; i++) {
-		//display Help-page, then terminate
-		if (strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "-help") == 0) {
-			printHelp();
-			return 0;
-		}
-
-		//grid Xdsize
-		if (strcmp(argv[i], "-x") == 0) {
-			if (atoi(argv[i + 1]) > 0) gridX = atoi(argv[i + 1]);
-		}
-		//grid >dsize
-		if (strcmp(argv[i], "-y") == 0) {
-			if (atoi(argv[i + 1]) > 0) gridY = atoi(argv[i + 1]);
-		}
-		//max population size
-		if (strcmp(argv[i], "-n") == 0) {
-			if (atoi(argv[i + 1]) > 0) max_colony_size = atoi(argv[i + 1]);
-		}
-		//infection rate
-		if (strcmp(argv[i], "-inf") == 0) {
-			if (atoi(argv[i + 1]) >= 0 && atoi(argv[i + 1]) <= 100) infection_prob = atoi(argv[i + 1]);
-		}
-		//amount of food sources
-		if (strcmp(argv[i], "-f") == 0) {
-			if (atoi(argv[i + 1]) >= 0) foodCount = atoi(argv[i + 1]);
-		}
-		//detailed logfile
-		if (strcmp(argv[i], "-log") == 0) {
-			log = 1;
-		}
-		//no logfile
-		if (strcmp(argv[i], "-nolog") == 0) {
-			noLog = 1;
-		}
+	if (argc > 1) {
+		//process arguments
+		toLowerCase(argc, argv);
+		getArgs(argc, argv, &max_colony_size, &infection_prob, &log, &noLog);
+		//collision of -log and -noLog
+		if (log == 1 && noLog == 1) noLog = 0;
 	}
-
-	//collision of -log and -noLog
-	if (log == 1 && noLog == 1) noLog = 0;
 
 	char buff[40];	//for log_name, with enough space, 15 for string, 25 for time
 	srand((unsigned int)time(NULL));
 
 	//posiiton of food sources
-	//equal to Point food[FOOD_COUNT];
+	//equal to Point food[foodCount];
 	Point *food = (Point*)alloca(sizeof(Point) * foodCount);
 
 	//time for log-file
@@ -316,3 +284,59 @@ bunny *matchToGrid(bunny **anchor, Point coords) {
 	//return NULL if no bunny at coords
 	return NULL;
 }
+
+//converts given argv into lower case
+void toLowerCase(int argc, char *argv[]) {
+	//go throug all args
+	for (int i = 1; i < argc; i++) {
+		int j = 0;
+		//parse to \0
+		while (argv[i][j] != '\0') {
+			//if capital, convert to non-capital
+			if (argv[i][j] >= 0x41 && argv[i][j] <= 0x5A) {
+				argv[i][j] += 0x20;
+			}
+			j++;
+		}
+	}
+}//end toLowerCase
+
+//saves feeded arguments into variables
+void getArgs(int argc, char *argv[], unsigned int *max_colony_size, unsigned char *infection_prob, char *log, char *noLog) {
+	for (int i = 1; i < argc; i++) {
+		//display Help-page, then terminate
+		if (strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "-help") == 0) {
+			printHelp();
+			return 0;
+		}
+
+		//grid Xdsize
+		if (strcmp(argv[i], "-x") == 0) {
+			if (atoi(argv[i + 1]) > 0) gridX = atoi(argv[i + 1]);
+		}
+		//grid >dsize
+		if (strcmp(argv[i], "-y") == 0) {
+			if (atoi(argv[i + 1]) > 0) gridY = atoi(argv[i + 1]);
+		}
+		//max population size
+		if (strcmp(argv[i], "-n") == 0) {
+			if (atoi(argv[i + 1]) > 0) *max_colony_size = atoi(argv[i + 1]);
+		}
+		//infection rate
+		if (strcmp(argv[i], "-inf") == 0) {
+			if (atoi(argv[i + 1]) >= 0 && atoi(argv[i + 1]) <= 100) *infection_prob = atoi(argv[i + 1]);
+		}
+		//amount of food sources
+		if (strcmp(argv[i], "-f") == 0) {
+			if (atoi(argv[i + 1]) >= 0) foodCount = atoi(argv[i + 1]);
+		}
+		//detailed logfile
+		if (strcmp(argv[i], "--log") == 0) {
+			*log = 1;
+		}
+		//no logfile
+		if (strcmp(argv[i], "--nolog") == 0) {
+			*noLog = 1;
+		}
+	}
+}//end getArgs
