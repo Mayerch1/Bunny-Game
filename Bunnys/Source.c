@@ -33,6 +33,11 @@ int main(int argc, char *argv[]) {
 
 	char noLog = 0, log = 0;		//arg for logfile
 
+	//init color display
+	clrcsl();
+	slp(1000);
+	//end init color display
+
 	if (argc > 1) {
 		//process arguments
 		toLowerCase(argc, argv);
@@ -102,11 +107,6 @@ int main(int argc, char *argv[]) {
 	}
 	//end create first 15 bunnies
 
-	//init console color display
-	clrcsl();
-	slp(1000);
-	//end init color
-
 	//TODO: debug flags
 
 	//start the game
@@ -118,6 +118,19 @@ int main(int argc, char *argv[]) {
 		//display infos and amount of bunny
 		displayGrid(anchor, food, foodCount);
 		displayInfo(anchor, &bunnyCount, &infects, cycles, log);
+
+		//in case of program termination
+		if (noLog != 1) fflush(myfile);
+
+#ifdef _WIN32
+		//mass murder 1/2 of all bunnys, with h
+		if (kbhit()) {
+			char state = getch();
+			if (state == 'k' || state == 'K') {
+				famineBunnies(&anchor, &bunnyCount, &infects);
+			}
+		}
+#endif // _WIN32
 
 		//wait
 		slp(1000);

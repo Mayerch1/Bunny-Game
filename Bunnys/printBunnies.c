@@ -40,7 +40,9 @@ extern int gridX, gridY;
 //printfs help, if argument was received
 void printHelp() {
 	printf("\n-------------------------------------\n");
-	printf("Bunnys.exe help:\n");
+	printf("Bunnys.exe help:\n\n");
+	printf("Press '"COLOR_RED "k" COLOR_RESET"' or '"COLOR_RED "K" COLOR_RESET"' to initiate a mass murder of half of all living bunnies.\n\n");
+
 	printf("Following arguments are allowed (not case sensitive):\n");
 
 	printf("\n-x <int>\thorizontal Gridsize \n-y <int>\tvertical Gridsize\n");
@@ -50,7 +52,7 @@ void printHelp() {
 	printf("--log\t\toutput more detailed logfile (priorised over --nolog)\n");
 	printf("--nolog\t\tdoesnt create log-file\n");
 
-	printf("\nThe order can be scrambled, if an argument is not feeded, default values will be used\n");
+	printf("\nThe order can be scrambled, if an argument is not feeded, the default value will be used\n");
 
 	printf("-------------------------------------\n");
 }//end printHelp
@@ -194,14 +196,21 @@ int printFoodSource(bunny *anchor, int x, int y, Point food[], int foodCount) {
 }//end printFoodSource
 
 void displayInfo(bunny *anchor, int *bunnyCount, int *infects, int cycles, char log) {
+	//for --nolog
 	if (myfile != NULL) {
+		//for --log
 		if (log == 1) {
 			//for displaying all of the shit
+			const char *bunnyColors[] = { "white", "brown", "gray", "creme" };
+			const char *bunnySex[] = { "male", "female" };
+
 			bunny *p;
 
 			fprintf(myfile, "\n");
+			fprintf(myfile, "Current living bunnies: \n");
+			fprintf(myfile, "-----------\n");
 			for (p = anchor; p != NULL; p = p->next) {
-				fprintf(myfile, "Name: %s \nSex: %d \nColor: %d \nAge: %d \n", p->Name, p->sex, p->color, p->age);
+				fprintf(myfile, "Name: %s \nSex: %s \nColor: %s \nAge: %d \n", p->Name, bunnySex[p->sex], bunnyColors[p->color], p->age);
 				if (p->radioactive_mutant_vampire_bunny == 1) {
 					fprintf(myfile, "He's a radioactive-mutant-vampire-bunny\n");
 				}
