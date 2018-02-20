@@ -5,7 +5,7 @@ The Game of Life, or so,
 Download '/Releases/Bunny.exe'
 or go into /Bunnys and have fun<br /><br />
 
-Press ```h```to initiate a mass murder on half of the population.
+Press ```k```to initiate a mass murder on half of the population.
 
 Use of Arguments (not case sensitive):
 ```Bunny.exe -x <int> -y <int> -n <uint> -inf <uint> -f <int> --log --nolog```<br />
