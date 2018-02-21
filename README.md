@@ -11,7 +11,7 @@ Use of Arguments (not case sensitive):
 ```Bunny.exe -x <int> -n <uint> -y <int> --loG```<br />
 <br />
 
-```-help/-h```&emsp;&emsp;display this argument list<br />
+```(-)-help/h```&emsp;&emsp;display this argument list<br />
 ```-x```&emsp;&emsp;&emsp;&emsp;&emsp;horizontal gridsize<br />
 ```-y```&emsp;&emsp;&emsp;&emsp;&emsp;vertical gridsize<br />
 ```-n```&emsp;&emsp;&emsp;&emsp;&emsp;max population size n<br />
