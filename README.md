@@ -2,10 +2,10 @@
 The Game of Life, or so,
 'simulates' a bunny population
 
-Download '/Releases/Bunny.exe'
-or go into /Bunnys and have fun<br /><br />
+Download [Release/Bunnys.exe](Release/Bunnys.exe)
+or go into [/Bunnys](Bunnys) and have fun<br /><br />
 
-Press ```k```to initiate a mass murder on half of the population.
+Press ```k```to initiate a mass murder on half of the population (Windows only).
 
 Use of Arguments (not case sensitive):
 ```Bunny.exe -x <int> -n <uint> -y <int> --loG```<br />
