@@ -130,14 +130,14 @@ void infectBunnies(bunny **anchor, int *bunnyCount, int *infects, unsigned char 
 	}
 }//end infectBunnies
 
-void starveBunnies(bunny **anchor, int *bunnyCount, int *infects) {
+void starveBunnies(bunny **anchor, int *bunnyCount, int *infects, int max_hunger) {
 	bunny *p;
 	for (p = *anchor; p != NULL; p = (bunny*)p->next) {
 		p->daySinceFeeded++;
 	}
 
 	for (p = *anchor; p != NULL; p = (bunny*)p->next) {
-		if (p->daySinceFeeded >= MAX_HUNGER) {
+		if (p->daySinceFeeded >= max_hunger) {
 			p = killBunny(anchor, p, bunnyCount, infects, "was to dump to eat");
 		}
 	}

@@ -3,12 +3,11 @@
 #ifndef MAINFCT
 #define MAINFCT
 
-//#define FOOD_COUNT 5
-#define MAX_HUNGER 3
+//#define MAX_HUNGER 3
 #define FEED_RANGE 5
 
 void nextTurn(bunny **anchor, int *bunnyCount, int *infects, unsigned int max_colony_size,
-	unsigned char infection_prob, Point food[]);
+	unsigned char infection_prob, Point food[], int max_hunger);
 
 void moveBunny(bunny **anchor, Point food[]);
 int testEmpty(bunny **anchor, Point coords, Point food[]);
@@ -16,7 +15,8 @@ Point findField(bunny **anchor, int state, Point coords, Point food[]);
 bunny *matchToGrid(bunny **anchor, Point coords);
 
 void toLowerCase(int argc, char *argv[]);
-void getArgs(int argc, char *argv[], unsigned int *max_colony_size, unsigned char *infection_prob, char *log, char *noLog);
+void getArgs(int argc, char *argv[], unsigned int *max_colony_size, unsigned char *infection_prob,
+	char *log, char *noLog, unsigned int *start_Bunnies, unsigned int *sleep_time);
 
 #endif
 
@@ -38,7 +38,7 @@ bunny *killBunny(bunny **anchor, bunny *victim, int *bunnyCount, int *infects, c
 void famineBunnies(bunny **anchor, int *bunnyCount, int *infects);
 void infectBunnies(bunny **anchor, int *bunnyCount, int *infects, unsigned char infection_prob, Point food[]);
 
-void starveBunnies(bunny **anchor, int *bunnyCount, int *infects);
+void starveBunnies(bunny **anchor, int *bunnyCount, int *infects, int max_hunger);
 
 #endif
 

@@ -41,14 +41,20 @@ extern int gridX, gridY;
 void printHelp() {
 	printf("\n-------------------------------------\n");
 	printf("Bunnys.exe help:\n\n");
+#ifdef _WIN32
+	//Windows exclusive feature
 	printf("Press '"COLOR_RED "k" COLOR_RESET"' or '"COLOR_RED "K" COLOR_RESET"' to initiate a mass murder of half of all living bunnies.\n\n");
+#endif
+	printf("Following arguments are allowed (not case sensitive):\n\n");
 
-	printf("Following arguments are allowed (not case sensitive):\n");
-
-	printf("\n-x <int>\thorizontal Gridsize \n-y <int>\tvertical Gridsize\n");
+	printf("-x <int>\thorizontal Gridsize \n-y <int>\tvertical Gridsize\n");
 	printf("-n <uint>\tmax number of bunnys before famine\n");
 	printf("-inf <uint>\tprobability to infect a healthy bunny\n");
-	printf("-f <int>\tamount of food sources\n");
+	printf("-f <int>\tamount of food sources, -1 for disabled\n");
+	printf("-s <uint>\tnumber of bunnies at beginning\n");
+
+	printf("-slp <uint>\ttime between to cylces in ms\n");
+
 	printf("--log\t\toutput more detailed logfile (priorised over --nolog)\n");
 	printf("--nolog\t\tdoesnt create log-file\n");
 

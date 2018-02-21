@@ -9,7 +9,7 @@
 #include <unistd.h>
 
 #define clrcsl() printf("\033[H\033[J")
-#define slp(t) sleep(t/1000)
+#define slp(t) sleep((float)(t/1000))
 #endif
 
 #include <stdio.h>
@@ -29,9 +29,22 @@ int foodCount = 5;
 int main(int argc, char *argv[]) {
 	//#definees, but for arguments
 	unsigned int max_colony_size = 1000;	//arg[1]; >GridX*GridY makes no sense
-	unsigned char infection_prob = 100;	//0-100%
+	unsigned char infection_prob = 80;		//0-100%
+	unsigned int start_Bunnies = 15;		//first created bunnies
+	unsigned int sleep_time = 1000;			//sleep between cycles
+
+	//define as variable, for disabled food sources
+	int max_hunger = 3;
 
 	char noLog = 0, log = 0;		//arg for logfile
+
+#ifdef _DEBUG
+	//set arg-values for debug analysis, balancing, etc
+	noLog = 1;
+	max_colony_size = 10000;
+	infection_prob = 0;
+	foodCount = 0;
+#endif
 
 	//init color display
 	clrcsl();
@@ -41,7 +54,7 @@ int main(int argc, char *argv[]) {
 	if (argc > 1) {
 		//process arguments
 		toLowerCase(argc, argv);
-		getArgs(argc, argv, &max_colony_size, &infection_prob, &log, &noLog);
+		getArgs(argc, argv, &max_colony_size, &infection_prob, &log, &noLog, &start_Bunnies, &sleep_time);
 		//collision of -log and -noLog
 		if (log == 1 && noLog == 1) noLog = 0;
 	}
@@ -50,8 +63,17 @@ int main(int argc, char *argv[]) {
 	srand((unsigned int)time(NULL));
 
 	//posiiton of food sources
-	//equal to Point food[foodCount];
-	Point *food = (Point*)alloca(sizeof(Point) * foodCount);
+	Point *food = NULL;
+	//disable food sources
+	if (foodCount == -1) {
+		//no bunny will starve to death
+		foodCount = 0;
+		max_hunger = 51;
+	}
+	else if (foodCount > 0) {
+		//equal to Point food[foodCount];
+		food = (Point*)alloca(sizeof(Point) * foodCount);
+	}
 
 	//time for log-file
 	time_t rawtime;
@@ -92,15 +114,20 @@ int main(int argc, char *argv[]) {
 
 	Point initCoord;
 
-	//force first bunny next to food sourve
-	initCoord.x = food[0].x + 1;
-	initCoord.y = food[0].y + 1;
-
+	if (foodCount <= 0) {
+		initCoord.x = rand() % gridX;
+		initCoord.y = rand() % gridY;
+	}
+	else {
+		//force first bunny next to food sourve
+		initCoord.x = food[0].x + 1;
+		initCoord.y = food[0].y + 1;
+	}
 	anchor = NULL;
-	anchor = createBunny(anchor, rand() % 4, &bunnyCount, &infects, initCoord, food);
+	anchor = createBunny(anchor, rand() % 4, &bunnyCount, &infects, initCoord, food, max_hunger);
 
 	//next 14 bunnies
-	for (int i = 0; i < 15; i++) {
+	for (int i = 0; i < start_Bunnies - 1; i++) {
 		initCoord.x = rand() % gridX;
 		initCoord.y = rand() % gridY;
 		bunny_append(anchor, createBunny(anchor, rand() % 4, &bunnyCount, &infects, initCoord, food));
@@ -113,7 +140,7 @@ int main(int argc, char *argv[]) {
 	while (anchor->next != NULL) {
 		cycles++;
 		//execute next cycle, incl move
-		nextTurn(&anchor, &bunnyCount, &infects, max_colony_size, infection_prob, food);
+		nextTurn(&anchor, &bunnyCount, &infects, max_colony_size, infection_prob, food, max_hunger);
 
 		//display infos and amount of bunny
 		displayGrid(anchor, food, foodCount);
@@ -123,7 +150,7 @@ int main(int argc, char *argv[]) {
 		if (noLog != 1) fflush(myfile);
 
 #ifdef _WIN32
-		//mass murder 1/2 of all bunnys, with h
+		//mass murder 1/2 of all bunnys, with k
 		if (kbhit()) {
 			char state = getch();
 			if (state == 'k' || state == 'K') {
@@ -133,7 +160,7 @@ int main(int argc, char *argv[]) {
 #endif // _WIN32
 
 		//wait
-		slp(1000);
+		slp(sleep_time);
 		clrcsl();
 	}
 	printf("The last survivor will die soon\n");
@@ -146,7 +173,7 @@ int main(int argc, char *argv[]) {
 
 //age Bunnys, initiate regular actions
 void nextTurn(bunny **anchor, int *bunnyCount, int *infects, unsigned int max_colony_size,
-	unsigned char infection_prob, Point food[]) {
+	unsigned char infection_prob, Point food[], int max_hunger) {
 	//infect healthy bunnies
 	infectBunnies(anchor, bunnyCount, infects, infection_prob, food);
 
@@ -163,7 +190,7 @@ void nextTurn(bunny **anchor, int *bunnyCount, int *infects, unsigned int max_co
 	feedBunnies(anchor, food, foodCount);
 
 	//die, if longer without food
-	starveBunnies(anchor, bunnyCount, infects);
+	starveBunnies(anchor, bunnyCount, infects, max_hunger);
 
 	//food shortage
 	if ((unsigned int)*bunnyCount > max_colony_size) {
@@ -315,10 +342,10 @@ void toLowerCase(int argc, char *argv[]) {
 }//end toLowerCase
 
 //saves feeded arguments into variables
-void getArgs(int argc, char *argv[], unsigned int *max_colony_size, unsigned char *infection_prob, char *log, char *noLog) {
+void getArgs(int argc, char *argv[], unsigned int *max_colony_size, unsigned char *infection_prob, char *log, char *noLog, unsigned int *start_Bunnies, unsigned int *sleep_time) {
 	for (int i = 1; i < argc; i++) {
 		//display Help-page, then terminate
-		if (strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "-help") == 0) {
+		if (strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "-help") == 0 || strcmp(argv[i], "--h") == 0 || strcmp(argv[i], "--help") == 0) {
 			printHelp();
 			return 0;
 		}
@@ -341,7 +368,16 @@ void getArgs(int argc, char *argv[], unsigned int *max_colony_size, unsigned cha
 		}
 		//amount of food sources
 		if (strcmp(argv[i], "-f") == 0) {
-			if (atoi(argv[i + 1]) >= 0) foodCount = atoi(argv[i + 1]);
+			if (atoi(argv[i + 1]) >= -1) foodCount = atoi(argv[i + 1]);
+		}
+		//number of bunnies in the beginning
+		if (strcmp(argv[i], "-s") == 0) {
+			if (atoi(argv[i + 1] >= 1)) *start_Bunnies = atoi(argv[i + 1]);
+		}
+		//time between cycles
+		if (strcmp(argv[i], "-slp") == 0) {
+			int x = atoi(argv[i + 1]);
+			if (atoi(argv[i + 1]) >= 0) *sleep_time = atoi(argv[i + 1]);
 		}
 		//detailed logfile
 		if (strcmp(argv[i], "--log") == 0) {
