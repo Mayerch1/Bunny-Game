@@ -5,6 +5,7 @@
 
 //#define MAX_HUNGER 3
 #define FEED_RANGE 5
+#define NAME_LEN 21
 
 void nextTurn(bunny **anchor, int *bunnyCount, int *infects, unsigned int max_colony_size,
 	unsigned char infection_prob, Point food[], int max_hunger);
@@ -16,14 +17,18 @@ bunny *matchToGrid(bunny **anchor, Point coords);
 
 void toLowerCase(int argc, char *argv[]);
 void getArgs(int argc, char *argv[], unsigned int *max_colony_size, unsigned char *infection_prob,
-	char *log, char *noLog, unsigned int *start_Bunnies, unsigned int *sleep_time);
+	char *log, char *noLog, unsigned int *start_Bunnies, unsigned int *sleep_time, char *save, char *load);
 
 #endif
 
 #ifndef CREATEBUNNY
 #define CREATEBUNNY
 
-bunny *createBunny(bunny *anchor, int col, int *bunnyCount, int *infects, Point coords, Point food[]);
+int loadHead(int *gridX, int *gridY, int *foodCount, int *max_hunger);
+void loadFood(int foodCount, Point food[]);
+void loadBunnies(int tmpFood, int oldBunnyCount, int *bunnyCount, int *infects, bunny *anchor, Point food[]);
+
+bunny *createBunny(bunny *anchor, int col, int age, int isMutant, int *bunnyCount, int *infects, Point coords, Point food[]);
 void bunny_append(bunny *anchor, bunny *e);
 void initBunny(bunny *myBunny, int col, int *infects);
 void chooseName(bunny *myBunny);
@@ -62,4 +67,7 @@ void bornMsg(bunny *born);
 void infectMsg(bunny *victim);
 void eolMsg(bunny *victim, char *deathMSG);
 void starveMsg(int start, int *bunnyCount);
+
+void saveGame(int gridX, int gridY, bunny *anchor, Point food[], int foodCount, int max_hunger, int bunnyCount);
+
 #endif

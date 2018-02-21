@@ -19,9 +19,13 @@ Use of Arguments (not case sensitive):
 ```-f```&emsp;&emsp;&emsp;&emsp;&emsp;amount of food sources in the grid<br />
 ```-s```&emsp;&emsp;&emsp;&emsp;&emsp;number of bunnies at beginning<br />
 ```-slp```&emsp;&emsp;&emsp;&emsp;time between to cylces in ms<br />
+```--save```&ensp;&emsp;&emsp;save the following game to a file<br />
+```--load```&ensp;&emsp;&emsp;load the saved game (--load is priorised over --save)<br />
+
 ```--log```&ensp;&emsp;&emsp;&emsp;more detailed log<br />
 ```--nolog```&ensp;&emsp;&emsp;no log (--log is priorised over --nolog)<br />
 <br />
+For the save and load function watch the upcoming documentation at [SaveDoc.md](SaveDoc.md)<br />
 The order and amount of arguments is not important.
 Not feeded arguments will be replaced by default values.<br />
 If an arguments is feeded twice, the last one will be taken into account.

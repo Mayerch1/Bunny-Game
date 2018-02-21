@@ -23,7 +23,7 @@ void reproduce(bunny **anchor, int *bunnyCount, int *infects, Point food[]) {
 	//create new bunny for each female
 	for (p = *anchor; p != NULL; p = (bunny*)p->next) {
 		if (p->sex == female && p->age >= 2 && p->radioactive_mutant_vampire_bunny == 0) {
-			bunny_append(*anchor, createBunny(*anchor, p->color, bunnyCount, infects, p->coord, food));
+			bunny_append(*anchor, createBunny(*anchor, p->color, 0, -1, bunnyCount, infects, p->coord, food));
 		}
 	}
 }//end reproduce

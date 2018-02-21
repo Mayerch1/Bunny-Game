@@ -338,3 +338,163 @@ System.Runtime.InteropServices.COMException (0x80004005): Unbekannter Fehler (Ex
    at Microsoft.VisualStudio.Shell.ThreadHelper.Invoke[TResult](Func`1 method)
    at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.get_ProjectItem()
    at DevTracker.DevTrackerToolWinControl.WindowsEvents_WindowActivated(Window gotFocus, Window lostFocus) in C:\Users\KurtG\Documents\Visual Studio 2017\Projects\DevTracker\DevTracker\DevTrackerToolWinDteEvents.cs:line 473
+
+21.02.2018 20:53:42 :
+System.Runtime.InteropServices.COMException (0x80004005): Unbekannter Fehler (Exception from HRESULT: 0x80004005 (E_FAIL))
+   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure(Int32 hr, Int32[] expectedHRFailure)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.Window.get_ProjectItem()
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.<get_ProjectItem>b__55_0()
+   at Microsoft.VisualStudio.Shell.ThreadHelper.Invoke[TResult](Func`1 method)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.get_ProjectItem()
+   at DevTracker.DevTrackerToolWinControl.WindowsEvents_WindowActivated(Window gotFocus, Window lostFocus) in C:\Users\KurtG\Documents\Visual Studio 2017\Projects\DevTracker\DevTracker\DevTrackerToolWinDteEvents.cs:line 473
+
+21.02.2018 21:26:30 :
+System.Runtime.InteropServices.COMException (0x80004005): Unbekannter Fehler (Exception from HRESULT: 0x80004005 (E_FAIL))
+   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure(Int32 hr, Int32[] expectedHRFailure)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.Window.get_ProjectItem()
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.<get_ProjectItem>b__55_0()
+   at Microsoft.VisualStudio.Shell.ThreadHelper.Invoke[TResult](Func`1 method)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.get_ProjectItem()
+   at DevTracker.DevTrackerToolWinControl.WindowsEvents_WindowActivated(Window gotFocus, Window lostFocus) in C:\Users\KurtG\Documents\Visual Studio 2017\Projects\DevTracker\DevTracker\DevTrackerToolWinDteEvents.cs:line 473
+
+21.02.2018 21:33:05 :
+System.Runtime.InteropServices.COMException (0x80004005): Unbekannter Fehler (Exception from HRESULT: 0x80004005 (E_FAIL))
+   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure(Int32 hr, Int32[] expectedHRFailure)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.Window.get_ProjectItem()
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.<get_ProjectItem>b__55_0()
+   at Microsoft.VisualStudio.Shell.ThreadHelper.Invoke[TResult](Func`1 method)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.get_ProjectItem()
+   at DevTracker.DevTrackerToolWinControl.WindowsEvents_WindowActivated(Window gotFocus, Window lostFocus) in C:\Users\KurtG\Documents\Visual Studio 2017\Projects\DevTracker\DevTracker\DevTrackerToolWinDteEvents.cs:line 473
+
+21.02.2018 23:06:36 :
+System.Runtime.InteropServices.COMException (0x80004005): Unbekannter Fehler (Exception from HRESULT: 0x80004005 (E_FAIL))
+   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure(Int32 hr, Int32[] expectedHRFailure)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.Window.get_ProjectItem()
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.<get_ProjectItem>b__55_0()
+   at Microsoft.VisualStudio.Shell.ThreadHelper.Invoke[TResult](Func`1 method)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.get_ProjectItem()
+   at DevTracker.DevTrackerToolWinControl.WindowsEvents_WindowActivated(Window gotFocus, Window lostFocus) in C:\Users\KurtG\Documents\Visual Studio 2017\Projects\DevTracker\DevTracker\DevTrackerToolWinDteEvents.cs:line 473
+
+21.02.2018 23:07:35 :
+System.Runtime.InteropServices.COMException (0x80004005): Unbekannter Fehler (Exception from HRESULT: 0x80004005 (E_FAIL))
+   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure(Int32 hr, Int32[] expectedHRFailure)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.Window.get_ProjectItem()
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.<get_ProjectItem>b__55_0()
+   at Microsoft.VisualStudio.Shell.ThreadHelper.Invoke[TResult](Func`1 method)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.get_ProjectItem()
+   at DevTracker.DevTrackerToolWinControl.WindowsEvents_WindowActivated(Window gotFocus, Window lostFocus) in C:\Users\KurtG\Documents\Visual Studio 2017\Projects\DevTracker\DevTracker\DevTrackerToolWinDteEvents.cs:line 473
+
+21.02.2018 23:08:23 :
+System.Runtime.InteropServices.COMException (0x80004005): Unbekannter Fehler (Exception from HRESULT: 0x80004005 (E_FAIL))
+   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure(Int32 hr, Int32[] expectedHRFailure)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.Window.get_ProjectItem()
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.<get_ProjectItem>b__55_0()
+   at Microsoft.VisualStudio.Shell.ThreadHelper.Invoke[TResult](Func`1 method)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.get_ProjectItem()
+   at DevTracker.DevTrackerToolWinControl.WindowsEvents_WindowActivated(Window gotFocus, Window lostFocus) in C:\Users\KurtG\Documents\Visual Studio 2017\Projects\DevTracker\DevTracker\DevTrackerToolWinDteEvents.cs:line 473
+
+21.02.2018 23:10:27 :
+System.Runtime.InteropServices.COMException (0x80004005): Unbekannter Fehler (Exception from HRESULT: 0x80004005 (E_FAIL))
+   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure(Int32 hr, Int32[] expectedHRFailure)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.Window.get_ProjectItem()
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.<get_ProjectItem>b__55_0()
+   at Microsoft.VisualStudio.Shell.ThreadHelper.Invoke[TResult](Func`1 method)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.get_ProjectItem()
+   at DevTracker.DevTrackerToolWinControl.WindowsEvents_WindowActivated(Window gotFocus, Window lostFocus) in C:\Users\KurtG\Documents\Visual Studio 2017\Projects\DevTracker\DevTracker\DevTrackerToolWinDteEvents.cs:line 473
+
+21.02.2018 23:10:33 :
+System.Runtime.InteropServices.COMException (0x80004005): Unbekannter Fehler (Exception from HRESULT: 0x80004005 (E_FAIL))
+   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure(Int32 hr, Int32[] expectedHRFailure)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.Window.get_ProjectItem()
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.<get_ProjectItem>b__55_0()
+   at Microsoft.VisualStudio.Shell.ThreadHelper.Invoke[TResult](Func`1 method)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.get_ProjectItem()
+   at DevTracker.DevTrackerToolWinControl.WindowsEvents_WindowActivated(Window gotFocus, Window lostFocus) in C:\Users\KurtG\Documents\Visual Studio 2017\Projects\DevTracker\DevTracker\DevTrackerToolWinDteEvents.cs:line 473
+
+21.02.2018 23:21:03 :
+System.Runtime.InteropServices.COMException (0x80004005): Unbekannter Fehler (Exception from HRESULT: 0x80004005 (E_FAIL))
+   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure(Int32 hr, Int32[] expectedHRFailure)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.Window.get_ProjectItem()
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.<get_ProjectItem>b__55_0()
+   at Microsoft.VisualStudio.Shell.ThreadHelper.Invoke[TResult](Func`1 method)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.get_ProjectItem()
+   at DevTracker.DevTrackerToolWinControl.WindowsEvents_WindowActivated(Window gotFocus, Window lostFocus) in C:\Users\KurtG\Documents\Visual Studio 2017\Projects\DevTracker\DevTracker\DevTrackerToolWinDteEvents.cs:line 473
+
+21.02.2018 23:21:38 :
+System.Runtime.InteropServices.COMException (0x80004005): Unbekannter Fehler (Exception from HRESULT: 0x80004005 (E_FAIL))
+   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure(Int32 hr, Int32[] expectedHRFailure)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.Window.get_ProjectItem()
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.<get_ProjectItem>b__55_0()
+   at Microsoft.VisualStudio.Shell.ThreadHelper.Invoke[TResult](Func`1 method)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.get_ProjectItem()
+   at DevTracker.DevTrackerToolWinControl.WindowsEvents_WindowActivated(Window gotFocus, Window lostFocus) in C:\Users\KurtG\Documents\Visual Studio 2017\Projects\DevTracker\DevTracker\DevTrackerToolWinDteEvents.cs:line 473
+
+21.02.2018 23:56:06 :
+System.Runtime.InteropServices.COMException (0x80004005): Unbekannter Fehler (Exception from HRESULT: 0x80004005 (E_FAIL))
+   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure(Int32 hr, Int32[] expectedHRFailure)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.Window.get_ProjectItem()
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.<get_ProjectItem>b__55_0()
+   at Microsoft.VisualStudio.Shell.ThreadHelper.Invoke[TResult](Func`1 method)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.get_ProjectItem()
+   at DevTracker.DevTrackerToolWinControl.WindowsEvents_WindowActivated(Window gotFocus, Window lostFocus) in C:\Users\KurtG\Documents\Visual Studio 2017\Projects\DevTracker\DevTracker\DevTrackerToolWinDteEvents.cs:line 473
+
+21.02.2018 23:59:39 :
+System.Runtime.InteropServices.COMException (0x80004005): Unbekannter Fehler (Exception from HRESULT: 0x80004005 (E_FAIL))
+   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure(Int32 hr, Int32[] expectedHRFailure)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.Window.get_ProjectItem()
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.<get_ProjectItem>b__55_0()
+   at Microsoft.VisualStudio.Shell.ThreadHelper.Invoke[TResult](Func`1 method)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.get_ProjectItem()
+   at DevTracker.DevTrackerToolWinControl.WindowsEvents_WindowActivated(Window gotFocus, Window lostFocus) in C:\Users\KurtG\Documents\Visual Studio 2017\Projects\DevTracker\DevTracker\DevTrackerToolWinDteEvents.cs:line 473
+
+22.02.2018 00:00:06 :
+System.Runtime.InteropServices.COMException (0x80004005): Unbekannter Fehler (Exception from HRESULT: 0x80004005 (E_FAIL))
+   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure(Int32 hr, Int32[] expectedHRFailure)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.Window.get_ProjectItem()
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.<get_ProjectItem>b__55_0()
+   at Microsoft.VisualStudio.Shell.ThreadHelper.Invoke[TResult](Func`1 method)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.get_ProjectItem()
+   at DevTracker.DevTrackerToolWinControl.WindowsEvents_WindowActivated(Window gotFocus, Window lostFocus) in C:\Users\KurtG\Documents\Visual Studio 2017\Projects\DevTracker\DevTracker\DevTrackerToolWinDteEvents.cs:line 473
+
+22.02.2018 00:15:40 :
+System.Runtime.InteropServices.COMException (0x80004005): Unbekannter Fehler (Exception from HRESULT: 0x80004005 (E_FAIL))
+   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure(Int32 hr, Int32[] expectedHRFailure)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.Window.get_ProjectItem()
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.<get_ProjectItem>b__55_0()
+   at Microsoft.VisualStudio.Shell.ThreadHelper.Invoke[TResult](Func`1 method)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.get_ProjectItem()
+   at DevTracker.DevTrackerToolWinControl.WindowsEvents_WindowActivated(Window gotFocus, Window lostFocus) in C:\Users\KurtG\Documents\Visual Studio 2017\Projects\DevTracker\DevTracker\DevTrackerToolWinDteEvents.cs:line 473
+
+22.02.2018 00:17:01 :
+System.Runtime.InteropServices.COMException (0x80004005): Unbekannter Fehler (Exception from HRESULT: 0x80004005 (E_FAIL))
+   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure(Int32 hr, Int32[] expectedHRFailure)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.Window.get_ProjectItem()
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.<get_ProjectItem>b__55_0()
+   at Microsoft.VisualStudio.Shell.ThreadHelper.Invoke[TResult](Func`1 method)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.get_ProjectItem()
+   at DevTracker.DevTrackerToolWinControl.WindowsEvents_WindowActivated(Window gotFocus, Window lostFocus) in C:\Users\KurtG\Documents\Visual Studio 2017\Projects\DevTracker\DevTracker\DevTrackerToolWinDteEvents.cs:line 473
+
+22.02.2018 00:18:51 :
+System.Runtime.InteropServices.COMException (0x80004005): Unbekannter Fehler (Exception from HRESULT: 0x80004005 (E_FAIL))
+   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure(Int32 hr, Int32[] expectedHRFailure)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.Window.get_ProjectItem()
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.<get_ProjectItem>b__55_0()
+   at Microsoft.VisualStudio.Shell.ThreadHelper.Invoke[TResult](Func`1 method)
+   at Microsoft.VisualStudio.Platform.WindowManagement.DTE.WindowBase.get_ProjectItem()
+   at DevTracker.DevTrackerToolWinControl.WindowsEvents_WindowActivated(Window gotFocus, Window lostFocus) in C:\Users\KurtG\Documents\Visual Studio 2017\Projects\DevTracker\DevTracker\DevTrackerToolWinDteEvents.cs:line 473

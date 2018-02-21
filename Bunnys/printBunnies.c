@@ -55,6 +55,9 @@ void printHelp() {
 
 	printf("-slp <uint>\ttime between to cylces in ms\n");
 
+	printf("--save\t\save the following game\n");
+	printf("--load\t\load your saved game\n");
+
 	printf("--log\t\toutput more detailed logfile (priorised over --nolog)\n");
 	printf("--nolog\t\tdoesnt create log-file\n");
 
@@ -215,7 +218,7 @@ void displayInfo(bunny *anchor, int *bunnyCount, int *infects, int cycles, char 
 			fprintf(myfile, "\n");
 			fprintf(myfile, "Current living bunnies: \n");
 			fprintf(myfile, "-----------\n");
-			for (p = anchor; p != NULL; p = p->next) {
+			for (p = anchor; p != NULL; p = (bunny *)p->next) {
 				fprintf(myfile, "Name: %s \nSex: %s \nColor: %s \nAge: %d \n", p->Name, bunnySex[p->sex], bunnyColors[p->color], p->age);
 				if (p->radioactive_mutant_vampire_bunny == 1) {
 					fprintf(myfile, "He's a radioactive-mutant-vampire-bunny\n");
@@ -231,3 +234,50 @@ void displayInfo(bunny *anchor, int *bunnyCount, int *infects, int cycles, char 
 	printf("There're now %d bunnies alive. Cycle Nr: %d\n", *bunnyCount, cycles);
 	printf("--------------------------------------------------\n");
 }//end displayInfo
+
+//saves current state of the game
+void saveGame(int gridX, int gridY, bunny *anchor, Point food[], int foodCount, int max_hunger, int bunnyCount) {
+	/*
+		{arg1,arg2,arg3};
+		{foodx,foody,food2,food3}
+
+		{sex,color,age,...}
+		{sex,color,age,...}
+		{sex,color,age,...};
+	*/
+	FILE *savedGame;
+
+	if ((savedGame = fopen("game01.save", "wb")) == NULL) {
+		fprintf(stderr, "Could not write to savefile\n");
+		return;
+	}
+	fprintf(savedGame, "!!Modify at your own risk, wrong values could lead to pointer access violation. Be careful with hidden nl and blancs!!\n");
+	//fundamental args
+	fprintf(savedGame, "{");
+	fprintf(savedGame, "%d,%d,%d,%d,%d,", gridX, gridY, bunnyCount, foodCount, max_hunger);
+	fprintf(savedGame, "};\n");
+
+	//food sources, (x,y)
+	for (int i = 0; i < foodCount; i++) {
+		fprintf(savedGame, "{");
+		fprintf(savedGame, "%d,%d,", food[i].x, food[i].y);
+		fprintf(savedGame, "}\n");
+	}
+	fprintf(savedGame, "\n");
+	bunny *p;
+	//loop all bunnies
+	for (p = anchor; p != NULL; p = (bunny*)p->next) {
+		fprintf(savedGame, "{");
+		fprintf(savedGame, "%d ", p->sex);
+		fprintf(savedGame, "%d ", p->color);
+		fprintf(savedGame, "%d ", p->age);
+		fprintf(savedGame, "%s ", p->Name);
+		fprintf(savedGame, "%d ", p->radioactive_mutant_vampire_bunny);
+		fprintf(savedGame, "%d ", p->daySinceFeeded);
+		fprintf(savedGame, "%d %d ", p->coord.x, p->coord.y);
+		fprintf(savedGame, "}\n");
+	}
+	//push and close stream
+	fflush(savedGame);
+	fclose(savedGame);
+}//end saveGame

@@ -1,28 +1,111 @@
 <?xml version="1.0" encoding="utf-16"?>
-<DevTrackerData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SolutionTotalEditTime="PT10H20M32.6966792S" SolutionTotalViewTime="PT7H28M34.881448S" SolutionTotalDebugTime="PT3H49M53.8897051S">
+<DevTrackerData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SolutionTotalEditTime="PT11H7M41.9812916S" SolutionTotalViewTime="PT7H52M55.8459867S" SolutionTotalDebugTime="PT3H59M6.1382617S">
   <FileVersion>
     <Major>1</Major>
     <Minor>0</Minor>
   </FileVersion>
   <SessionTimeList />
   <LastSessionTimeList>
-    <DevTrackerDataItem ViewActiveTime="PT10.9987856S" EditActiveTime="PT0S">
+    <DevTrackerDataItem ViewActiveTime="PT5.9668727S" EditActiveTime="PT0S">
       <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
       <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\bunny.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-21T20:27:47.8286068+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT43.065762S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>Debug Mode</Item>
+      <ItemType>DebugModeItem</ItemType>
+      <ProjectName />
+      <CreatedDate>2018-02-21T20:40:12.6936574+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT0.6479559S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>E:\Programme\Visual Studio\VC\Tools\MSVC\14.12.25827\crt\src\vcruntime\exe_common.inl</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName />
+      <CreatedDate>2018-02-21T20:40:24.5263064+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT31.4125362S" EditActiveTime="PT1M4.4432564S">
+      <ModifiedDate>2018-02-21T20:52:59.7463456+01:00</ModifiedDate>
+      <ModifiedBy>Christian</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\functions.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-21T20:23:08.6447566+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT2.8591247S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\incrBunnies.c</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-21T20:27:51.8066557+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT1M40.2589143S" EditActiveTime="PT15M1.8638269S">
+      <ModifiedDate>2018-02-21T20:57:48.1635497+01:00</ModifiedDate>
+      <ModifiedBy>Christian</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\printBunnies.c</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-21T20:23:34.9014273+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT4M45.6373449S" EditActiveTime="PT8M20.1213053S">
+      <ModifiedDate>2018-02-21T20:52:59.9246482+01:00</ModifiedDate>
+      <ModifiedBy>Christian</ModifiedBy>
+      <EditedCount>1</EditedCount>
       <ViewedCount>1</ViewedCount>
       <Item>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\Source.c</Item>
       <ItemType>ProjectItem</ItemType>
       <ProjectName>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\Bunnys.vcxproj</ProjectName>
-      <CreatedDate>2018-02-20T16:58:01.4212243+01:00</CreatedDate>
+      <CreatedDate>2018-02-21T20:16:24.9326464+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT4.1705276S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>c:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\stdio.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>c:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\stdio.h</ProjectName>
+      <CreatedDate>2018-02-21T20:53:42.5254632+01:00</CreatedDate>
       <ViewedBy>Christian</ViewedBy>
     </DevTrackerDataItem>
   </LastSessionTimeList>
   <TotalTimeList>
-    <DevTrackerDataItem ViewActiveTime="PT7M26.8997339S" EditActiveTime="PT4M9.9883673S">
+    <DevTrackerDataItem ViewActiveTime="PT2.7481976S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>E:\Programme\Visual Studio\VC\Tools\MSVC\14.12.25827\crt\src\i386\alloca16.asm</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName />
+      <CreatedDate>2018-02-21T15:17:40.2215197+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT7M38.1596365S" EditActiveTime="PT4M9.9883673S">
       <ModifiedDate>2018-02-07T15:48:37.3468505+01:00</ModifiedDate>
       <ModifiedBy>Christian</ModifiedBy>
       <EditedCount>10</EditedCount>
-      <ViewedCount>32</ViewedCount>
+      <ViewedCount>34</ViewedCount>
       <Item>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\bunny.h</Item>
       <ItemType>ProjectItem</ItemType>
       <ProjectName>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\Bunnys.vcxproj</ProjectName>
@@ -40,6 +123,16 @@
       <CreatedDate>2018-02-11T18:18:26.1783323+01:00</CreatedDate>
       <ViewedBy>Christian</ViewedBy>
     </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT0.6974259S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>E:\Programme\Visual Studio\VC\Tools\MSVC\14.12.25827\crt\src\i386\chkstk.asm</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName />
+      <CreatedDate>2018-02-21T15:17:58.0546784+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
     <DevTrackerDataItem ViewActiveTime="PT1.3020319S" EditActiveTime="PT0S">
       <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
       <EditedCount>0</EditedCount>
@@ -50,11 +143,11 @@
       <CreatedDate>2018-02-01T16:41:06.7697882+01:00</CreatedDate>
       <ViewedBy>Christian</ViewedBy>
     </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT42M49.3379509S" EditActiveTime="PT57M20.7270136S">
+    <DevTrackerDataItem ViewActiveTime="PT42M51.7965971S" EditActiveTime="PT57M20.7270136S">
       <ModifiedDate>2018-02-18T15:08:03.6373194+01:00</ModifiedDate>
       <ModifiedBy>Christian</ModifiedBy>
       <EditedCount>27</EditedCount>
-      <ViewedCount>40</ViewedCount>
+      <ViewedCount>41</ViewedCount>
       <Item>E:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\createBunnies.c</Item>
       <ItemType>ProjectItem</ItemType>
       <ProjectName>E:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\Bunnys.vcxproj</ProjectName>
@@ -72,31 +165,31 @@
       <CreatedDate>2018-02-10T17:34:46.2616524+01:00</CreatedDate>
       <ViewedBy>Christian</ViewedBy>
     </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT3H49M53.8897051S" EditActiveTime="PT27M30.3557725S">
+    <DevTrackerDataItem ViewActiveTime="PT3H59M6.1382617S" EditActiveTime="PT27M30.3557725S">
       <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
       <EditedCount>4</EditedCount>
-      <ViewedCount>56</ViewedCount>
+      <ViewedCount>58</ViewedCount>
       <Item>Debug Mode</Item>
       <ItemType>DebugModeItem</ItemType>
       <ProjectName />
       <CreatedDate>2018-02-01T13:14:57.4326657+01:00</CreatedDate>
       <ViewedBy>Christian</ViewedBy>
     </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT6.8375729S" EditActiveTime="PT0S">
+    <DevTrackerDataItem ViewActiveTime="PT15.2793611S" EditActiveTime="PT0S">
       <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
       <EditedCount>0</EditedCount>
-      <ViewedCount>2</ViewedCount>
+      <ViewedCount>4</ViewedCount>
       <Item>E:\Programme\Visual Studio\VC\Tools\MSVC\14.12.25827\crt\src\vcruntime\exe_common.inl</Item>
       <ItemType>ProjectItem</ItemType>
       <ProjectName />
       <CreatedDate>2018-02-02T23:44:37.1762434+01:00</CreatedDate>
       <ViewedBy>Christian</ViewedBy>
     </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT20M59.5363467S" EditActiveTime="PT21M16.5015663S">
-      <ModifiedDate>2018-02-20T15:12:07.7867543+01:00</ModifiedDate>
+    <DevTrackerDataItem ViewActiveTime="PT22M21.0509621S" EditActiveTime="PT23M58.7268766S">
+      <ModifiedDate>2018-02-21T20:52:59.7463456+01:00</ModifiedDate>
       <ModifiedBy>Christian</ModifiedBy>
-      <EditedCount>26</EditedCount>
-      <ViewedCount>40</ViewedCount>
+      <EditedCount>28</EditedCount>
+      <ViewedCount>42</ViewedCount>
       <Item>E:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\functions.h</Item>
       <ItemType>ProjectItem</ItemType>
       <ProjectName>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\Bunnys.vcxproj</ProjectName>
@@ -114,11 +207,11 @@
       <CreatedDate>2018-02-10T16:54:54.1358341+01:00</CreatedDate>
       <ViewedBy>Christian</ViewedBy>
     </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT15M58.6373485S" EditActiveTime="PT6M51.1510584S">
+    <DevTrackerDataItem ViewActiveTime="PT16M18.5022205S" EditActiveTime="PT6M51.1510584S">
       <ModifiedDate>2018-02-19T14:34:44.773715+01:00</ModifiedDate>
       <ModifiedBy>Christian</ModifiedBy>
       <EditedCount>12</EditedCount>
-      <ViewedCount>36</ViewedCount>
+      <ViewedCount>38</ViewedCount>
       <Item>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\incrBunnies.c</Item>
       <ItemType>ProjectItem</ItemType>
       <ProjectName>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\Bunnys.vcxproj</ProjectName>
@@ -146,11 +239,11 @@
       <CreatedDate>2018-02-03T14:11:10.9600368+01:00</CreatedDate>
       <ViewedBy>Christian</ViewedBy>
     </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT21M30.9634354S" EditActiveTime="PT1H2M26.4168416S">
-      <ModifiedDate>2018-02-20T16:47:06.9773872+01:00</ModifiedDate>
+    <DevTrackerDataItem ViewActiveTime="PT26M51.2468492S" EditActiveTime="PT1H22M29.232185S">
+      <ModifiedDate>2018-02-21T20:57:48.1635497+01:00</ModifiedDate>
       <ModifiedBy>Christian</ModifiedBy>
-      <EditedCount>16</EditedCount>
-      <ViewedCount>20</ViewedCount>
+      <EditedCount>18</EditedCount>
+      <ViewedCount>22</ViewedCount>
       <Item>E:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\printBunnies.c</Item>
       <ItemType>ProjectItem</ItemType>
       <ProjectName>E:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\Bunnys.vcxproj</ProjectName>
@@ -168,11 +261,11 @@
       <CreatedDate>2018-02-10T17:08:43.5984762+01:00</CreatedDate>
       <ViewedBy>Christian</ViewedBy>
     </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT34M26.7280906S" EditActiveTime="PT41M5.6638966S">
-      <ModifiedDate>2018-02-18T15:09:25.7377516+01:00</ModifiedDate>
+    <DevTrackerDataItem ViewActiveTime="PT34M38.4032978S" EditActiveTime="PT41M16.8251281S">
+      <ModifiedDate>2018-02-21T15:13:54.4581611+01:00</ModifiedDate>
       <ModifiedBy>Christian</ModifiedBy>
-      <EditedCount>20</EditedCount>
-      <ViewedCount>37</ViewedCount>
+      <EditedCount>21</EditedCount>
+      <ViewedCount>38</ViewedCount>
       <Item>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\reduceBunnies.c</Item>
       <ItemType>ProjectItem</ItemType>
       <ProjectName>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\Bunnys.vcxproj</ProjectName>
@@ -190,11 +283,11 @@
       <CreatedDate>2018-02-10T17:02:20.112868+01:00</CreatedDate>
       <ViewedBy>Christian</ViewedBy>
     </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT3H40M47.6634506S" EditActiveTime="PT5H2M4.8489201S">
-      <ModifiedDate>2018-02-20T16:47:07.0164443+01:00</ModifiedDate>
+    <DevTrackerDataItem ViewActiveTime="PT3H57M25.5123908S" EditActiveTime="PT5H26M17.9326495S">
+      <ModifiedDate>2018-02-21T20:52:59.9246482+01:00</ModifiedDate>
       <ModifiedBy>Christian</ModifiedBy>
-      <EditedCount>50</EditedCount>
-      <ViewedCount>64</ViewedCount>
+      <EditedCount>52</EditedCount>
+      <ViewedCount>66</ViewedCount>
       <Item>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\Source.c</Item>
       <ItemType>ProjectItem</ItemType>
       <ProjectName>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\Bunnys.vcxproj</ProjectName>
@@ -223,10 +316,10 @@
       <CreatedDate>2018-02-01T12:36:37.6918392+01:00</CreatedDate>
       <ViewedBy>Christian</ViewedBy>
     </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT20.3036694S" EditActiveTime="PT0S">
+    <DevTrackerDataItem ViewActiveTime="PT24.474197S" EditActiveTime="PT0S">
       <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
       <EditedCount>0</EditedCount>
-      <ViewedCount>8</ViewedCount>
+      <ViewedCount>9</ViewedCount>
       <Item>c:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\stdio.h</Item>
       <ItemType>ProjectItem</ItemType>
       <ProjectName>c:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\stdio.h</ProjectName>
@@ -245,6 +338,203 @@
     </DevTrackerDataItem>
   </TotalTimeList>
   <HistoryTimeList>
+    <DevTrackerDataItem ViewActiveTime="PT4.1705276S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>c:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\stdio.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>c:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\stdio.h</ProjectName>
+      <CreatedDate>2018-02-21T20:53:42.5254632+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT0.6479559S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>E:\Programme\Visual Studio\VC\Tools\MSVC\14.12.25827\crt\src\vcruntime\exe_common.inl</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName />
+      <CreatedDate>2018-02-21T20:40:24.5263064+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT43.065762S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>Debug Mode</Item>
+      <ItemType>DebugModeItem</ItemType>
+      <ProjectName />
+      <CreatedDate>2018-02-21T20:40:12.6936574+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT2.8591247S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\incrBunnies.c</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-21T20:27:51.8066557+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT5.9668727S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\bunny.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-21T20:27:47.8286068+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT1M40.2544081S" EditActiveTime="PT15M1.8638269S">
+      <ModifiedDate>2018-02-21T20:57:48.1635497+01:00</ModifiedDate>
+      <ModifiedBy>Christian</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\printBunnies.c</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-21T20:23:34.9014273+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT31.4125362S" EditActiveTime="PT1M4.4432564S">
+      <ModifiedDate>2018-02-21T20:52:59.7463456+01:00</ModifiedDate>
+      <ModifiedBy>Christian</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\functions.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-21T20:23:08.6447566+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT4M45.6373449S" EditActiveTime="PT8M20.1213053S">
+      <ModifiedDate>2018-02-21T20:52:59.9246482+01:00</ModifiedDate>
+      <ModifiedBy>Christian</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\Source.c</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-21T20:16:24.9326464+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT0.6974259S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>E:\Programme\Visual Studio\VC\Tools\MSVC\14.12.25827\crt\src\i386\chkstk.asm</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName />
+      <CreatedDate>2018-02-21T15:17:58.0546784+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT2.7481976S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>E:\Programme\Visual Studio\VC\Tools\MSVC\14.12.25827\crt\src\i386\alloca16.asm</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName />
+      <CreatedDate>2018-02-21T15:17:40.2215197+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT2.4586462S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\createBunnies.c</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-21T15:08:04.300203+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT11.6752072S" EditActiveTime="PT11.1612315S">
+      <ModifiedDate>2018-02-21T15:13:54.4581611+01:00</ModifiedDate>
+      <ModifiedBy>Christian</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>E:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\reduceBunnies.c</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-21T15:08:03.6734391+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT5.2930299S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\bunny.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-21T15:07:58.3573758+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT17.0057473S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\incrBunnies.c</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-21T15:07:11.4443878+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT7.7938323S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>E:\Programme\Visual Studio\VC\Tools\MSVC\14.12.25827\crt\src\vcruntime\exe_common.inl</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName />
+      <CreatedDate>2018-02-21T14:41:23.6763634+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT8M29.1827946S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>Debug Mode</Item>
+      <ItemType>DebugModeItem</ItemType>
+      <ProjectName />
+      <CreatedDate>2018-02-21T14:32:10.0098661+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT3M40.0305081S" EditActiveTime="PT5M0.9515165S">
+      <ModifiedDate>2018-02-21T15:13:54.2994661+01:00</ModifiedDate>
+      <ModifiedBy>Christian</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\printBunnies.c</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-21T14:27:42.393535+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT50.1020792S" EditActiveTime="PT1M37.7820539S">
+      <ModifiedDate>2018-02-21T15:13:54.629456+01:00</ModifiedDate>
+      <ModifiedBy>Christian</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\functions.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-21T14:24:46.6559411+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT11M52.2130971S" EditActiveTime="PT15M52.9624241S">
+      <ModifiedDate>2018-02-21T15:24:22.4650276+01:00</ModifiedDate>
+      <ModifiedBy>Christian</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\Source.c</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>e:\Dokumente\Visual Studio 2017\Projects\Bunnys\Bunnys\Bunnys.vcxproj</ProjectName>
+      <CreatedDate>2018-02-21T14:23:30.1425543+01:00</CreatedDate>
+      <ViewedBy>Christian</ViewedBy>
+    </DevTrackerDataItem>
     <DevTrackerDataItem ViewActiveTime="PT10.99428S" EditActiveTime="PT0S">
       <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
       <EditedCount>0</EditedCount>
