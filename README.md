@@ -25,7 +25,7 @@ Use of Arguments (not case sensitive):
 ```--log```&ensp;&emsp;&emsp;&emsp;more detailed log<br />
 ```--nolog```&ensp;&emsp;&emsp;no log (--log is priorised over --nolog)<br />
 <br />
-For the save and load function watch the upcoming documentation at [SaveDoc.md](SaveDoc.md)<br />
+For the save and load function watch the upcoming documentation at [SaveDoc.md](SaveDoc.md)<br /><br />
 The order and amount of arguments is not important.
 Not feeded arguments will be replaced by default values.<br />
 If an arguments is feeded twice, the last one will be taken into account.
