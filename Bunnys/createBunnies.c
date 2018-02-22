@@ -8,12 +8,12 @@
 #include "bunny.h"
 
 //load saved arguments, returns bunnyCount on programm termination
-int loadHead(int *gridX, int *gridY, int *foodCount, int *max_hunger) {
+int loadHead(int *gridX, int *gridY, int *foodCount, int *max_hunger, char fileName[]) {
 	FILE *loadGame;
 	int oldBunnyCount;
 
 	//open filestream, check for !=NULL
-	if ((loadGame = fopen("game01.save", "r")) == NULL) {
+	if ((loadGame = fopen(fileName, "r")) == NULL) {
 		fprintf(stderr, "Coult not read savegame\n");
 		return 0;
 	}
@@ -29,10 +29,10 @@ int loadHead(int *gridX, int *gridY, int *foodCount, int *max_hunger) {
 }//end loadHead
 
 //load food sources
-void loadFood(int foodCount, Point food[]) {
+void loadFood(int foodCount, Point food[], char fileName[]) {
 	FILE *loadGame;
 	//open filestream, check for !=NULL
-	if ((loadGame = fopen("game01.save", "r")) == NULL) {
+	if ((loadGame = fopen(fileName, "r")) == NULL) {
 		fprintf(stderr, "Coult not read savegame\n");
 		return;
 	}
@@ -49,11 +49,11 @@ void loadFood(int foodCount, Point food[]) {
 }//end loadFood
 
 //load and create all saved Bunnies
-void loadBunnies(int tmpFood, int oldBunnycount, int *bunnyCount, int *infects, bunny *anchor, Point food[]) {
+void loadBunnies(int tmpFood, int oldBunnycount, int *bunnyCount, int *infects, bunny *anchor, Point food[], char fileName[]) {
 	FILE *loadGame;
 
 	//open filestream, check for !=NULL
-	if ((loadGame = fopen("game01.save", "r")) == NULL) {
+	if ((loadGame = fopen(fileName, "r")) == NULL) {
 		fprintf(stderr, "Coult not read savegame\n");
 		return;
 	}
@@ -80,7 +80,7 @@ void loadBunnies(int tmpFood, int oldBunnycount, int *bunnyCount, int *infects, 
 		Point coords = { x, y };
 		Point food[1];
 		//create loaded bunny
-		bunny_append(anchor, createBunny(anchor, color, (char)age, isMutant, bunnyCount, infects, coords, food));
+		bunny_append(anchor, createBunny(anchor, sex, color, (char)age, isMutant, bunnyCount, infects, coords, food));
 	}
 
 	//close
@@ -90,7 +90,7 @@ void loadBunnies(int tmpFood, int oldBunnycount, int *bunnyCount, int *infects, 
 //---------------------------------------------------------------------------------------------------------------------------------------------
 
 //create Bunny, alloc mem, takes coords of mother-bunny
-bunny *createBunny(bunny *anchor, int col, int age, int isMutant, int *bunnyCount, int *infects, Point coords, Point food[]) {
+bunny *createBunny(bunny *anchor, int sex, int col, int age, int isMutant, int *bunnyCount, int *infects, Point coords, Point food[]) {
 	bunny *p;
 	Point offset = { 0, 0 };
 	int xOff = 0, yOff = 0;
@@ -103,18 +103,15 @@ bunny *createBunny(bunny *anchor, int col, int age, int isMutant, int *bunnyCoun
 
 	//set age as given in function
 	p->age = age;
+	p->sex = sex;
 
 	//choose one Grid beneath mother
 	if (anchor == NULL) {
-		//force first bunny to be female
-		p->sex = female;
 		//choose random start grid
 		p->coord.x = coords.x;
 		p->coord.y = coords.y;
 	}
 	else {
-		p->sex = rand() % 2;
-
 		offset = findField(&anchor, 0, coords, food); //emtpy fields
 
 		//if no free field, delete born bunny
@@ -188,10 +185,11 @@ void initBunny(bunny *myBunny, int col, int *infects) {
 
  //choose Name of Bunny out of list
 void chooseName(bunny *myBunny) {
-	const char mNames[][NAME_LEN] = { "Kevin", "The_Hoff", "Pringle", "Fat_Boy", "Simon", "Lord", "Sir_Lancelot", "Can",
+	const char mNames[][NAME_LEN] = { "Rudi_Rammler", "Kevin", "The_Hoff", "Pringle", "Fat_Boy", "Simon", "Lord", "Sir_Lancelot", "Can",
 									"Sir_Oppenheimer", "Werner_von_Braun", "Heisenberg", "Alexander_der_Grosse", "Lamarck", "Herr_Reck",
 									"Graf_von_Zeppelin", "Bugs_Bunny", "Rambo", "Pietro_Lombardi", "Tebartz_van_Elst", "Roooobert_Geiss",
-									"El_Chapo", "Brad_Pitt", "Bill_Gates", "Gauland", "Roche_Gonzales", "Keoki" };
+									"El_Chapo", "Brad_Pitt", "Bill_Gates", "Gauland", "Roche_Gonzales", "Keoki",
+		"Kar-Theodor_Maria_Nikolaus_Johann_Jacob_Philipp_Franz_Joseph_Sylvester_Buhl-Freiherr_von_und_zu_Guttenberg" };
 
 	const char fNames[][NAME_LEN] = { "Jacqueline", "Chantal", "Crystal", "Kimberly", "Ebony", "Tiffany", "Amber",
 									"Britney", "Becky", "Jessica", "Madison", "Katie", "Heather", "Amanda", "Lauren",

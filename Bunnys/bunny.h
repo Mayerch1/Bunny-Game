@@ -1,5 +1,5 @@
 #pragma once
-#define NAME_LEN 21
+#define NAME_LEN 108
 
 typedef struct {
 	int x, y;

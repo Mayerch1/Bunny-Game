@@ -52,13 +52,13 @@ void printHelp() {
 	printf("-inf <uint>\tprobability to infect a healthy bunny\n");
 	printf("-f <int>\tamount of food sources, -1 for disabled\n");
 	printf("-s <uint>\tnumber of bunnies at beginning\n");
-
 	printf("-slp <uint>\ttime between to cylces in ms\n");
+	printf("--save\t\tsave the following game\n");
+	printf("-save <path>\tspecify this file\n");
+	printf("--load\t\tload your saved game\n");
+	printf("-load <path>\tspecify this file\n");
 
-	printf("--save\t\save the following game\n");
-	printf("--load\t\load your saved game\n");
-
-	printf("--log\t\toutput more detailed logfile (priorised over --nolog)\n");
+	printf("\n--log\t\toutput more detailed logfile (priorised over --nolog)\n");
 	printf("--nolog\t\tdoesnt create log-file\n");
 
 	printf("\nThe order can be scrambled, if an argument is not feeded, the default value will be used\n");
@@ -70,7 +70,8 @@ void printHelp() {
 //disabled for better "Grid-experience"
 void bornMsg(bunny *born) {
 	if (myfile != NULL) {
-		fprintf(myfile, "%s was born ", born->Name);
+		fprint_name(myfile, born->Name);
+		fprintf(myfile, " was born ");
 		//printf color of bunny
 		if (born->color == 0) {
 			fprintf(myfile, "with a white fur ");
@@ -92,14 +93,15 @@ void bornMsg(bunny *born) {
 
 void infectMsg(bunny *victim) {
 	if (myfile != NULL) {
-		fprintf(myfile, "%s was INFECTED with the virus\n", victim->Name);
+		fprint_name(myfile, victim->Name);
+		fprintf(myfile, " was INFECTED with the virus\n");
 	}
 }
 
 void eolMsg(bunny *victim, char *deathMSG) {
 	if (myfile != NULL) {
-		fprintf(myfile, "%s ", victim->Name);
-		fprintf(myfile, "%s", deathMSG);
+		fprint_name(myfile, victim->Name);
+		fprintf(myfile, " %s", deathMSG);
 		fprintf(myfile, "\n");
 	}
 }
@@ -219,7 +221,9 @@ void displayInfo(bunny *anchor, int *bunnyCount, int *infects, int cycles, char 
 			fprintf(myfile, "Current living bunnies: \n");
 			fprintf(myfile, "-----------\n");
 			for (p = anchor; p != NULL; p = (bunny *)p->next) {
-				fprintf(myfile, "Name: %s \nSex: %s \nColor: %s \nAge: %d \n", p->Name, bunnySex[p->sex], bunnyColors[p->color], p->age);
+				fprintf(myfile, "Name: ");
+				fprint_name(myfile, p->Name);
+				fprintf(myfile, "\nSex: %s \nColor: %s \nAge: %d \n", bunnySex[p->sex], bunnyColors[p->color], p->age);
 				if (p->radioactive_mutant_vampire_bunny == 1) {
 					fprintf(myfile, "He's a radioactive-mutant-vampire-bunny\n");
 				}
@@ -236,7 +240,7 @@ void displayInfo(bunny *anchor, int *bunnyCount, int *infects, int cycles, char 
 }//end displayInfo
 
 //saves current state of the game
-void saveGame(int gridX, int gridY, bunny *anchor, Point food[], int foodCount, int max_hunger, int bunnyCount) {
+void saveGame(int gridX, int gridY, bunny *anchor, Point food[], int foodCount, int max_hunger, int bunnyCount, char fileName[]) {
 	/*
 		{arg1,arg2,arg3};
 		{foodx,foody,food2,food3}
@@ -247,7 +251,7 @@ void saveGame(int gridX, int gridY, bunny *anchor, Point food[], int foodCount, 
 	*/
 	FILE *savedGame;
 
-	if ((savedGame = fopen("game01.save", "wb")) == NULL) {
+	if ((savedGame = fopen(fileName, "wb")) == NULL) {
 		fprintf(stderr, "Could not write to savefile\n");
 		return;
 	}

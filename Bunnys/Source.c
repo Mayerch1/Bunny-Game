@@ -21,11 +21,33 @@
 #include "functions.h"
 #include "bunny.h"
 
+#define arr_len(x) sizeof(x) / sizeof((x)[0])
+
 FILE *myfile;
 
-int gridX = 100;		//
+int gridX = 100;	//
 int gridY = 60;		//how large is your console?
 int foodCount = 5;
+
+//safe copy method
+void strcpy_safe(char *output, int str_len, const char* input) {
+	strncpy(output, input, str_len);
+	output[str_len - 1] = '\0';
+}
+
+//printf names with blanc instead of _
+void fprint_name(FILE *fp, char *Name) {
+	int i = 0;
+	while (Name[i] != '\0') {
+		if (Name[i] == '_') {
+			fprintf(fp, " ");
+			i++;
+		}
+		else {
+			fprintf(fp, "%c", Name[i++]);
+		}
+	}
+}
 
 int main(int argc, char *argv[]) {
 	//-------------------------------------
@@ -40,6 +62,7 @@ int main(int argc, char *argv[]) {
 
 	char noLog = 0, log = 0;		//arg for logfile
 	char save = 0, load = 0;		//save the game, or load it
+	char fileName[128];//= "game01.save";
 	//end #defines
 	//------------------------------------
 
@@ -68,13 +91,11 @@ int main(int argc, char *argv[]) {
 
 	srand((unsigned int)time(NULL));
 
-	//TODO: integrate load, save as arguments
 #ifdef _DEBUG
 	//set arg-values for debug, analysis, balancing, etc
-	noLog = 1;
-	save = 0;
-	load = 1;
-	foodCount = 5;
+	//noLog = 1;
+	log = 1;
+
 #endif
 
 	//init color display
@@ -85,7 +106,7 @@ int main(int argc, char *argv[]) {
 	if (argc > 1) {
 		//process arguments
 		toLowerCase(argc, argv);
-		getArgs(argc, argv, &max_colony_size, &infection_prob, &log, &noLog, &start_Bunnies, &sleep_time, &save, &load);
+		getArgs(argc, argv, &max_colony_size, &infection_prob, &log, &noLog, &start_Bunnies, &sleep_time, &save, &load, fileName, arr_len(fileName));
 		//collision of -log and -noLog
 		if (log == 1 && noLog == 1) noLog = 0;
 		//collision of save and load
@@ -99,19 +120,19 @@ int main(int argc, char *argv[]) {
 	//after every bunny is loaded, the food will be initialised
 	//----------------------------------------------------------------
 	if (load == 1) {
-		oldBunnyCount = loadHead(&gridX, &gridY, &foodCount, &max_hunger);
+		oldBunnyCount = loadHead(&gridX, &gridY, &foodCount, &max_hunger, fileName);
 
 		int tmpFood = foodCount;
 		foodCount = 0;
 
 		//create bunny which is going to die, as workaround
-		//--
+		//----
+		//can't move
 		initCoord.x = -10;
 		initCoord.y = -10;
-		//can't move
-		anchor = createBunny(anchor, 0, 51, 0, &bunnyCount, &infects, initCoord, food);
-		//--
-		loadBunnies(tmpFood, oldBunnyCount, &bunnyCount, &infects, anchor, food);
+		anchor = createBunny(anchor, 1, 0, 51, 0, &bunnyCount, &infects, initCoord, food);
+		//----
+		loadBunnies(tmpFood, oldBunnyCount, &bunnyCount, &infects, anchor, food, fileName);
 		//reset foodCount
 		foodCount = tmpFood;
 	}
@@ -128,7 +149,7 @@ int main(int argc, char *argv[]) {
 	}
 
 	//load food
-	if (load == 1) loadFood(foodCount, food);
+	if (load == 1) loadFood(foodCount, food, fileName);
 
 	//get the time
 	time(&rawtime);
@@ -166,14 +187,14 @@ int main(int argc, char *argv[]) {
 			initCoord.x = food[0].x + 1;
 			initCoord.y = food[0].y + 1;
 		}
-		//first bunny
-		anchor = createBunny(anchor, rand() % 4, 0, -1, &bunnyCount, &infects, initCoord, food);
+		//first bunny is female
+		anchor = createBunny(anchor, 1, rand() % 4, 0, -1, &bunnyCount, &infects, initCoord, food);
 
 		//next n-1 bunnies
 		for (unsigned int i = 0; i < start_Bunnies - 1; i++) {
 			initCoord.x = rand() % gridX;
 			initCoord.y = rand() % gridY;
-			bunny_append(anchor, createBunny(anchor, rand() % 4, 0, -1, &bunnyCount, &infects, initCoord, food));
+			bunny_append(anchor, createBunny(anchor, rand() % 2, rand() % 4, 0, -1, &bunnyCount, &infects, initCoord, food));
 		}
 		//end create first n bunnies
 	}
@@ -191,7 +212,7 @@ int main(int argc, char *argv[]) {
 		displayInfo(anchor, &bunnyCount, &infects, cycles, log);
 
 		//save the game
-		if (save == 1) saveGame(gridX, gridY, anchor, food, foodCount, max_hunger, bunnyCount);
+		if (save == 1) saveGame(gridX, gridY, anchor, food, foodCount, max_hunger, bunnyCount, fileName);
 
 		//in case of program termination
 		if (noLog != 1) fflush(myfile);
@@ -393,7 +414,8 @@ void toLowerCase(int argc, char *argv[]) {
 }//end toLowerCase
 
 //saves feeded arguments into variables
-void getArgs(int argc, char *argv[], unsigned int *max_colony_size, unsigned char *infection_prob, char *log, char *noLog, unsigned int *start_Bunnies, unsigned int *sleep_time, char *save, char *load) {
+void getArgs(int argc, char *argv[], unsigned int *max_colony_size, unsigned char *infection_prob, char *log, char *noLog, unsigned int *start_Bunnies,
+	unsigned int *sleep_time, char *save, char *load, char *fileName, int file_len) {
 	for (int i = 1; i < argc; i++) {
 		//display Help-page, then terminate
 		if (strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "-help") == 0 || strcmp(argv[i], "--h") == 0 || strcmp(argv[i], "--help") == 0) {
@@ -401,14 +423,23 @@ void getArgs(int argc, char *argv[], unsigned int *max_colony_size, unsigned cha
 			return;
 		}
 
-		//save the current game to a file
-		if (strcmp(argv[i], "-save") == 0) {
+		//load the current game from a generic file
+		if (strcmp(argv[i], "--load") == 0) {
+			*load = 1;
+		}
+		//load the current game from a specific file
+		if (strcmp(argv[i], "-load") == 0) {
+			strcpy_safe(fileName, file_len, argv[i + 1]);
+			*load = 1;
+		}
+		//save the current game to a generic file
+		if (strcmp(argv[i], "--save") == 0) {
 			*save = 1;
 		}
-
-		//load the current game from a file
-		if (strcmp(argv[i], "-load") == 0) {
-			*load = 1;
+		//save the current game to a specific file
+		if (strcmp(argv[i], "-save") == 0) {
+			strcpy_safe(fileName, file_len, argv[i + 1]);
+			*save = 1;
 		}
 
 		//grid Xdsize

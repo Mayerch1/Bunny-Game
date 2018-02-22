@@ -5,7 +5,10 @@
 
 //#define MAX_HUNGER 3
 #define FEED_RANGE 5
-#define NAME_LEN 21
+#define NAME_LEN 108
+
+void strcpy_safe(char *output, int str_len, const char* input);
+//void fprint_name(FILE *fp, char *Name);
 
 void nextTurn(bunny **anchor, int *bunnyCount, int *infects, unsigned int max_colony_size,
 	unsigned char infection_prob, Point food[], int max_hunger);
@@ -17,18 +20,18 @@ bunny *matchToGrid(bunny **anchor, Point coords);
 
 void toLowerCase(int argc, char *argv[]);
 void getArgs(int argc, char *argv[], unsigned int *max_colony_size, unsigned char *infection_prob,
-	char *log, char *noLog, unsigned int *start_Bunnies, unsigned int *sleep_time, char *save, char *load);
+	char *log, char *noLog, unsigned int *start_Bunnies, unsigned int *sleep_time, char *save, char *load, char *fileName, int file_len);
 
 #endif
 
 #ifndef CREATEBUNNY
 #define CREATEBUNNY
 
-int loadHead(int *gridX, int *gridY, int *foodCount, int *max_hunger);
-void loadFood(int foodCount, Point food[]);
-void loadBunnies(int tmpFood, int oldBunnyCount, int *bunnyCount, int *infects, bunny *anchor, Point food[]);
+int loadHead(int *gridX, int *gridY, int *foodCount, int *max_hunger, char fileName[]);
+void loadFood(int foodCount, Point food[], char fileName[]);
+void loadBunnies(int tmpFood, int oldBunnyCount, int *bunnyCount, int *infects, bunny *anchor, Point food[], char fileName[]);
 
-bunny *createBunny(bunny *anchor, int col, int age, int isMutant, int *bunnyCount, int *infects, Point coords, Point food[]);
+bunny *createBunny(bunny *anchor, int sex, int col, int age, int isMutant, int *bunnyCount, int *infects, Point coords, Point food[]);
 void bunny_append(bunny *anchor, bunny *e);
 void initBunny(bunny *myBunny, int col, int *infects);
 void chooseName(bunny *myBunny);
@@ -68,6 +71,6 @@ void infectMsg(bunny *victim);
 void eolMsg(bunny *victim, char *deathMSG);
 void starveMsg(int start, int *bunnyCount);
 
-void saveGame(int gridX, int gridY, bunny *anchor, Point food[], int foodCount, int max_hunger, int bunnyCount);
+void saveGame(int gridX, int gridY, bunny *anchor, Point food[], int foodCount, int max_hunger, int bunnyCount, char fileName[]);
 
 #endif
