@@ -1,7 +1,9 @@
-In the current state, you can't specify the output and input name.<br />
-If you want to change that, simply copy the file and rename it, until the feature is pushed.<br />
+To change the name of the output file, simpy feed it as an arguments.<br />
+```--save``` the file will get the default name ```game01.save```<br />
+```-save "E:\my Name.file"``` the file will get the given name at the given path.<br />
+If the path given with ```-load``` is not existing, no bunnies will be created, and the application will terminate.<br />
 <br />
-The saved file is named ```game01.save```, doesn't allow Windows ```CL LF``` endings and is structured as followed:<br />
+The file doesn't allow Windows ```CL LF``` endings and is structured as followed:<br />
 <br />
 The first line is a simple warning to be careful with this file.<br />
 <br />
