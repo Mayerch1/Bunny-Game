@@ -24,7 +24,7 @@ Common comments markups like ```//``` or ```--``` are NOT supported.
 <br /><br /><br />
 This is like a working saved game could look:<br/>
 ```
-!!Modify at your own risk, wrong values could lead to pointer access violation. Be careful with hidden nl and blancs!!
+!!The first line will be ignored, do whatever you want, just no newLines!!
 {100,60,5,4,3,};
 {63,4,}
 {86,45,}
