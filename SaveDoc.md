@@ -1,4 +1,4 @@
-In the current state, you can't spedify the output and input name.<br />
+In the current state, you can't specify the output and input name.<br />
 If you want to change that, simply copy the file and rename it, until the feature is pushed.<br />
 <br />
 The saved file is named ```game01.save```, doesn't allow Windows ```CL LF``` endings and is structured as followed:<br />
