@@ -20,9 +20,9 @@ Use of Arguments (not case sensitive):
 ```-s```&ensp;&emsp;&emsp;&emsp;&emsp;&emsp;number of bunnies at beginning<br />
 ```-slp```&ensp;&emsp;&emsp;&emsp;&emsp;time between to cylces in ms<br />
 ```--save```&ensp;&emsp;&emsp;&emsp;save the following game to a file<br />
-```-save <PATH>``` &ensp;specify this file<br />
+```-save <PATH>```&ensp;specify this file<br />
 ```--load```&ensp;&emsp;&emsp;&emsp;load the saved game (--load is priorised over --save)<br />
-```-load <PATH>``` &ensp;specify this file<br />
+```-load <PATH>```&ensp;specify this file<br />
 
 
 ```--log```&ensp;&ensp;&emsp;&emsp;&emsp;more detailed log<br />
