@@ -17,11 +17,13 @@ The next piece of information represents the food sources. There must be exactly
 The last and usually biggest part represents every single bunny, which was alive when the game was saved.
 The number of Bunnies/lines must be the same as defined with ```BunnyCount``` above.<br />
 ```{<int> <int> <int> <string> <int> <int> <int> <int>}``` shows one Bunny with the values ```{sex color age Name isMutant daySinceLastEaten coordinate.x coordinate.y }```, this time separated with blancs.<br />
-The bunnies to each other are again seperated with one simple newLine ```LF```.
-<br /><br />
+The bunnies to each other are again seperated with one simple newLine ```LF```.<br />
+
+The ```Name```string cannot exceed 21 chars, including one terminating ```'\0'```. This limit is defined with ```NAME_LEN``` in [functions.h](Bunnys/functions.h) and [bunny.h](Bunnys/bunny.h).<br />
+<br />
 At the end of the file is no additional newLine.
 Common comments markups like ```//``` or ```--``` are NOT supported.
-<br /><br /><br />
+<br /><br />
 This is like a working saved game could look:<br/>
 ```
 !!The first line will be ignored, do whatever you want, just no newLines!!
