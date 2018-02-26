@@ -4,7 +4,8 @@ The Game of Life, or so,
 Download [Release/Bunnys.exe](Release/Bunnys.exe)
 or go into [/Bunnys](Bunnys) and have fun<br /><br />
 
-Press ```k```to initiate a mass murder on half of the population (Windows only).
+Press ```k```to initiate a mass murder on half of the population.<br />
+Press ```w``` to accelerate and ```s``` to decelerate the simulaiton. (Windows only).
 
 Use of Arguments (not case sensitive):
 ```Bunny.exe -x <int> -n <uint> -y <int> --loG```<br />
@@ -13,11 +14,12 @@ Use of Arguments (not case sensitive):
 ```(-)-help/h```&ensp;&emsp;display this argument list<br />
 ```-x```&ensp;&emsp;&emsp;&emsp;&emsp;&emsp;horizontal gridsize<br />
 ```-y```&ensp;&emsp;&emsp;&emsp;&emsp;&emsp;vertical gridsize<br />
-```-n```&ensp;&emsp;&emsp;&emsp;&emsp;&emsp;max population size n<br />
+```-bm```&emsp;&emsp;&emsp;&emsp;&emsp;bunny max population size m<br />
+```-bn```&emsp;&emsp;&emsp;&emsp;&emsp;bunny start amount n<br />
 ```-inf```&ensp;&emsp;&emsp;&emsp;&emsp;infection probability for healthy bunnies<br />
-```-f```&ensp;&emsp;&emsp;&emsp;&emsp;&emsp;amount of food sources in the grid<br />
-```-fd```&emsp;&emsp;&emsp;&emsp;&emsp;specify the lifetime of a foodsource<br />
-```-s```&ensp;&emsp;&emsp;&emsp;&emsp;&emsp;number of bunnies at beginning<br />
+```-fn```&emsp;&emsp;&emsp;&emsp;&emsp;food amount at the beginning n<br />
+```-fd```&emsp;&emsp;&emsp;&emsp;&emsp;food duration, of the source<br />
+
 ```-slp```&ensp;&emsp;&emsp;&emsp;&emsp;time between to cylces in ms<br />
 ```--save```&ensp;&emsp;&emsp;&emsp;save the following game to a file<br />
 ```-save <PATH>```&ensp;specify this file<br />

@@ -78,7 +78,7 @@ returns number of Bunnies, when game was saved*/
 int loadHead(int *gridX, int *gridY, int *foodCount, int *max_hunger, char fileName[]);
 
 /*load all food sources*/
-void loadFood(int foodCount, Point food[], int foodDur[], char fileName[]);
+void loadFood(int foodCount, Point food[], int foodDur[], char fileName[], int food_duration);
 
 /*load all bunnys, with attributes*/
 void loadBunnies(int tmpFood, int oldBunnyCount, int *bunnyCount, bunny *anchor, Point food[], char fileName[]);

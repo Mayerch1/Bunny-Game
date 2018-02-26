@@ -178,7 +178,7 @@ int main(int argc, char *argv[]) {
 	}
 
 	//load food
-	if (load == 1) loadFood(foodCount, food, foodDur, fileName);
+	if (load == 1) loadFood(foodCount, food, foodDur, fileName, food_duration);
 
 	//get the time
 	time(&rawtime);
@@ -435,7 +435,6 @@ void toLowerCase(int argc, char *argv[]) {
 	//go throug all args
 	for (int i = 1; i < argc; i++) {
 		int j = 0;
-		//parse to \0
 		while (argv[i][j] != '\0') {
 			//if capital, convert to non-capital
 			if (argv[i][j] >= 0x41 && argv[i][j] <= 0x5A) {
@@ -483,25 +482,26 @@ void getArgs(int argc, char *argv[], unsigned int *max_colony_size, unsigned cha
 			if (atoi(argv[i + 1]) > 0) gridY = atoi(argv[i + 1]);
 		}
 		//max population size
-		if (strcmp(argv[i], "-n") == 0) {
+		if (strcmp(argv[i], "-bm") == 0) {
 			if (atoi(argv[i + 1]) > 0) *max_colony_size = atoi(argv[i + 1]);
+		}
+		//number of bunnies in the beginning
+		if (strcmp(argv[i], "-bn") == 0) {
+			if (atoi(argv[i + 1]) >= 1) *start_Bunnies = atoi(argv[i + 1]);
 		}
 		//infection rate
 		if (strcmp(argv[i], "-inf") == 0) {
 			if (atoi(argv[i + 1]) >= 0 && atoi(argv[i + 1]) <= 100) *infection_prob = atoi(argv[i + 1]);
 		}
 		//amount of food sources, foodCount is global
-		if (strcmp(argv[i], "-f") == 0) {
+		if (strcmp(argv[i], "-fn") == 0) {
 			if (atoi(argv[i + 1]) >= -1) foodCount = atoi(argv[i + 1]);
 		}
 		//amount of food sources
 		if (strcmp(argv[i], "-fd") == 0) {
 			if (atoi(argv[i + 1]) >= 0) *food_duration = atoi(argv[i + 1]);
 		}
-		//number of bunnies in the beginning
-		if (strcmp(argv[i], "-s") == 0) {
-			if (atoi(argv[i + 1]) >= 1) *start_Bunnies = atoi(argv[i + 1]);
-		}
+
 		//time between cycles
 		if (strcmp(argv[i], "-slp") == 0) {
 			int x = atoi(argv[i + 1]);

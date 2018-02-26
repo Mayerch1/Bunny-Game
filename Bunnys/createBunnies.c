@@ -53,7 +53,7 @@ int loadHead(int *gridX, int *gridY, int *foodCount, int *max_hunger, char fileN
 	return oldBunnyCount;
 }//end loadHead
 
-void loadFood(int foodCount, Point food[], int foodDur[], char fileName[]) {
+void loadFood(int foodCount, Point food[], int foodDur[], char fileName[], int food_duration) {
 	FILE *loadGame;
 	//open filestream, check for !=NULL
 	if ((loadGame = fopen(fileName, "r")) == NULL) {
@@ -68,7 +68,7 @@ void loadFood(int foodCount, Point food[], int foodDur[], char fileName[]) {
 	for (int i = 0; i < foodCount; i++) {
 		//scan x and y, ignore last to %*c
 		fscanf(loadGame, "{%d,%d,%*c%*c", &food[i].x, &food[i].y);
-		foodDur[i] = FOOD_DURATION;
+		foodDur[i] = food_duration;
 	}
 	fclose(loadGame);
 }//end loadFood

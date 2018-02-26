@@ -75,11 +75,15 @@ void printHelp() {
 	printf("Following arguments are allowed (not case sensitive):\n\n");
 
 	printf("-x <int>\thorizontal Gridsize \n-y <int>\tvertical Gridsize\n");
-	printf("-n <uint>\tmax number of bunnys before famine\n");
+
+	printf("-bm <uint>\tbunny max number of bunnys before famine\n");
+	printf("-bn <uint>\tbunny start amount of them\n");
+
 	printf("-inf <uint>\tprobability to infect a healthy bunny\n");
-	printf("-f <int>\tamount of food sources, -1 for disabled\n");
-	printf("-fd <int>\tsets, how often can be eaten from the source\n");
-	printf("-s <uint>\tnumber of bunnies at beginning\n");
+
+	printf("-fn <int>\tfood number, amount of sources, -1 for disabled\n");
+	printf("-fd <int>\tfood duration, sets how often can be eaten from the source\n");
+
 	printf("-slp <uint>\ttime between to cylces in ms\n");
 	printf("--save\t\tsave the following game\n");
 	printf("-save <path>\tspecify this file\n");
