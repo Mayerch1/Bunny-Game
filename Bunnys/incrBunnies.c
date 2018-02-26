@@ -54,7 +54,7 @@ void reproduce(bunny **anchor, int *bunnyCount, Point food[]) {
 	}
 }//end reproduce
 
-void feedBunnies(bunny **anchor, Point food[], int foodCount, int foodDur[], int *bunnyCount) {
+void feedBunnies(bunny **anchor, Point food[], int foodCount, int foodDur[], int *bunnyCount, int food_duration) {
 	bunny *p;
 	//go throug all bunnies
 	for (p = *anchor; p != NULL; p = (bunny*)p->next) {
@@ -64,13 +64,13 @@ void feedBunnies(bunny **anchor, Point food[], int foodCount, int foodDur[], int
 			if (abs(food[i].x - p->coord.x) <= FEED_RANGE && abs(food[i].y - p->coord.y) <= FEED_RANGE) {
 				p->daySinceFeeded = 0;
 
-				emptyFood(anchor, food, foodDur, foodCount, i, bunnyCount);
+				emptyFood(anchor, food, foodDur, foodCount, i, bunnyCount, food_duration);
 			}
 		}
 	}
 }//end feedBunnies
 
-void emptyFood(bunny **anchor, Point food[], int foodDur[], int foodCount, int foodPos, int *bunnyCount) {
+void emptyFood(bunny **anchor, Point food[], int foodDur[], int foodCount, int foodPos, int *bunnyCount, int food_duration) {
 	if (--(foodDur[foodPos]) <= 0) {
 		//create random new food source, in radius 10
 		int x, y;
@@ -81,7 +81,7 @@ void emptyFood(bunny **anchor, Point food[], int foodDur[], int foodCount, int f
 
 		food[foodPos].x = x;
 		food[foodPos].y = y;
-		foodDur[foodPos] = FOOD_DURATION;
+		foodDur[foodPos] = food_duration;
 
 		bunny *p;
 		if ((p = matchToGrid(anchor, food[foodPos])) != NULL) {

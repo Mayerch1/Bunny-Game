@@ -1,4 +1,3 @@
-# Bunny-Game
 The Game of Life, or so,
 'simulates' a bunny population
 
@@ -17,6 +16,7 @@ Use of Arguments (not case sensitive):
 ```-n```&ensp;&emsp;&emsp;&emsp;&emsp;&emsp;max population size n<br />
 ```-inf```&ensp;&emsp;&emsp;&emsp;&emsp;infection probability for healthy bunnies<br />
 ```-f```&ensp;&emsp;&emsp;&emsp;&emsp;&emsp;amount of food sources in the grid<br />
+```-fd```&emsp;&emsp;&emsp;&emsp;&emsp;specify the lifetime of a foodsource<br />
 ```-s```&ensp;&emsp;&emsp;&emsp;&emsp;&emsp;number of bunnies at beginning<br />
 ```-slp```&ensp;&emsp;&emsp;&emsp;&emsp;time between to cylces in ms<br />
 ```--save```&ensp;&emsp;&emsp;&emsp;save the following game to a file<br />

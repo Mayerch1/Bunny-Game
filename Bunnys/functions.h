@@ -32,8 +32,6 @@ contact @https://github.com/mayerch1
 #define FEED_RANGE 5
 #define NAME_LEN 108
 
-#define FOOD_DURATION 1000
-
 /*copys a string to another, with guaranted null termination*/
 void strcpy_safe(char *output, int str_len, const char* input);
 
@@ -42,7 +40,7 @@ void strcpy_safe(char *output, int str_len, const char* input);
 
 /*all important moves are managed and calles in here*/
 void nextTurn(bunny **anchor, int *bunnyCount, unsigned int max_colony_size,
-	unsigned char infection_prob, Point food[], int max_hunger, int foodDur[]);
+	unsigned char infection_prob, Point food[], int max_hunger, int foodDur[], int food_duration);
 
 /*returns 1, if coordinates are in grid*/
 int inBounds(int x, int y);
@@ -69,7 +67,7 @@ void toLowerCase(int argc, char *argv[]);
 /*get all given arguments
 considers limits and can handle scrambled orders*/
 void getArgs(int argc, char *argv[], unsigned int *max_colony_size, unsigned char *infection_prob,
-	char *log, char *noLog, unsigned int *start_Bunnies, unsigned int *sleep_time, char *save, char *load, char *fileName, int file_len);
+	char *log, char *noLog, unsigned int *start_Bunnies, unsigned int *sleep_time, char *save, char *load, int *food_duration, char *fileName, int file_len);
 
 #endif
 
@@ -127,10 +125,10 @@ void starveBunnies(bunny **anchor, int *bunnyCount, int max_hunger);
 void reproduce(bunny **anchor, int *bunnyCount, Point food[]);
 
 /*feed a bunny, if in range of a food source*/
-void feedBunnies(bunny **anchor, Point food[], int foodCount, int foodDur[], int *bunnyCount);
+void feedBunnies(bunny **anchor, Point food[], int foodCount, int foodDur[], int *bunnyCount, int food_duration);
 
 /*checks if foodsource has resources, if not generate a new one in radius 10*/
-void emptyFood(bunny **anchor, Point food[], int foodDur[], int foodCount, int foodPos, int *bunnyCount);
+void emptyFood(bunny **anchor, Point food[], int foodDur[], int foodCount, int foodPos, int *bunnyCount, int food_duration);
 
 #endif
 
