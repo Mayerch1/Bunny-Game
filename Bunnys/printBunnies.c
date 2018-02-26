@@ -37,13 +37,14 @@
 extern FILE *myfile;
 extern int gridX, gridY;
 
-//printfs help, if argument was received
 void printHelp() {
 	printf("\n-------------------------------------\n");
 	printf("Bunnys.exe help:\n\n");
 #ifdef _WIN32
 	//Windows exclusive feature
-	printf("Press '"COLOR_RED "k" COLOR_RESET"' or '"COLOR_RED "K" COLOR_RESET"' to initiate a mass murder of half of all living bunnies.\n\n");
+	printf("Press '"COLOR_RED "k" COLOR_RESET"' or '"COLOR_RED "K" COLOR_RESET"' to initiate a mass murder of half of all living bunnies.\n");
+	printf("Press '"COLOR_RED "w" COLOR_RESET"' to accerelate, and '"COLOR_RED "s" COLOR_RESET"' to decelarate the simulation speed.\n");
+	printf("\n");
 #endif
 	printf("Following arguments are allowed (not case sensitive):\n\n");
 
@@ -66,8 +67,6 @@ void printHelp() {
 	printf("-------------------------------------\n");
 }//end printHelp
 
-//all commented printf() is for detailed display
-//disabled for better "Grid-experience"
 void bornMsg(bunny *born) {
 	if (myfile != NULL) {
 		fprint_name(myfile, born->Name);
@@ -112,7 +111,6 @@ void starveMsg(int start, int *bunnyCount) {
 	}
 }
 
-//show all bunnies in their grid
 void displayGrid(bunny *anchor, Point food[], int foodCount) {
 	bunny *p;
 	int k = 100;
@@ -197,7 +195,6 @@ void displayGrid(bunny *anchor, Point food[], int foodCount) {
 	}
 }
 
-//determins, if asked x, y is taken by food source
 int printFoodSource(bunny *anchor, int x, int y, Point food[], int foodCount) {
 	//go throug all food sources
 	for (int i = 0; i < foodCount; i++) {
@@ -239,7 +236,6 @@ void displayInfo(bunny *anchor, int *bunnyCount, int *infects, int cycles, char 
 	printf("--------------------------------------------------\n");
 }//end displayInfo
 
-//saves current state of the game
 void saveGame(int gridX, int gridY, bunny *anchor, Point food[], int foodCount, int max_hunger, int bunnyCount, char fileName[]) {
 	/*
 		{arg1,arg2,arg3};

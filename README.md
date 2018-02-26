@@ -31,4 +31,6 @@ Use of Arguments (not case sensitive):
 For the save and load function watch the upcoming documentation at [SaveDoc.md](SaveDoc.md)<br /><br />
 The order and amount of arguments is not important.
 Not feeded arguments will be replaced by default values.<br />
-If an arguments is feeded twice, the last one will be taken into account.
+If an arguments is feeded twice, the last one will be taken into account.<br />
+<br />
+DISCLAIMER: all names of the bunnies are unrelated to any real person, and are not chosen by possible associations with real people or other groups/organisations.

@@ -6,7 +6,6 @@
 
 #include "bunny.h"
 
-//inc age
 void ageBunnies(bunny **anchor, int *bunnyCount, int *infects) {
 	bunny *p;
 
@@ -30,7 +29,7 @@ bunny *killBunny(bunny **anchor, bunny *victim, int *bunnyCount, int *infects, c
 	if (victim == *anchor) {
 		//if victim is last survivor
 		//game will end with next cycle, so he stays alive
-		//prevent collapse of further funcrions
+		//prevent collapse of further functions
 		if (victim->next == NULL) {
 			(*anchor)->next = NULL;
 			(*bunnyCount)--;
@@ -38,7 +37,7 @@ bunny *killBunny(bunny **anchor, bunny *victim, int *bunnyCount, int *infects, c
 		}
 		*anchor = (bunny*)victim->next;
 
-		//coorect counters, kill it
+		//correct counters, kill it
 		if (victim->radioactive_mutant_vampire_bunny == 1) (*infects)--;
 		free(victim);
 		(*bunnyCount)--;
@@ -66,7 +65,6 @@ bunny *killBunny(bunny **anchor, bunny *victim, int *bunnyCount, int *infects, c
 	}
 }
 
-//starve 1/2 of all bunnies
 void famineBunnies(bunny **anchor, int *bunnyCount, int *infects) {
 	int start = *bunnyCount;
 
@@ -87,7 +85,6 @@ void famineBunnies(bunny **anchor, int *bunnyCount, int *infects) {
 	starveMsg(start, bunnyCount);
 }//end starveBunnies
 
- //mutants infecting healthy bunnies
 void infectBunnies(bunny **anchor, int *bunnyCount, int *infects, unsigned char infection_prob, Point food[]) {
 	bunny *p;
 	int mutantCount = 0;
@@ -141,4 +138,4 @@ void starveBunnies(bunny **anchor, int *bunnyCount, int *infects, int max_hunger
 			p = killBunny(anchor, p, bunnyCount, infects, "was to dump to eat");
 		}
 	}
-}
+}//end starveBunnies

@@ -7,7 +7,6 @@
 
 #include "bunny.h"
 
-//load saved arguments, returns bunnyCount on programm termination
 int loadHead(int *gridX, int *gridY, int *foodCount, int *max_hunger, char fileName[]) {
 	FILE *loadGame;
 	int oldBunnyCount;
@@ -28,7 +27,6 @@ int loadHead(int *gridX, int *gridY, int *foodCount, int *max_hunger, char fileN
 	return oldBunnyCount;
 }//end loadHead
 
-//load food sources
 void loadFood(int foodCount, Point food[], char fileName[]) {
 	FILE *loadGame;
 	//open filestream, check for !=NULL
@@ -48,7 +46,6 @@ void loadFood(int foodCount, Point food[], char fileName[]) {
 	fclose(loadGame);
 }//end loadFood
 
-//load and create all saved Bunnies
 void loadBunnies(int tmpFood, int oldBunnycount, int *bunnyCount, int *infects, bunny *anchor, Point food[], char fileName[]) {
 	FILE *loadGame;
 
@@ -71,7 +68,8 @@ void loadBunnies(int tmpFood, int oldBunnycount, int *bunnyCount, int *infects, 
 
 	//skip food saves, +1 for additional \n
 	for (int i = 0; i < tmpFood; i++) {
-		fscanf(loadGame, "%*[^\n]\n", NULL);
+		//TODO: if loading failes, add ,NULL
+		fscanf(loadGame, "%*[^\n]\n");
 	}
 
 	//scanf all bunny attributes, ignore last 2 %*c
@@ -79,8 +77,8 @@ void loadBunnies(int tmpFood, int oldBunnycount, int *bunnyCount, int *infects, 
 		fscanf(loadGame, "{%d %d %d %s %d %d %d %d %*c%*c", &sex, &color, &age, Name, &isMutant, &daySinceEaten, &x, &y);
 		Point coords = { x, y };
 		Point food[1];
-		//create loaded bunny
-		bunny_append(anchor, createBunny(anchor, sex, color, (char)age, isMutant, bunnyCount, infects, coords, food));
+		//create loaded bunny, food[] is not used but need to be passed
+		bunny_append(anchor, createBunny(anchor, sex, color, (char)age, Name, isMutant, bunnyCount, infects, coords, food));
 	}
 
 	//close
@@ -89,8 +87,7 @@ void loadBunnies(int tmpFood, int oldBunnycount, int *bunnyCount, int *infects, 
 
 //---------------------------------------------------------------------------------------------------------------------------------------------
 
-//create Bunny, alloc mem, takes coords of mother-bunny
-bunny *createBunny(bunny *anchor, int sex, int col, int age, int isMutant, int *bunnyCount, int *infects, Point coords, Point food[]) {
+bunny *createBunny(bunny *anchor, int sex, int col, int age, char Name[], int isMutant, int *bunnyCount, int *infects, Point coords, Point food[]) {
 	bunny *p;
 	Point offset = { 0, 0 };
 	int xOff = 0, yOff = 0;
@@ -107,7 +104,6 @@ bunny *createBunny(bunny *anchor, int sex, int col, int age, int isMutant, int *
 
 	//choose one Grid beneath mother
 	if (anchor == NULL) {
-		//choose random start grid
 		p->coord.x = coords.x;
 		p->coord.y = coords.y;
 	}
@@ -129,7 +125,13 @@ bunny *createBunny(bunny *anchor, int sex, int col, int age, int isMutant, int *
 
 	initBunny(p, col, infects);
 
-	//if mutantState is set from function call
+	//if name is given by function call
+	if (Name == NULL)
+		chooseName(p);
+	else
+		strcpy(p->Name, Name);
+
+	//if mutantState is set from function call, -1 will call rand()
 	if (isMutant == 1) {
 		p->radioactive_mutant_vampire_bunny = 1;
 	}
@@ -143,7 +145,6 @@ bunny *createBunny(bunny *anchor, int sex, int col, int age, int isMutant, int *
 	return p;
 }//end createBunny
 
- //apend new bunny to p->next
 void bunny_append(bunny *anchor, bunny *e) {
 	bunny *p;
 
@@ -156,17 +157,14 @@ void bunny_append(bunny *anchor, bunny *e) {
 	}
 
 	for (p = anchor; p->next != NULL; p = (bunny*)p->next);
-	p->next = e;
+	(bunny*)p->next = (bunny*)e;
 }//end bunny_append
 
- //set init values of bunny
 void initBunny(bunny *myBunny, int col, int *infects) {
 	int xOff = 0, yOff = 0;
 
 	//get color of mother
 	myBunny->color = col;
-
-	chooseName(myBunny);
 
 	//mother's milk is extra nutritious
 	myBunny->daySinceFeeded = -1;
@@ -183,8 +181,9 @@ void initBunny(bunny *myBunny, int col, int *infects) {
 	//place it random
 }//end initBunny
 
- //choose Name of Bunny out of list
 void chooseName(bunny *myBunny) {
+	/*DISCLAIMER: all names are unrelated to any real person, and are not chosen by possible associations with real people or groups*/
+
 	const char mNames[][NAME_LEN] = { "Rudi_Rammler", "Kevin", "The_Hoff", "Pringle", "Fat_Boy", "Simon", "Lord", "Sir_Lancelot", "Can",
 									"Sir_Oppenheimer", "Werner_von_Braun", "Heisenberg", "Alexander_der_Grosse", "Lamarck", "Herr_Reck",
 									"Graf_von_Zeppelin", "Bugs_Bunny", "Rambo", "Pietro_Lombardi", "Tebartz_van_Elst", "Roooobert_Geiss",

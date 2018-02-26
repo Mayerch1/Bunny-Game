@@ -1,3 +1,16 @@
+/*
+// Bunnys.exe, Source.c
+// Author: Christian Mayer
+// Update: February, 2018
+//
+// The Bunny.exe is a simulation, which simulates a virtual Bunny-colony
+// Several different arguments can be feeded, to customize the experience
+// As userinput at runtime, is the massmurder, acceleration and deceleration available (Windows only)
+//
+// Documentation in functions.h and in the Github repository at readme.md and SaceDoc.md
+//
+*/
+
 #ifdef _WIN32
 #include <Windows.h>
 #include <conio.h>
@@ -29,13 +42,11 @@ int gridX = 100;	//
 int gridY = 60;		//how large is your console?
 int foodCount = 5;
 
-//safe copy method
 void strcpy_safe(char *output, int str_len, const char* input) {
 	strncpy(output, input, str_len);
 	output[str_len - 1] = '\0';
 }
 
-//printf names with blanc instead of _
 void fprint_name(FILE *fp, char *Name) {
 	int i = 0;
 	while (Name[i] != '\0') {
@@ -130,7 +141,7 @@ int main(int argc, char *argv[]) {
 		//can't move
 		initCoord.x = -10;
 		initCoord.y = -10;
-		anchor = createBunny(anchor, 1, 0, 51, 0, &bunnyCount, &infects, initCoord, food);
+		anchor = createBunny(anchor, 1, 0, 51, 0, 0, &bunnyCount, &infects, initCoord, food);
 		//----
 		loadBunnies(tmpFood, oldBunnyCount, &bunnyCount, &infects, anchor, food, fileName);
 		//reset foodCount
@@ -188,13 +199,13 @@ int main(int argc, char *argv[]) {
 			initCoord.y = food[0].y + 1;
 		}
 		//first bunny is female
-		anchor = createBunny(anchor, 1, rand() % 4, 0, -1, &bunnyCount, &infects, initCoord, food);
+		anchor = createBunny(anchor, 1, rand() % 4, 0, 0, -1, &bunnyCount, &infects, initCoord, food);
 
 		//next n-1 bunnies
 		for (unsigned int i = 0; i < start_Bunnies - 1; i++) {
 			initCoord.x = rand() % gridX;
 			initCoord.y = rand() % gridY;
-			bunny_append(anchor, createBunny(anchor, rand() % 2, rand() % 4, 0, -1, &bunnyCount, &infects, initCoord, food));
+			bunny_append(anchor, createBunny(anchor, rand() % 2, rand() % 4, 0, 0, -1, &bunnyCount, &infects, initCoord, food));
 		}
 		//end create first n bunnies
 	}
@@ -218,12 +229,22 @@ int main(int argc, char *argv[]) {
 		if (noLog != 1) fflush(myfile);
 
 #ifdef _WIN32
-		//mass murder 1/2 of all bunnys, with k
+		//handle key events
 		if (_kbhit()) {
 			char state = _getch();
 			if (state == 'k' || state == 'K') {
 				famineBunnies(&anchor, &bunnyCount, &infects);
 			}
+			else if (state == 'w' || state == 'W') {
+				if (sleep_time < 250)
+					sleep_time = 0;
+				else
+					sleep_time -= 250;
+			}
+			else if (state == 's' || state == 'S') {
+				sleep_time += 250;
+			}
+			printf("sth happened\n");
 		}
 #endif // _WIN32
 
@@ -243,7 +264,6 @@ int main(int argc, char *argv[]) {
 	return 0;
 }//end main
 
-//age Bunnys, initiate regular actions
 void nextTurn(bunny **anchor, int *bunnyCount, int *infects, unsigned int max_colony_size,
 	unsigned char infection_prob, Point food[], int max_hunger) {
 	//infect healthy bunnies
@@ -270,7 +290,6 @@ void nextTurn(bunny **anchor, int *bunnyCount, int *infects, unsigned int max_co
 	}
 }//end nextTurn
 
-//moves every Bunny randomly
 void moveBunny(bunny **anchor, Point food[]) {
 	Point offset;
 	bunny *p;
@@ -290,9 +309,6 @@ void moveBunny(bunny **anchor, Point food[]) {
 	}
 }//end moveBunny
 
-//find a field, returns Offset to one random out of the fields
-//for state == 0 -> ret freeFields
-//for state == 1 -> ret taken Fields
 Point findField(bunny **anchor, int state, Point coords, Point food[]) {
 	Point tmpPt;
 	Point offset;
@@ -354,7 +370,6 @@ Point findField(bunny **anchor, int state, Point coords, Point food[]) {
 	return offset;
 }//end findField
 
-//check if requested grid is emtpy, 0 or 1
 int testEmpty(bunny **anchor, Point coords, Point food[]) {
 	bunny *p;
 	int isTaken = 0;
@@ -384,7 +399,6 @@ int testEmpty(bunny **anchor, Point coords, Point food[]) {
 	return isTaken;
 }//testEmtpy
 
-//if bunny is in requested Grid, return pointer to him
 bunny *matchToGrid(bunny **anchor, Point coords) {
 	bunny *p;
 	//go through, until coords of both match
@@ -395,9 +409,8 @@ bunny *matchToGrid(bunny **anchor, Point coords) {
 	}
 	//return NULL if no bunny at coords
 	return NULL;
-}
+}//end matchToGrid
 
-//converts given argv into lower case
 void toLowerCase(int argc, char *argv[]) {
 	//go throug all args
 	for (int i = 1; i < argc; i++) {
@@ -413,7 +426,6 @@ void toLowerCase(int argc, char *argv[]) {
 	}
 }//end toLowerCase
 
-//saves feeded arguments into variables
 void getArgs(int argc, char *argv[], unsigned int *max_colony_size, unsigned char *infection_prob, char *log, char *noLog, unsigned int *start_Bunnies,
 	unsigned int *sleep_time, char *save, char *load, char *fileName, int file_len) {
 	for (int i = 1; i < argc; i++) {
