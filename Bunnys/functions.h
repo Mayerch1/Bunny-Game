@@ -128,7 +128,7 @@ void reproduce(bunny **anchor, int *bunnyCount, Point food[]);
 void feedBunnies(bunny **anchor, Point food[], int foodCount, int foodDur[], int *bunnyCount, int food_duration);
 
 /*checks if foodsource has resources, if not generate a new one in radius 10*/
-void emptyFood(bunny **anchor, Point food[], int foodDur[], int foodCount, int foodPos, int *bunnyCount, int food_duration);
+void emptyFood(bunny **anchor, bunny *p, Point food[], int foodDur[], int foodCount, int foodPos, int *bunnyCount, int food_duration);
 
 #endif
 

@@ -64,19 +64,27 @@ void feedBunnies(bunny **anchor, Point food[], int foodCount, int foodDur[], int
 			if (abs(food[i].x - p->coord.x) <= FEED_RANGE && abs(food[i].y - p->coord.y) <= FEED_RANGE) {
 				p->daySinceFeeded = 0;
 
-				emptyFood(anchor, food, foodDur, foodCount, i, bunnyCount, food_duration);
+				emptyFood(anchor, p, food, foodDur, foodCount, i, bunnyCount, food_duration);
 			}
 		}
 	}
 }//end feedBunnies
 
-void emptyFood(bunny **anchor, Point food[], int foodDur[], int foodCount, int foodPos, int *bunnyCount, int food_duration) {
-	if (--(foodDur[foodPos]) <= 0) {
+void emptyFood(bunny **anchor, bunny *p, Point food[], int foodDur[], int foodCount, int foodPos, int *bunnyCount, int food_duration) {
+	if (p->age < 2)
+		foodDur[foodPos] -= p->age * 2 + 1;
+	else {
+		foodDur[foodPos] -= (int)(p->age*0.7 + p->sex);
+	}
+	//hungry bunnies eat more
+	foodDur[foodPos] -= p->daySinceFeeded * 4;
+
+	if (foodDur[foodPos] <= 0) {
 		//create random new food source, in radius 10
 		int x, y;
 		do {
-			x = food[foodPos].x + rand() % 30 - 15;
-			y = food[foodPos].y + rand() % 30 - 15;
+			x = food[foodPos].x + rand() % 26 - 13;
+			y = food[foodPos].y + rand() % 26 - 13;
 		} while (!inBounds(x, y));
 
 		food[foodPos].x = x;

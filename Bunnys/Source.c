@@ -54,8 +54,8 @@ FILE *myfile;
 int gridX = 100;	//
 int gridY = 60;		//how large is your console?
 int foodCount = 5;
-//TODO: arg for food duration
-//TODO: rdme documentation
+
+//TODO: bunny take food based on attributes
 
 void strcpy_safe(char *output, int str_len, const char* input) {
 	strncpy(output, input, str_len);
@@ -82,7 +82,7 @@ int main(int argc, char *argv[]) {
 	unsigned char infection_prob = 80;		//0-100%
 	unsigned int start_Bunnies = 15;		//first created bunnies
 	unsigned int sleep_time = 1000;			//sleep between cycles
-	int food_duration = 1000;
+	int food_duration = 5317;
 
 	//define as variable, for disabled food sources
 	int max_hunger = 3;
@@ -263,7 +263,6 @@ int main(int argc, char *argv[]) {
 			else if (state == 's' || state == 'S') {
 				sleep_time += 250;
 			}
-			printf("sth happened\n");
 		}
 #endif // _WIN32
 
