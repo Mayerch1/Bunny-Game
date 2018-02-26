@@ -53,7 +53,7 @@ int loadHead(int *gridX, int *gridY, int *foodCount, int *max_hunger, char fileN
 	return oldBunnyCount;
 }//end loadHead
 
-void loadFood(int foodCount, Point food[], char fileName[]) {
+void loadFood(int foodCount, Point food[], int foodDur[], char fileName[]) {
 	FILE *loadGame;
 	//open filestream, check for !=NULL
 	if ((loadGame = fopen(fileName, "r")) == NULL) {
@@ -68,11 +68,12 @@ void loadFood(int foodCount, Point food[], char fileName[]) {
 	for (int i = 0; i < foodCount; i++) {
 		//scan x and y, ignore last to %*c
 		fscanf(loadGame, "{%d,%d,%*c%*c", &food[i].x, &food[i].y);
+		foodDur[i] = FOOD_DURATION;
 	}
 	fclose(loadGame);
 }//end loadFood
 
-void loadBunnies(int tmpFood, int oldBunnycount, int *bunnyCount, int *infects, bunny *anchor, Point food[], char fileName[]) {
+void loadBunnies(int tmpFood, int oldBunnycount, int *bunnyCount, bunny *anchor, Point food[], char fileName[]) {
 	FILE *loadGame;
 
 	//open filestream, check for !=NULL
@@ -104,7 +105,7 @@ void loadBunnies(int tmpFood, int oldBunnycount, int *bunnyCount, int *infects, 
 		Point coords = { x, y };
 		Point food[1];
 		//create loaded bunny, food[] is not used but need to be passed
-		bunny_append(anchor, createBunny(anchor, sex, color, (char)age, Name, isMutant, bunnyCount, infects, coords, food));
+		bunny_append(anchor, createBunny(anchor, sex, color, (char)age, Name, isMutant, bunnyCount, coords, food));
 	}
 
 	//close
@@ -113,7 +114,7 @@ void loadBunnies(int tmpFood, int oldBunnycount, int *bunnyCount, int *infects, 
 
 //---------------------------------------------------------------------------------------------------------------------------------------------
 
-bunny *createBunny(bunny *anchor, int sex, int col, int age, char Name[], int isMutant, int *bunnyCount, int *infects, Point coords, Point food[]) {
+bunny *createBunny(bunny *anchor, int sex, int col, int age, char Name[], int isMutant, int *bunnyCount, Point coords, Point food[]) {
 	bunny *p;
 	Point offset = { 0, 0 };
 	int xOff = 0, yOff = 0;
@@ -149,7 +150,7 @@ bunny *createBunny(bunny *anchor, int sex, int col, int age, char Name[], int is
 
 	p->next = NULL;
 
-	initBunny(p, col, infects);
+	initBunny(p, col);
 
 	//if name is given by function call
 	if (Name == NULL)
@@ -186,7 +187,7 @@ void bunny_append(bunny *anchor, bunny *e) {
 	(bunny*)p->next = (bunny*)e;
 }//end bunny_append
 
-void initBunny(bunny *myBunny, int col, int *infects) {
+void initBunny(bunny *myBunny, int col) {
 	int xOff = 0, yOff = 0;
 
 	//get color of mother
@@ -198,7 +199,6 @@ void initBunny(bunny *myBunny, int col, int *infects) {
 	//mutant or not
 	if (rand() % 100 + 1 <= 1) {
 		myBunny->radioactive_mutant_vampire_bunny = 1;
-		(*infects)++;
 	}
 	else {
 		myBunny->radioactive_mutant_vampire_bunny = 0;

@@ -229,7 +229,7 @@ int printFoodSource(bunny *anchor, int x, int y, Point food[], int foodCount) {
 	return 0;
 }//end printFoodSource
 
-void displayInfo(bunny *anchor, int *bunnyCount, int *infects, int cycles, char log) {
+void displayInfo(bunny *anchor, int *bunnyCount, int cycles, char log) {
 	//for --nolog
 	if (myfile != NULL) {
 		//for --log

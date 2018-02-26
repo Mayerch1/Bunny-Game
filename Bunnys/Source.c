@@ -92,6 +92,7 @@ int main(int argc, char *argv[]) {
 
 	//posiiton of food sources
 	Point *food = NULL;
+	int *foodDur = NULL;
 
 	//time for log-file
 	time_t rawtime;
@@ -101,7 +102,6 @@ int main(int argc, char *argv[]) {
 	bunny *anchor = NULL;
 	int oldBunnyCount = 0;
 	int bunnyCount = 0;
-	int infects = 0;
 	int cycles = 0;
 
 	Point initCoord;
@@ -118,7 +118,8 @@ int main(int argc, char *argv[]) {
 #ifdef _DEBUG
 	//set arg-values for debug, analysis, balancing, etc
 	//noLog = 1;
-	log = 1;
+	log = 0;
+	infection_prob = 0;
 
 #endif
 
@@ -154,9 +155,9 @@ int main(int argc, char *argv[]) {
 		//can't move
 		initCoord.x = -10;
 		initCoord.y = -10;
-		anchor = createBunny(anchor, 1, 0, 51, 0, 0, &bunnyCount, &infects, initCoord, food);
+		anchor = createBunny(anchor, 1, 0, 51, 0, 0, &bunnyCount, initCoord, food);
 		//----
-		loadBunnies(tmpFood, oldBunnyCount, &bunnyCount, &infects, anchor, food, fileName);
+		loadBunnies(tmpFood, oldBunnyCount, &bunnyCount, anchor, food, fileName);
 		//reset foodCount
 		foodCount = tmpFood;
 	}
@@ -170,10 +171,11 @@ int main(int argc, char *argv[]) {
 	else if (foodCount > 0) {
 		//equal to Point food[foodCount];
 		food = (Point*)alloca(sizeof(Point) * foodCount);
+		foodDur = (int *)alloca(sizeof(int) * foodCount);
 	}
 
 	//load food
-	if (load == 1) loadFood(foodCount, food, fileName);
+	if (load == 1) loadFood(foodCount, food, foodDur, fileName);
 
 	//get the time
 	time(&rawtime);
@@ -199,6 +201,7 @@ int main(int argc, char *argv[]) {
 		for (int i = 0; i < foodCount; i++) {
 			food[i].x = rand() % (gridX - 1);
 			food[i].y = rand() % (gridY - 1);
+			foodDur[i] = FOOD_DURATION;
 		}
 
 		//create first bunnys
@@ -212,13 +215,13 @@ int main(int argc, char *argv[]) {
 			initCoord.y = food[0].y + 1;
 		}
 		//first bunny is female
-		anchor = createBunny(anchor, 1, rand() % 4, 0, 0, -1, &bunnyCount, &infects, initCoord, food);
+		anchor = createBunny(anchor, 1, rand() % 4, 0, 0, -1, &bunnyCount, initCoord, food);
 
 		//next n-1 bunnies
 		for (unsigned int i = 0; i < start_Bunnies - 1; i++) {
 			initCoord.x = rand() % gridX;
 			initCoord.y = rand() % gridY;
-			bunny_append(anchor, createBunny(anchor, rand() % 2, rand() % 4, 0, 0, -1, &bunnyCount, &infects, initCoord, food));
+			bunny_append(anchor, createBunny(anchor, rand() % 2, rand() % 4, 0, 0, -1, &bunnyCount, initCoord, food));
 		}
 		//end create first n bunnies
 	}
@@ -229,11 +232,11 @@ int main(int argc, char *argv[]) {
 	while (anchor->next != NULL) {
 		cycles++;
 		//execute next cycle, incl move
-		nextTurn(&anchor, &bunnyCount, &infects, max_colony_size, infection_prob, food, max_hunger);
+		nextTurn(&anchor, &bunnyCount, max_colony_size, infection_prob, food, max_hunger, foodDur);
 
 		//display infos and amount of bunny
 		displayGrid(anchor, food, foodCount);
-		displayInfo(anchor, &bunnyCount, &infects, cycles, log);
+		displayInfo(anchor, &bunnyCount, cycles, log);
 
 		//save the game
 		if (save == 1) saveGame(gridX, gridY, anchor, food, foodCount, max_hunger, bunnyCount, fileName);
@@ -246,7 +249,7 @@ int main(int argc, char *argv[]) {
 		if (_kbhit()) {
 			char state = _getch();
 			if (state == 'k' || state == 'K') {
-				famineBunnies(&anchor, &bunnyCount, &infects);
+				famineBunnies(&anchor, &bunnyCount);
 			}
 			else if (state == 'w' || state == 'W') {
 				if (sleep_time < 250)
@@ -277,31 +280,32 @@ int main(int argc, char *argv[]) {
 	return 0;
 }//end main
 
-void nextTurn(bunny **anchor, int *bunnyCount, int *infects, unsigned int max_colony_size,
-	unsigned char infection_prob, Point food[], int max_hunger) {
-	//infect healthy bunnies
-	infectBunnies(anchor, bunnyCount, infects, infection_prob, food);
+void nextTurn(bunny **anchor, int *bunnyCount, unsigned int max_colony_size,
+	unsigned char infection_prob, Point food[], int max_hunger, int foodDur[]) {
+	infectBunnies(anchor, bunnyCount, infection_prob, food);
 
-	//let them walk
 	moveBunny(anchor, food);
 
-	//inc age
-	ageBunnies(anchor, bunnyCount, infects);
+	ageBunnies(anchor, bunnyCount);
 
-	//reproduce them
-	reproduce(anchor, bunnyCount, infects, food);
+	reproduce(anchor, bunnyCount, food);
 
-	//get feeded, if near source
-	feedBunnies(anchor, food, foodCount);
+	feedBunnies(anchor, food, foodCount, foodDur, bunnyCount);
 
-	//die, if longer without food
-	starveBunnies(anchor, bunnyCount, infects, max_hunger);
+	starveBunnies(anchor, bunnyCount, max_hunger);
 
 	//food shortage
 	if ((unsigned int)*bunnyCount > max_colony_size) {
-		famineBunnies(anchor, bunnyCount, infects);
+		famineBunnies(anchor, bunnyCount);
 	}
 }//end nextTurn
+
+int inBounds(int x, int y) {
+	if (x < 0 || x > gridX || y < 0 || y > gridY) {
+		return 0;
+	}
+	return 1;
+}
 
 void moveBunny(bunny **anchor, Point food[]) {
 	Point offset;
