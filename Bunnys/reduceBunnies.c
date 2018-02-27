@@ -32,23 +32,23 @@ contact @https://github.com/mayerch1
 
 #include "bunny.h"
 
-void ageBunnies(bunny **anchor, int *bunnyCount, int *infects) {
+void ageBunnies(bunny **anchor, int *bunnyCount) {
 	bunny *p;
 
 	for (p = *anchor; p != NULL; p = (bunny*)p->next) {
 		//kill normal bunnies
 		if ((p->age++) >= 10 && p->radioactive_mutant_vampire_bunny == 0) {
-			p = killBunny(anchor, p, bunnyCount, infects, "is EOL :'(");
+			p = killBunny(anchor, p, bunnyCount, "is EOL :'(");
 		}
 		//kill radiation_vampire bunnies
 		else if (p->age >= 50) {
-			p = killBunny(anchor, p, bunnyCount, infects, "is finally EOL :-)");
+			p = killBunny(anchor, p, bunnyCount, "is finally EOL :-)");
 		}
 	}
 }
 
 //kill designatet target
-bunny *killBunny(bunny **anchor, bunny *victim, int *bunnyCount, int *infects, char *deathMSG) {
+bunny *killBunny(bunny **anchor, bunny *victim, int *bunnyCount, char *deathMSG) {
 	eolMsg(victim, deathMSG);
 
 	//if anchor dies
@@ -64,7 +64,6 @@ bunny *killBunny(bunny **anchor, bunny *victim, int *bunnyCount, int *infects, c
 		*anchor = (bunny*)victim->next;
 
 		//correct counters, kill it
-		if (victim->radioactive_mutant_vampire_bunny == 1) (*infects)--;
 		free(victim);
 		(*bunnyCount)--;
 		return *anchor;
@@ -80,10 +79,7 @@ bunny *killBunny(bunny **anchor, bunny *victim, int *bunnyCount, int *infects, c
 
 		//append to bunny before vicitm
 		lastP->next = victim->next;
-		if (victim->radioactive_mutant_vampire_bunny == 1) (*infects)--;
 
-		//correct counters (infects, bunnyCount)
-		if (victim->radioactive_mutant_vampire_bunny == 1) (*infects)--;
 		//delete victim
 		free(victim);
 		(*bunnyCount)--;
@@ -91,7 +87,7 @@ bunny *killBunny(bunny **anchor, bunny *victim, int *bunnyCount, int *infects, c
 	}
 }
 
-void famineBunnies(bunny **anchor, int *bunnyCount, int *infects) {
+void famineBunnies(bunny **anchor, int *bunnyCount) {
 	int start = *bunnyCount;
 
 	//repeat until 1/2 are dead
@@ -105,13 +101,13 @@ void famineBunnies(bunny **anchor, int *bunnyCount, int *infects) {
 			victim = (bunny*)victim->next;
 		}
 		//kill him
-		killBunny(anchor, victim, bunnyCount, infects, "starved to death");
+		killBunny(anchor, victim, bunnyCount, "starved to death");
 	}
 
 	starveMsg(start, bunnyCount);
 }//end starveBunnies
 
-void infectBunnies(bunny **anchor, int *bunnyCount, int *infects, unsigned char infection_prob, Point food[]) {
+void infectBunnies(bunny **anchor, int *bunnyCount, unsigned char infection_prob, Point food[]) {
 	bunny *p;
 	int mutantCount = 0;
 	int xOff = 0, yOff = 0;
@@ -145,7 +141,6 @@ void infectBunnies(bunny **anchor, int *bunnyCount, int *infects, unsigned char 
 			if (chance <= infection_prob) {
 				if (victim != NULL && victim->radioactive_mutant_vampire_bunny == 0) {
 					victim->radioactive_mutant_vampire_bunny = 1;
-					(*infects)++;
 					infectMsg(victim);
 				}
 			}
@@ -153,7 +148,7 @@ void infectBunnies(bunny **anchor, int *bunnyCount, int *infects, unsigned char 
 	}
 }//end infectBunnies
 
-void starveBunnies(bunny **anchor, int *bunnyCount, int *infects, int max_hunger) {
+void starveBunnies(bunny **anchor, int *bunnyCount, int max_hunger) {
 	bunny *p;
 	for (p = *anchor; p != NULL; p = (bunny*)p->next) {
 		p->daySinceFeeded++;
@@ -161,7 +156,7 @@ void starveBunnies(bunny **anchor, int *bunnyCount, int *infects, int max_hunger
 
 	for (p = *anchor; p != NULL; p = (bunny*)p->next) {
 		if (p->daySinceFeeded >= max_hunger) {
-			p = killBunny(anchor, p, bunnyCount, infects, "was to dump to eat");
+			p = killBunny(anchor, p, bunnyCount, "was to dump to eat");
 		}
 	}
 }//end starveBunnies

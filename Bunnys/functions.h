@@ -39,8 +39,11 @@ void strcpy_safe(char *output, int str_len, const char* input);
 //void fprint_name(FILE *fp, char *Name);
 
 /*all important moves are managed and calles in here*/
-void nextTurn(bunny **anchor, int *bunnyCount, int *infects, unsigned int max_colony_size,
-	unsigned char infection_prob, Point food[], int max_hunger);
+void nextTurn(bunny **anchor, int *bunnyCount, unsigned int max_colony_size,
+	unsigned char infection_prob, Point food[], int max_hunger, int foodDur[], int food_duration);
+
+/*returns 1, if coordinates are in grid*/
+int inBounds(int x, int y);
 
 /*moves the bunny to a random free field*/
 void moveBunny(bunny **anchor, Point food[]);
@@ -64,7 +67,7 @@ void toLowerCase(int argc, char *argv[]);
 /*get all given arguments
 considers limits and can handle scrambled orders*/
 void getArgs(int argc, char *argv[], unsigned int *max_colony_size, unsigned char *infection_prob,
-	char *log, char *noLog, unsigned int *start_Bunnies, unsigned int *sleep_time, char *save, char *load, char *fileName, int file_len);
+	char *log, char *noLog, unsigned int *start_Bunnies, unsigned int *sleep_time, char *save, char *load, int *food_duration, char *fileName, int file_len);
 
 #endif
 
@@ -75,20 +78,20 @@ returns number of Bunnies, when game was saved*/
 int loadHead(int *gridX, int *gridY, int *foodCount, int *max_hunger, char fileName[]);
 
 /*load all food sources*/
-void loadFood(int foodCount, Point food[], char fileName[]);
+void loadFood(int foodCount, Point food[], int foodDur[], char fileName[], int food_duration);
 
 /*load all bunnys, with attributes*/
-void loadBunnies(int tmpFood, int oldBunnyCount, int *bunnyCount, int *infects, bunny *anchor, Point food[], char fileName[]);
+void loadBunnies(int tmpFood, int oldBunnyCount, int *bunnyCount, bunny *anchor, Point food[], char fileName[]);
 
 /*create a Bunny and return pointer to it
 sex, age, col must be given, mutant can be set to -1, Name set to NULL for random generation*/
-bunny *createBunny(bunny *anchor, int sex, int col, int age, char Name[], int isMutant, int *bunnyCount, int *infects, Point coords, Point food[]);
+bunny *createBunny(bunny *anchor, int sex, int col, int age, char Name[], int isMutant, int *bunnyCount, Point coords, Point food[]);
 
 /*append a pointer on bunny to the linked list, p->next*/
 void bunny_append(bunny *anchor, bunny *e);
 
 /*called from createBunny, sets color and mutant state*/
-void initBunny(bunny *myBunny, int col, int *infects);
+void initBunny(bunny *myBunny, int col);
 
 /*called from createBunny, sets Name*/
 void chooseName(bunny *myBunny);
@@ -99,19 +102,19 @@ void chooseName(bunny *myBunny);
 #define REDUCEBUNNY
 
 /*age all bunnies, if neccessary call killBunny*/
-void ageBunnies(bunny **anchor, int *bunnyCount, int *infects);
+void ageBunnies(bunny **anchor, int *bunnyCount);
 
 /*kills the *victim and returns pointer to bunny infront of victim in list */
-bunny *killBunny(bunny **anchor, bunny *victim, int *bunnyCount, int *infects, char *deathMSG);
+bunny *killBunny(bunny **anchor, bunny *victim, int *bunnyCount, char *deathMSG);
 
 /*starve 1/2 of all bunnies to death*/
-void famineBunnies(bunny **anchor, int *bunnyCount, int *infects);
+void famineBunnies(bunny **anchor, int *bunnyCount);
 
 /*mutant bunnies infects random bunny next to them with infection_prob*/
-void infectBunnies(bunny **anchor, int *bunnyCount, int *infects, unsigned char infection_prob, Point food[]);
+void infectBunnies(bunny **anchor, int *bunnyCount, unsigned char infection_prob, Point food[]);
 
 /*incr daySinceFeeded, if neccessary call killBunny*/
-void starveBunnies(bunny **anchor, int *bunnyCount, int *infects, int max_hunger);
+void starveBunnies(bunny **anchor, int *bunnyCount, int max_hunger);
 
 #endif
 
@@ -119,10 +122,13 @@ void starveBunnies(bunny **anchor, int *bunnyCount, int *infects, int max_hunger
 #define INCRBUNNY
 
 /*check for available males, females, generate new bunny-babies*/
-void reproduce(bunny **anchor, int *bunnyCount, int *infects, Point food[]);
+void reproduce(bunny **anchor, int *bunnyCount, Point food[]);
 
 /*feed a bunny, if in range of a food source*/
-void feedBunnies(bunny **anchor, Point food[], int foodCount);
+void feedBunnies(bunny **anchor, Point food[], int foodCount, int foodDur[], int *bunnyCount, int food_duration);
+
+/*checks if foodsource has resources, if not generate a new one in radius 10*/
+void emptyFood(bunny **anchor, bunny *p, Point food[], int foodDur[], int foodCount, int foodPos, int *bunnyCount, int food_duration);
 
 #endif
 
@@ -133,7 +139,7 @@ void feedBunnies(bunny **anchor, Point food[], int foodCount);
 void printHelp();
 
 /*print amount of living bunnies, if --log print all information about any bunny to file*/
-void displayInfo(bunny *anchor, int *bunnyCount, int *infects, int cycles, char log);
+void displayInfo(bunny *anchor, int *bunnyCount, int cycles, char log);
 
 /*displays the grid with bunnies and food*/
 void displayGrid(bunny *anchor, Point food[], int foodCount);
