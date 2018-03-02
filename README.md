@@ -1,6 +1,6 @@
 **IMPORTANT:**<br />
 This repository represents Version 1.0 of the Bunny.exe and will not be updated any more.
-Instead there will be a Visual-C++ application for Windows, which will receive new features.
+Instead there will be a Visual-C++ (maybe Qt?) application for Windows, which will receive all new features.
 
 The link to the new repository will be published at the begining of this readme file.<br />
 <br />
