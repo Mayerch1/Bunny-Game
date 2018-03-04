@@ -184,7 +184,7 @@ void bunny_append(bunny *anchor, bunny *e) {
 	}
 
 	for (p = anchor; p->next != NULL; p = (bunny*)p->next);
-	(bunny*)p->next = (bunny*)e;
+	p->next = (bunny*)e;
 }//end bunny_append
 
 void initBunny(bunny *myBunny, int col) {
