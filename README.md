@@ -1,3 +1,6 @@
+**UPDATE**
+The new, GUI-Version, of this application can be found in [this](https://github.com/Mayerch1/BunnyVisual) repository, and is named [Bunny-Visual](https://github.com/Mayerch1/BunnyVisual).
+
 **IMPORTANT:**<br />
 This repository represents Version 1.0 of the Bunny.exe and will not be updated any more.
 Instead there will be a Visual-C++ (maybe Qt?) application for Windows, which will receive all new features.
